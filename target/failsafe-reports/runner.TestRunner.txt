@@ -1,0 +1,14 @@
+-------------------------------------------------------------------------------
+Test set: runner.TestRunner
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 12.421 sec <<< FAILURE! - in runner.TestRunner
+Create a new session(Authentication)  Time elapsed: 0.367 sec  <<< ERROR!
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1 path $
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1 path $
+
+Test session delete(Authentication)  Time elapsed: 0.225 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Error: The status code is not 200
+Expected: <200>
+     but: was <403>
+
