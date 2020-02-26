@@ -8,20 +8,13 @@ import java.net.URL;
 
 public class AuthenticationController extends ApiController {
 
-    private static AuthenticationController authenticationControllerInstance;
     private Response response;
 
-    private AuthenticationController() {
+    public AuthenticationController() {
         super(new UrlBuilder().addDomain().addPathStep(
                 PropertiesHelper.getValueByKey("url.auth")).build());
 
     }
-    public static AuthenticationController GetAuthenticationControllerInstance() {
-        if (authenticationControllerInstance == null)
-            authenticationControllerInstance = new AuthenticationController();
-        return authenticationControllerInstance;
-    }
-
 
     public Response createRequestToken() {
         URL idUrl = new UrlBuilder().
@@ -61,7 +54,7 @@ public class AuthenticationController extends ApiController {
                 addDomain().
                 addPathStep(PropertiesHelper.getValueByKey("url.auth")).
                 addPathStep(PropertiesHelper.getValueByKey("url.auth.session")).
-                addPathStep(PropertiesHelper.getValueByKey("auth.new")).
+                addPathStep(PropertiesHelper.getValueByKey("url.new")).
                 build();
         response = requestSpecification.given().queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).
                 when().
@@ -70,4 +63,20 @@ public class AuthenticationController extends ApiController {
 
         return response;
     }
+
+    public Response deleteSession (String body){
+        URL idUrl = new UrlBuilder().
+                addDomain().
+                addPathStep(PropertiesHelper.getValueByKey("url.auth")).
+                addPathStep(PropertiesHelper.getValueByKey("url.auth.session")).
+                build();
+        response = requestSpecification.given().queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).
+                when().
+                body(body).
+                delete(idUrl);
+
+        return response;
+    }
+
+
 }

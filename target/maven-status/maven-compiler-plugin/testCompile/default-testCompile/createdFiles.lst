@@ -7,10 +7,12 @@ entities\ResponseData.class
 entities\SessionData.class
 builders\UrlBuilder.class
 controllers\ApiController.class
+entities\GuestSessionToken.class
 entities\User.class
 helpers\PropertiesHelper.class
 builders\EmployeeBuilder.class
 steps\EmployeesSteps.class
+controllers\GuestAuthController.class
 entities\Employee.class
 runner\TestRunner.class
 helpers\JsonHelper.class

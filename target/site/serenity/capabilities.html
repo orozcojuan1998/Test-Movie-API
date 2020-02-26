@@ -50,11 +50,11 @@
     <script class="code" type="text/javascript">$(document).ready(function () {
         var plot1 = $.jqplot('coverage_pie_chart', [
             [
-                ['Passing', 0],
+                ['Passing', 2],
                 ['Pending', 0],
                 ['Ignored', 0],
                 ['Failing', 0],
-                ['Errors',  1],
+                ['Errors',  0],
                 ['Compromised',  0],
                 ['Untested',  0],
             ]
@@ -83,11 +83,11 @@
                 marginTop: '15px'
             },
             series: [
-                {label: '0 requirements tested successfully'},
+                {label: '2 requirements tested successfully'},
                 {label: '0 requirements pending'},
                 {label: '0} requirements skipped'},
                 {label: '0} requirements with failures'},
-                {label: '1} requirements with errors'},
+                {label: '0} requirements with errors'},
                 {label: '0} requirements compromised'},
                 {label: '0} requirements untested'},
             ]
@@ -181,7 +181,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 25-02-2020 16:16</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 26-02-2020 11:31</span>
     <br style="clear:left"/>
 </div>
 
@@ -212,8 +212,8 @@
                                 <body>
                                     <tr>
                                         <td class="summary-leading-column"><a href="#requirements-tabs">Features</a></td>
-                                        <td>1</td>
-                                        <td>0</td>
+                                        <td>2</td>
+                                        <td>2</td>
                                         <td>0</td>
                                         <td>0</td>
                                         <td>0</td>
@@ -221,9 +221,9 @@
 
                                 <tr>
                                     <td class="summary-leading-column"><a href="#test-results-table">Acceptance Criteria (tests)</a></td>
-                                    <td>4</td>
-                                    <td>2</td>
-                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td>0</td>
                                     <td>0</td>
                                     <td>0</td>
                                     <td></td>
@@ -252,9 +252,9 @@
         <body>
         <tr>
             <td class="summary-leading-column">Automated</td>
-            <td>4</td>
-            <td>2 (50%)</td>
-            <td>2 (50%)</td>
+            <td>3</td>
+            <td>3 (100%)</td>
+            <td>0 (0%)</td>
             <td>0 (0%)</td>
             <td>0 (0%)</td>
         </tr>
@@ -268,15 +268,15 @@
         </tr>
         <tr>
             <td class="summary-leading-column">Total</td>
-            <td>4</td>
-            <td>2 (50%)</td>
-            <td>2 (50%)</td>
+            <td>3</td>
+            <td>3 (100%)</td>
+            <td>0 (0%)</td>
             <td>0 (0%)</td>
             <td>0 (0%)</td>
         </tr>
         <tr>
             <td class="summary-leading-column">Total Duration</td>
-                <td colspan="5">4 seconds</td>
+                <td colspan="5">7 seconds</td>
         </tr>
         </body>
     </table>
@@ -288,7 +288,7 @@
                 <div id="requirements-tabs">
                         <ul>
                                 <li><a href="#tabs-1">
-                                Features (1)
+                                Features (2)
                                 </a></li>
                         </ul>
                         <div id="tabs-1" class="capabilities-table">
@@ -313,14 +313,14 @@
 
 
 
-                <tr class="test-ERROR requirementRow">
+                <tr class="test-SUCCESS requirementRow">
                     <td class="requirementRowCell">
-                        <span class="status_icon"><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></span>
-                        <span style="display:none">4</span>
+                        <span class="status_icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                        <span style="display:none">1</span>
                     </td>
                     <td class="cardNumber requirementRowCell"></td>
 
-                    <td class="ERROR-text requirementRowCell">
+                    <td class="SUCCESS-text requirementRowCell">
                         <a href="javaScript:void(0)" class="read-more-link">
                             <img src="images/plus.png" height="16"/></a>
                         <span class="requirementName"><a
@@ -332,12 +332,12 @@ So that I can perform actions in the system</div>
                     </td>
 
 
-                    <td class="greentext highlighted-value requirementRowCell">4</td>
+                    <td class="greentext highlighted-value requirementRowCell">2</td>
 <!--
                     <td class="greentext requirementRowCell">2</td>
                     <td class="bluetext requirementRowCell">0</td>
-                    <td class="redtext requirementRowCell">1</td>
-                    <td class="lightorangetext requirementRowCell">1</td>
+                    <td class="redtext requirementRowCell">0</td>
+                    <td class="lightorangetext requirementRowCell">0</td>
                     <td class="violettext requirementRowCell">0</td>
 -->
                         <td class="greentext highlighted-value requirementRowCell">0</td>
@@ -354,69 +354,191 @@ So that I can perform actions in the system</div>
 <table>
     <tr>
         <td width="40px">
-            <div class="small">50%</div>
+            <div class="small">100%</div>
         </td>
         <td width="125px">
             <div class="percentagebar"
-                 title="  - Total tests: 4
-  - Passing tests: 2 (50%)
-  - Failing tests: 1 (25%)
-  - Tests with errors: 1 (25%)
+                 title="  - Total tests: 2
+  - Passing tests: 2 (100%)
+  - Failing tests: 0 (0%)
+  - Tests with errors: 0 (0%)
   - Compromised tests 0 (0%)
   - Pending tests: 0 (0%)
   - Ignored or skipped tests: 0 (0%)"
                  style="width: 125px;">
                 <div class="pendingbar"
-                     title="  - Total tests: 4
-  - Passing tests: 2 (50%)
-  - Failing tests: 1 (25%)
-  - Tests with errors: 1 (25%)
+                     title="  - Total tests: 2
+  - Passing tests: 2 (100%)
+  - Failing tests: 0 (0%)
+  - Tests with errors: 0 (0%)
   - Compromised tests 0 (0%)
   - Pending tests: 0 (0%)
   - Ignored or skipped tests: 0 (0%)"
                      style="width: 125px;">
                     <div class="ignoredbar"
                          style="width: 125px;"
-                         title="  - Total tests: 4
-  - Passing tests: 2 (50%)
-  - Failing tests: 1 (25%)
-  - Tests with errors: 1 (25%)
+                         title="  - Total tests: 2
+  - Passing tests: 2 (100%)
+  - Failing tests: 0 (0%)
+  - Tests with errors: 0 (0%)
   - Compromised tests 0 (0%)
   - Pending tests: 0 (0%)
   - Ignored or skipped tests: 0 (0%)">
                         <div class="compromisedbar"
                              style="width: 125px;"
-                             title="  - Total tests: 4
-  - Passing tests: 2 (50%)
-  - Failing tests: 1 (25%)
-  - Tests with errors: 1 (25%)
+                             title="  - Total tests: 2
+  - Passing tests: 2 (100%)
+  - Failing tests: 0 (0%)
+  - Tests with errors: 0 (0%)
   - Compromised tests 0 (0%)
   - Pending tests: 0 (0%)
   - Ignored or skipped tests: 0 (0%)">
                             <div class="errorbar"
                                  style="width: 125px;"
-                                 title="  - Total tests: 4
-  - Passing tests: 2 (50%)
-  - Failing tests: 1 (25%)
-  - Tests with errors: 1 (25%)
+                                 title="  - Total tests: 2
+  - Passing tests: 2 (100%)
+  - Failing tests: 0 (0%)
+  - Tests with errors: 0 (0%)
   - Compromised tests 0 (0%)
   - Pending tests: 0 (0%)
   - Ignored or skipped tests: 0 (0%)">
                                 <div class="failingbar"
-                                     style="width: 94px;"
-                                     title="  - Total tests: 4
-  - Passing tests: 2 (50%)
-  - Failing tests: 1 (25%)
-  - Tests with errors: 1 (25%)
+                                     style="width: 125px;"
+                                     title="  - Total tests: 2
+  - Passing tests: 2 (100%)
+  - Failing tests: 0 (0%)
+  - Tests with errors: 0 (0%)
   - Compromised tests 0 (0%)
   - Pending tests: 0 (0%)
   - Ignored or skipped tests: 0 (0%)">
                                     <div class="passingbar"
-                                         style="width: 62px;"
-                                         title="  - Total tests: 4
-  - Passing tests: 2 (50%)
-  - Failing tests: 1 (25%)
-  - Tests with errors: 1 (25%)
+                                         style="width: 125px;"
+                                         title="  - Total tests: 2
+  - Passing tests: 2 (100%)
+  - Failing tests: 0 (0%)
+  - Tests with errors: 0 (0%)
+  - Compromised tests 0 (0%)
+  - Pending tests: 0 (0%)
+  - Ignored or skipped tests: 0 (0%)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+                    </td>
+
+                </tr>
+
+
+                <tr class="test-SUCCESS requirementRow">
+                    <td class="requirementRowCell">
+                        <span class="status_icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                        <span style="display:none">1</span>
+                    </td>
+                    <td class="cardNumber requirementRowCell"></td>
+
+                    <td class="SUCCESS-text requirementRowCell">
+                        <a href="javaScript:void(0)" class="read-more-link">
+                            <img src="images/plus.png" height="16"/></a>
+                        <span class="requirementName"><a
+                                href="d52734139542dde03d7c8911dbd44f4fe873da907671beb1f5cfe95f2f5cb615.html">Guest Authentication</a></span>
+
+                        <div class="requirementNarrative read-more-text">As a guest
+I want to authenticate in the system
+So that I can perform actions in the system</div>
+                    </td>
+
+
+                    <td class="greentext highlighted-value requirementRowCell">1</td>
+<!--
+                    <td class="greentext requirementRowCell">1</td>
+                    <td class="bluetext requirementRowCell">0</td>
+                    <td class="redtext requirementRowCell">0</td>
+                    <td class="lightorangetext requirementRowCell">0</td>
+                    <td class="violettext requirementRowCell">0</td>
+-->
+                        <td class="greentext highlighted-value requirementRowCell">0</td>
+<!--
+                        <td class="greentext requirementRowCell">0</td>
+                        <td class="bluetext requirementRowCell">0</td>
+                        <td class="redtext requirementRowCell">0</td>
+                        <td class="lightorangetext requirementRowCell">0</td>
+                        -->
+
+                    <td width="125px" class="lightgreentext requirementRowCell">
+
+
+<table>
+    <tr>
+        <td width="40px">
+            <div class="small">100%</div>
+        </td>
+        <td width="125px">
+            <div class="percentagebar"
+                 title="  - Total tests: 1
+  - Passing tests: 1 (100%)
+  - Failing tests: 0 (0%)
+  - Tests with errors: 0 (0%)
+  - Compromised tests 0 (0%)
+  - Pending tests: 0 (0%)
+  - Ignored or skipped tests: 0 (0%)"
+                 style="width: 125px;">
+                <div class="pendingbar"
+                     title="  - Total tests: 1
+  - Passing tests: 1 (100%)
+  - Failing tests: 0 (0%)
+  - Tests with errors: 0 (0%)
+  - Compromised tests 0 (0%)
+  - Pending tests: 0 (0%)
+  - Ignored or skipped tests: 0 (0%)"
+                     style="width: 125px;">
+                    <div class="ignoredbar"
+                         style="width: 125px;"
+                         title="  - Total tests: 1
+  - Passing tests: 1 (100%)
+  - Failing tests: 0 (0%)
+  - Tests with errors: 0 (0%)
+  - Compromised tests 0 (0%)
+  - Pending tests: 0 (0%)
+  - Ignored or skipped tests: 0 (0%)">
+                        <div class="compromisedbar"
+                             style="width: 125px;"
+                             title="  - Total tests: 1
+  - Passing tests: 1 (100%)
+  - Failing tests: 0 (0%)
+  - Tests with errors: 0 (0%)
+  - Compromised tests 0 (0%)
+  - Pending tests: 0 (0%)
+  - Ignored or skipped tests: 0 (0%)">
+                            <div class="errorbar"
+                                 style="width: 125px;"
+                                 title="  - Total tests: 1
+  - Passing tests: 1 (100%)
+  - Failing tests: 0 (0%)
+  - Tests with errors: 0 (0%)
+  - Compromised tests 0 (0%)
+  - Pending tests: 0 (0%)
+  - Ignored or skipped tests: 0 (0%)">
+                                <div class="failingbar"
+                                     style="width: 125px;"
+                                     title="  - Total tests: 1
+  - Passing tests: 1 (100%)
+  - Failing tests: 0 (0%)
+  - Tests with errors: 0 (0%)
+  - Compromised tests 0 (0%)
+  - Pending tests: 0 (0%)
+  - Ignored or skipped tests: 0 (0%)">
+                                    <div class="passingbar"
+                                         style="width: 125px;"
+                                         title="  - Total tests: 1
+  - Passing tests: 1 (100%)
+  - Failing tests: 0 (0%)
+  - Tests with errors: 0 (0%)
   - Compromised tests 0 (0%)
   - Pending tests: 0 (0%)
   - Ignored or skipped tests: 0 (0%)">
@@ -466,20 +588,20 @@ So that I can perform actions in the system</div>
                                 <td class="SUCCESS-text">
                                     <div class="ellipsis">
 
-                                        <a href="61763e5b107a645fe405ee6865325c116a58df60cfe10e84e3e1bac6617fae01.html" class="ellipsis"
-                                           title="Test request token creation ">
-                                            Test request token creation
+                                        <a href="35a0344b6f37c72ff2dd4807b43aa2cd90e7521795f9c4d867da042f80665725.html" class="ellipsis"
+                                           title="Test Authentication ">
+                                            Test Authentication
                                                 <span class="related-issue-title"></span>
                                         </a>
                                     </div>
                                 </td>
 
-                                <td class="SUCCESS-text">5</td>
+                                <td class="SUCCESS-text">12</td>
 
 
-                                <td class="SUCCESS-text" data-sort="2020-02-25 16:16:38">16:16:38</td>
+                                <td class="SUCCESS-text" data-sort="2020-02-26 11:31:00">11:31:00</td>
 
-                                <td class="SUCCESS-text">3.64</td>
+                                <td class="SUCCESS-text">4.84</td>
                             </tr>
 
                             <tr class="test-SUCCESS">
@@ -489,66 +611,43 @@ So that I can perform actions in the system</div>
                                 <td class="SUCCESS-text">
                                     <div class="ellipsis">
 
-                                        <a href="a8695aee4f0d0323a6b5189cbc0ff196b254a2ca0f0bba3ab2c46a3758bd5673.html" class="ellipsis"
-                                           title="Create a session with login ">
-                                            Create a session with login
+                                        <a href="83ceb558f0a6318b287d00b00974233d8d91cf34846b15bf382025effdce85c5.html" class="ellipsis"
+                                           title="Test Delete of session ">
+                                            Test Delete of session
                                                 <span class="related-issue-title"></span>
                                         </a>
                                     </div>
                                 </td>
 
-                                <td class="SUCCESS-text">7</td>
+                                <td class="SUCCESS-text">14</td>
 
 
-                                <td class="SUCCESS-text" data-sort="2020-02-25 16:16:42">16:16:42</td>
+                                <td class="SUCCESS-text" data-sort="2020-02-26 11:31:05">11:31:05</td>
 
-                                <td class="SUCCESS-text">0.48</td>
+                                <td class="SUCCESS-text">1.51</td>
                             </tr>
 
-                            <tr class="test-ERROR">
-                                <td><span class="summary-icon"><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></span>
+                            <tr class="test-SUCCESS">
+                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
                                     
-                                    <span style="display:none">ERROR</span></td>
-                                <td class="ERROR-text">
+                                    <span style="display:none">SUCCESS</span></td>
+                                <td class="SUCCESS-text">
                                     <div class="ellipsis">
 
-                                        <a href="04824e9b4f34dc6230f18bafcae22c3fbf78f9f5772124d7cd373ead98a2e8c3.html" class="ellipsis"
-                                           title="Create a new session Illegal state exception: Expected BEG...">
-                                            Create a new session
+                                        <a href="b1e1dbc999581b434b9dfdbbea17d34de3da23d07a82e09598a49c48c104783a.html" class="ellipsis"
+                                           title="Test Guest Session Authentication ">
+                                            Test Guest Session Authentication
                                                 <span class="related-issue-title"></span>
                                         </a>
                                     </div>
                                 </td>
 
-                                <td class="ERROR-text">7</td>
+                                <td class="SUCCESS-text">4</td>
 
 
-                                <td class="ERROR-text" data-sort="2020-02-25 16:16:42">16:16:42</td>
+                                <td class="SUCCESS-text" data-sort="2020-02-26 11:31:06">11:31:06</td>
 
-                                <td class="ERROR-text">0.1</td>
-                            </tr>
-
-                            <tr class="test-FAILURE">
-                                <td><span class="summary-icon"><i class='fa fa-times-circle failure-icon ' title='FAILURE'></i></span>
-                                    
-                                    <span style="display:none">FAILURE</span></td>
-                                <td class="FAILURE-text">
-                                    <div class="ellipsis">
-
-                                        <a href="3d25d74493cfb0bcf33b64a96ab20f3d7234124cd4c47b94488cb14daf405be3.html" class="ellipsis"
-                                           title="Test session delete Assertion error: Error: The status co...">
-                                            Test session delete
-                                                <span class="related-issue-title"></span>
-                                        </a>
-                                    </div>
-                                </td>
-
-                                <td class="FAILURE-text">4</td>
-
-
-                                <td class="FAILURE-text" data-sort="2020-02-25 16:16:43">16:16:43</td>
-
-                                <td class="FAILURE-text">0.02</td>
+                                <td class="SUCCESS-text">0.38</td>
                             </tr>
                         </tbody>
                     </table>

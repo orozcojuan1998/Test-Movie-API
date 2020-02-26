@@ -22,11 +22,11 @@ public class SessionData {
         this.success = success;
     }
 
-    public String getRequestToken() {
+    public String getSession_id() {
         return session_id;
     }
 
-    public void setRequestToken(String session_id) {
+    public void setSession_id(String session_id) {
         this.session_id = session_id;
     }
 }

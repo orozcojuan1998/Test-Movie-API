@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>Create a session with login</title>
+    <title>Test Authentication</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
@@ -79,7 +79,7 @@
             <a href="index.html" class="breadcrumbs">Home</a>
 
             > <a href="510ce949faa2c77cd9d36dfef2f87a3f02e3341b8c97658dbd3f9b7e55dd2615.html">Authentication</a>
-        > Create a session with login
+        > Test Authentication
         </span>
         </div>
         <div class="rightbg"></div>
@@ -100,7 +100,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 25-02-2020 16:16</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 26-02-2020 11:31</span>
     <br style="clear:left"/>
 </div>
     <div class="clr"></div>
@@ -136,7 +136,7 @@
                             <span class="outcome-icon"><i class='fa fa-check-circle-o success-icon fa-2x' title='SUCCESS'></i></span>
                             <span class="test-case-title">
                                 <span class="success-color">
-                                    Create a session with login
+                                    Test Authentication
                                         <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -181,13 +181,13 @@
                     <td>
                         <div class="step-description">
                             <span class="top-level-step">
-                                Given A new session with login needs to be created
+                                Given A new request token needs to be created
                             </span>
 
                         </div>
                     </td>
                     <td width="100"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">0s</span></td>
+                    <td width="100"><span class="top-level-step">1.06s</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
                     <td width="50" class="step-icon">
@@ -198,13 +198,13 @@
                     <td>
                         <div class="step-description">
                             <span class="top-level-step">
-                                And A new request token needs to be created
+                                When The user send a request to create the request token
                             </span>
 
                         </div>
                     </td>
                     <td width="100"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">0s</span></td>
+                    <td width="100"><span class="top-level-step">2.61s</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
                     <td width="50" class="step-icon">
@@ -215,13 +215,13 @@
                     <td>
                         <div class="step-description">
                             <span class="top-level-step">
-                                And The user send a request to create the request token
+                                Then The token is generated
                             </span>
 
                         </div>
                     </td>
                     <td width="100"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">0.18s</span></td>
+                    <td width="100"><span class="top-level-step">0.03s</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
                     <td width="50" class="step-icon">
@@ -232,13 +232,13 @@
                     <td>
                         <div class="step-description">
                             <span class="top-level-step">
-                                And The token is generated
+                                And The response contains the field success equals to "true"
                             </span>
 
                         </div>
                     </td>
                     <td width="100"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">0s</span></td>
+                    <td width="100"><span class="top-level-step">0.03s</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
                     <td width="50" class="step-icon">
@@ -249,13 +249,13 @@
                     <td>
                         <div class="step-description">
                             <span class="top-level-step">
-                                When The user send a request to create the session with login
+                                And A new session with login needs to be created
                             </span>
 
                         </div>
                     </td>
                     <td width="100"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">0.29s</span></td>
+                    <td width="100"><span class="top-level-step">0s</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
                     <td width="50" class="step-icon">
@@ -266,13 +266,13 @@
                     <td>
                         <div class="step-description">
                             <span class="top-level-step">
-                                Then The service responds with a status code "200"
+                                And The user send a request to create the session with login
                             </span>
 
                         </div>
                     </td>
                     <td width="100"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">0s</span></td>
+                    <td width="100"><span class="top-level-step">0.45s</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
                     <td width="50" class="step-icon">
@@ -292,9 +292,94 @@
                     <td width="100"><span class="top-level-step">0s</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
+                    <td width="50" class="step-icon">
+                        <a name="7"/>
+                            <span style="margin-left: 20px; margin-right: 5px;"
+                                  class="top-level-icon"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></span>
+                    </td>
+                    <td>
+                        <div class="step-description">
+                            <span class="top-level-step">
+                                And A new request session needs to be created
+                            </span>
+
+                        </div>
+                    </td>
+                    <td width="100"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">0s</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+                    <td width="50" class="step-icon">
+                        <a name="8"/>
+                            <span style="margin-left: 20px; margin-right: 5px;"
+                                  class="top-level-icon"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></span>
+                    </td>
+                    <td>
+                        <div class="step-description">
+                            <span class="top-level-step">
+                                And The user send a request to session
+                            </span>
+
+                        </div>
+                    </td>
+                    <td width="100"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">0.4s</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+                    <td width="50" class="step-icon">
+                        <a name="9"/>
+                            <span style="margin-left: 20px; margin-right: 5px;"
+                                  class="top-level-icon"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></span>
+                    </td>
+                    <td>
+                        <div class="step-description">
+                            <span class="top-level-step">
+                                And The session is generated
+                            </span>
+
+                        </div>
+                    </td>
+                    <td width="100"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">0s</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+                    <td width="50" class="step-icon">
+                        <a name="10"/>
+                            <span style="margin-left: 20px; margin-right: 5px;"
+                                  class="top-level-icon"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></span>
+                    </td>
+                    <td>
+                        <div class="step-description">
+                            <span class="top-level-step">
+                                And The service responds with a status code "200"
+                            </span>
+
+                        </div>
+                    </td>
+                    <td width="100"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">0.01s</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+                    <td width="50" class="step-icon">
+                        <a name="11"/>
+                            <span style="margin-left: 20px; margin-right: 5px;"
+                                  class="top-level-icon"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></span>
+                    </td>
+                    <td>
+                        <div class="step-description">
+                            <span class="top-level-step">
+                                And The response contains the session id
+                            </span>
+
+                        </div>
+                    </td>
+                    <td width="100"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">0s</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
                     <td colspan="2"></td>
                     <td width="100"><span class="top-level-step"><em>SUCCESS</em></span></td>
-                    <td width="100"><span class="top-level-step"><em>0.48s</em></span></td>
+                    <td width="100"><span class="top-level-step"><em>4.84s</em></span></td>
                 </tr>
 
             </table>

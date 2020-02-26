@@ -53,15 +53,15 @@
     <script class="code" type="text/javascript">$(document).ready(function () {
         var test_results_plot = $.jqplot('test_results_pie_chart', [
             [
-                ['Passing', 0.5],
+                ['Passing', 1],
                 
                 ['Pending', 0],
                 
                 ['Ignored/Skipped', 0],
                 
-                ['Failing', 0.25],
+                ['Failing', 0],
                 
-                ['Errors',  0.25],
+                ['Errors',  0],
                 ['Compromised',  0]
             ]
         ], {
@@ -92,26 +92,26 @@
                 marginTop: '15px'
             },
             series: [
-                {label: '2 / 4 tests passed' },
-                {label: '0 / 4 tests pending'},
-                {label: '0 / 4 tests not executed'},
-                {label: '1 / 4 tests failed'},
-                {label: '1 / 4 errors'},
-                {label: '0 / 4 compromised tests'}
+                {label: '2 / 2 tests passed' },
+                {label: '0 / 2 tests pending'},
+                {label: '0 / 2 tests not executed'},
+                {label: '0 / 2 tests failed'},
+                {label: '0 / 2 errors'},
+                {label: '0 / 2 compromised tests'}
             ]
         });
 
         var weighted_test_results_plot = $.jqplot('weighted_test_results_pie_chart', [
             [
-                ['Passing', 0.521739],
+                ['Passing', 1],
                 
                 ['Pending', 0],
                 
                 ['Ignored', 0],
                 
-                ['Failing', 0.173913],
+                ['Failing', 0],
                 
-                ['Errors', 0.304348],
+                ['Errors', 0],
                 ['Compromised', 0],
             ]
         ], {
@@ -143,11 +143,11 @@
                 marginTop: '15px'
             },
             series: [
-                {label: '2 / 4 tests passed (0.521739% of all test steps)' },
-                {label: '0 / 4 tests pending'},
-                {label: '0 / 4 tests not executed'},
-                {label: '1 / 4 tests failed (0.173913% of all test steps)'},
-                {label: '1 / 4 errors (0.304348% of all test steps)'}
+                {label: '2 / 2 tests passed (1% of all test steps)' },
+                {label: '0 / 2 tests pending'},
+                {label: '0 / 2 tests not executed'},
+                {label: '0 / 2 tests failed (0% of all test steps)'},
+                {label: '0 / 2 errors (0% of all test steps)'}
             ]
         });
 
@@ -216,7 +216,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 25-02-2020 16:16</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 26-02-2020 11:31</span>
     <br style="clear:left"/>
 </div>
 <div class="clr"></div>
@@ -230,7 +230,7 @@
     <tr>
         <td width="375px" valign="top">
             <div class="test-count-summary">
-                <span class="test-count-title">4
+                <span class="test-count-title">2
                     test scenarios </span>
                 <div>
 
@@ -239,21 +239,6 @@
                             <a href="b0e3f7f14644ce9a642a3de110852660f494cd80c0f3ca414893eccc2c5552f8.html">passed</a>
                         
                     </span>
-                    <span class="test-count"> |
-                        2
-                            <a href="897a0d8dc27d4b2ed21797cde0ea78d5129cb261610669b11bf44c478b3c6fca.html">unsuccessful</a>
-                        
-                    </span>(
-                    <span class="test-count">
-                        1
-                            <a href="b24869441871ea759082de93252a83efe5bc73c296f2ec62bdd2ac04d583a63a.html">failed</a>
-                        ,
-                    </span>
-                    <span class="test-count">
-                        1
-                            <a href="70d451d835c75fa7ed84d144188592086a00081634dc7a12233062ab7cca1ba5.html">with errors</a>
-                        
-                    </span>)
 
                 
 
@@ -304,9 +289,9 @@
         <body>
         <tr>
             <td class="summary-leading-column">Automated</td>
-            <td>4</td>
-            <td>2 (50%)</td>
-            <td>2 (50%)</td>
+            <td>2</td>
+            <td>2 (100%)</td>
+            <td>0 (0%)</td>
             <td>0 (0%)</td>
             <td>0 (0%)</td>
         </tr>
@@ -320,15 +305,15 @@
         </tr>
         <tr>
             <td class="summary-leading-column">Total</td>
-            <td>4</td>
-            <td>2 (50%)</td>
-            <td>2 (50%)</td>
+            <td>2</td>
+            <td>2 (100%)</td>
+            <td>0 (0%)</td>
             <td>0 (0%)</td>
             <td>0 (0%)</td>
         </tr>
         <tr>
             <td class="summary-leading-column">Total Duration</td>
-                <td colspan="5">4 seconds</td>
+                <td colspan="5">6 seconds</td>
         </tr>
         </body>
     </table>
@@ -351,7 +336,7 @@
                     <table>
                         <tr>
                             <td colspan="2">
-                                <span class="caption">Test results weighted by test size in steps (average steps per test: 6) .</span>
+                                <span class="caption">Test results weighted by test size in steps (average steps per test: 13) .</span>
                                 <span class="togglePieChart" id="toggleWeightedPieChart"><a href="#">Show/Hide Pie
                                     Chart</a></span>
                             </td>
@@ -383,9 +368,9 @@
         <body>
         <tr>
             <td class="summary-leading-column">Automated</td>
-            <td>4</td>
-            <td>2 (50%)</td>
-            <td>2 (50%)</td>
+            <td>2</td>
+            <td>2 (100%)</td>
+            <td>0 (0%)</td>
             <td>0 (0%)</td>
             <td>0 (0%)</td>
         </tr>
@@ -399,15 +384,15 @@
         </tr>
         <tr>
             <td class="summary-leading-column">Total</td>
-            <td>4</td>
-            <td>2 (50%)</td>
-            <td>2 (50%)</td>
+            <td>2</td>
+            <td>2 (100%)</td>
+            <td>0 (0%)</td>
             <td>0 (0%)</td>
             <td>0 (0%)</td>
         </tr>
         <tr>
             <td class="summary-leading-column">Total Duration</td>
-                <td colspan="5">4 seconds</td>
+                <td colspan="5">6 seconds</td>
         </tr>
         </body>
     </table>
@@ -458,20 +443,20 @@
                                 <td class="SUCCESS-text">
                                     <div class="ellipsis">
 
-                                        <a href="61763e5b107a645fe405ee6865325c116a58df60cfe10e84e3e1bac6617fae01.html" class="ellipsis"
-                                           title="Test request token creation ">
-                                            Test request token creation
+                                        <a href="35a0344b6f37c72ff2dd4807b43aa2cd90e7521795f9c4d867da042f80665725.html" class="ellipsis"
+                                           title="Test Authentication ">
+                                            Test Authentication
                                                 <span class="related-issue-title"></span>
                                         </a>
                                     </div>
                                 </td>
 
-                                <td class="SUCCESS-text">5</td>
+                                <td class="SUCCESS-text">12</td>
 
 
-                                <td class="SUCCESS-text" data-sort="2020-02-25 16:16:38">16:16:38</td>
+                                <td class="SUCCESS-text" data-sort="2020-02-26 11:31:00">11:31:00</td>
 
-                                <td class="SUCCESS-text">3.64</td>
+                                <td class="SUCCESS-text">4.84</td>
                             </tr>
 
                             <tr class="test-SUCCESS">
@@ -481,66 +466,20 @@
                                 <td class="SUCCESS-text">
                                     <div class="ellipsis">
 
-                                        <a href="a8695aee4f0d0323a6b5189cbc0ff196b254a2ca0f0bba3ab2c46a3758bd5673.html" class="ellipsis"
-                                           title="Create a session with login ">
-                                            Create a session with login
+                                        <a href="83ceb558f0a6318b287d00b00974233d8d91cf34846b15bf382025effdce85c5.html" class="ellipsis"
+                                           title="Test Delete of session ">
+                                            Test Delete of session
                                                 <span class="related-issue-title"></span>
                                         </a>
                                     </div>
                                 </td>
 
-                                <td class="SUCCESS-text">7</td>
+                                <td class="SUCCESS-text">14</td>
 
 
-                                <td class="SUCCESS-text" data-sort="2020-02-25 16:16:42">16:16:42</td>
+                                <td class="SUCCESS-text" data-sort="2020-02-26 11:31:05">11:31:05</td>
 
-                                <td class="SUCCESS-text">0.48</td>
-                            </tr>
-
-                            <tr class="test-ERROR">
-                                <td><span class="summary-icon"><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></span>
-                                    
-                                    <span style="display:none">ERROR</span></td>
-                                <td class="ERROR-text">
-                                    <div class="ellipsis">
-
-                                        <a href="04824e9b4f34dc6230f18bafcae22c3fbf78f9f5772124d7cd373ead98a2e8c3.html" class="ellipsis"
-                                           title="Create a new session Illegal state exception: Expected BEG...">
-                                            Create a new session
-                                                <span class="related-issue-title"></span>
-                                        </a>
-                                    </div>
-                                </td>
-
-                                <td class="ERROR-text">7</td>
-
-
-                                <td class="ERROR-text" data-sort="2020-02-25 16:16:42">16:16:42</td>
-
-                                <td class="ERROR-text">0.1</td>
-                            </tr>
-
-                            <tr class="test-FAILURE">
-                                <td><span class="summary-icon"><i class='fa fa-times-circle failure-icon ' title='FAILURE'></i></span>
-                                    
-                                    <span style="display:none">FAILURE</span></td>
-                                <td class="FAILURE-text">
-                                    <div class="ellipsis">
-
-                                        <a href="3d25d74493cfb0bcf33b64a96ab20f3d7234124cd4c47b94488cb14daf405be3.html" class="ellipsis"
-                                           title="Test session delete Assertion error: Error: The status co...">
-                                            Test session delete
-                                                <span class="related-issue-title"></span>
-                                        </a>
-                                    </div>
-                                </td>
-
-                                <td class="FAILURE-text">4</td>
-
-
-                                <td class="FAILURE-text" data-sort="2020-02-25 16:16:43">16:16:43</td>
-
-                                <td class="FAILURE-text">0.02</td>
+                                <td class="SUCCESS-text">1.51</td>
                             </tr>
                         </tbody>
                     </table>

@@ -10,7 +10,9 @@ C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\steps\EmployeesSteps.java
 C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\steps\GeneralSteps.java
 C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\builders\UrlBuilder.java
 C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\entities\RequestToken.java
+C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\controllers\GuestAuthController.java
 C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\controllers\ApiController.java
 C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\entities\Employee.java
+C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\entities\GuestSessionToken.java
 C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\helpers\JsonHelper.java
 C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\entities\User.java

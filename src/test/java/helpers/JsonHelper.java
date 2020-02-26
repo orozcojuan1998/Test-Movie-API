@@ -19,6 +19,7 @@ public class JsonHelper {
         Gson gson = new Gson();
         JsonElement jsonElement = gson.toJsonTree(user);
         jsonElement.getAsJsonObject().addProperty("request_token", token);
+        System.out.println(gson.toJson(jsonElement));
         return gson.toJson(jsonElement);
     }
 
@@ -37,6 +38,10 @@ public class JsonHelper {
     }
     public static RequestToken responseRequestTokenToJson (Response response){
         return gson.fromJson(response.getBody().print(), RequestToken.class);
+    }
+
+    public static GuestSessionToken guestSessionToken (Response response){
+        return gson.fromJson(response.getBody().print(), GuestSessionToken.class);
     }
 
     public static ResponseData[] responseToResponseArray(Response response){

@@ -2,6 +2,7 @@ package steps;
 
 import controllers.AuthenticationController;
 import cucumber.api.java.en.Then;
+import net.serenitybdd.core.Serenity;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 
@@ -11,7 +12,7 @@ import java.util.logging.Logger;
 public class GeneralSteps  {
     private Logger logger = Logger.getLogger("GetTrelloSteps.class");
 
-    private AuthenticationController authenticationController = AuthenticationController.GetAuthenticationControllerInstance();
+    private AuthenticationController authenticationController = new AuthenticationController();
 
 
     private void writeOnLog(String message) {
@@ -20,7 +21,8 @@ public class GeneralSteps  {
 
     @Then("^The service responds with a status code \"([^\"]*)\"$")
     public void theServiceRespondsWithAStatusCode(String statusCode) {
+        int codeResponse = Serenity.sessionVariableCalled("status");
         Assert.assertThat(String.format("Error: The status code is not %s", statusCode),
-                authenticationController.getResponse().statusCode(), Matchers.equalTo(Integer.parseInt(statusCode)));
+               codeResponse, Matchers.equalTo(Integer.parseInt(statusCode)));
     }
 }

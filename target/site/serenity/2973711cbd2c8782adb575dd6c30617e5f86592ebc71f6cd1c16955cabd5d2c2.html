@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>Test session delete</title>
+    <title>Test Guest Session Authentication</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
@@ -78,8 +78,8 @@
         <span class="breadcrumbs">
             <a href="index.html" class="breadcrumbs">Home</a>
 
-            > <a href="510ce949faa2c77cd9d36dfef2f87a3f02e3341b8c97658dbd3f9b7e55dd2615.html">Authentication</a>
-        > Test session delete
+            > <a href="d52734139542dde03d7c8911dbd44f4fe873da907671beb1f5cfe95f2f5cb615.html">Guest Authentication</a>
+        > Test Guest Session Authentication
         </span>
         </div>
         <div class="rightbg"></div>
@@ -100,7 +100,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 25-02-2020 16:16</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 26-02-2020 11:31</span>
     <br style="clear:left"/>
 </div>
     <div class="clr"></div>
@@ -115,11 +115,11 @@
                             <div>
                                 <h3 class="discreet-story-header">
                                     <i class="fa fa-2x fa-comments-o"></i>
-                                    <span class="story-header-title">Authentication </span>
+                                    <span class="story-header-title">Guest Authentication </span>
                                 </h3>
 
                                 <div class="discreet-requirement-narrative-title">
-                                    As a user
+                                    As a guest
                                 </div>
                             </div>
 
@@ -133,10 +133,10 @@
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><i class='fa fa-times-circle failure-icon fa-2x' title='FAILURE'></i></span>
+                            <span class="outcome-icon"><i class='fa fa-check-circle-o success-icon fa-2x' title='SUCCESS'></i></span>
                             <span class="test-case-title">
-                                <span class="failing-color">
-                                    Test session delete
+                                <span class="success-color">
+                                    Test Guest Session Authentication
                                         <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -181,7 +181,7 @@
                     <td>
                         <div class="step-description">
                             <span class="top-level-step">
-                                Given That i want to delete an existing session id
+                                Given A new guest session needs to be created
                             </span>
 
                         </div>
@@ -198,19 +198,19 @@
                     <td>
                         <div class="step-description">
                             <span class="top-level-step">
-                                When The user send a request to delete the session
+                                When The guest sends the request to create the session
                             </span>
 
                         </div>
                     </td>
                     <td width="100"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">0s</span></td>
+                    <td width="100"><span class="top-level-step">0.36s</span></td>
                 </tr>
-                <tr class="test-FAILURE">
+                <tr class="test-SUCCESS">
                     <td width="50" class="step-icon">
                         <a name="2"/>
                             <span style="margin-left: 20px; margin-right: 5px;"
-                                  class="top-level-icon"><i class='fa fa-times-circle failure-icon ' title='FAILURE'></i></span>
+                                  class="top-level-icon"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></span>
                     </td>
                     <td>
                         <div class="step-description">
@@ -220,68 +220,30 @@
 
                         </div>
                     </td>
-                    <td width="100"><span class="top-level-step">FAILURE</span></td>
+                    <td width="100"><span class="top-level-step">SUCCESS</span></td>
                     <td width="100"><span class="top-level-step">0.01s</span></td>
                 </tr>
-                    <tr class="test-FAILURE">
-                        <td width="40">&nbsp</td>
-                        <td width="%" colspan="3" class="error-message-cell">
-
-
-    <div style="display:block">
-        <div class="table">
-            <div class="row">
-                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
-                    <span class="error-message error-message-title">java.lang.AssertionError: Error: The status code is not 200<br>Expected: &lt;200&gt;<br>     but: was &lt;403&gt;</span>
-                </div>
-                <div class="col-sm-2">
-                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-3""
-                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="far fa-eye"></i> More details</a>
-                </div>
-             </div>
-        </div>
-    <div>
-
-    <!-- Details Section -->
-    <div class="row stacktrace-details">
-      <div class="col">
-        <div class="collapse multi-collapse" id="stacktraceModal-3">
-            <div class="card">
-                <div class="card-header">
-                    <h4>java.lang.AssertionError </h4>
-                </div>
-                <div class="card-body">
-                    <div>
-                        <pre>steps.GeneralSteps.theServiceRespondsWithAStatusCode(GeneralSteps.java:23)<br />✽.The service responds with a status code "200"(src/test/resources/features/authentication.feature:37)<br /></pre>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-                    </td>
-                    </tr>
-                <tr class="test-SKIPPED">
+                <tr class="test-SUCCESS">
                     <td width="50" class="step-icon">
                         <a name="3"/>
                             <span style="margin-left: 20px; margin-right: 5px;"
-                                  class="top-level-icon"><i class='fa fa-fast-forward skipped-icon ' title='SKIPPED'></i></span>
+                                  class="top-level-icon"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></span>
                     </td>
                     <td>
                         <div class="step-description">
                             <span class="top-level-step">
-                                And The response contains the field success equals to "&lt;string&gt;"
+                                And The response contains the field success equals to "true"
                             </span>
 
                         </div>
                     </td>
-                    <td width="100"><span class="top-level-step">SKIPPED</span></td>
+                    <td width="100"><span class="top-level-step">SUCCESS</span></td>
                     <td width="100"><span class="top-level-step">0s</span></td>
                 </tr>
-                <tr class="test-FAILURE">
+                <tr class="test-SUCCESS">
                     <td colspan="2"></td>
-                    <td width="100"><span class="top-level-step"><em>FAILURE</em></span></td>
-                    <td width="100"><span class="top-level-step"><em>0.02s</em></span></td>
+                    <td width="100"><span class="top-level-step"><em>SUCCESS</em></span></td>
+                    <td width="100"><span class="top-level-step"><em>0.38s</em></span></td>
                 </tr>
 
             </table>
