@@ -51,5 +51,19 @@ public class JsonHelper {
     public static SessionData sessionToResponse(Response response) {
         return gson.fromJson(response.getBody().print(), SessionData.class);
     }
+
+    public static Lists responseToList(Response response) {
+        return gson.fromJson(response.getBody().print(), Lists.class);
+
+    }
+
+    public static ListCreation responseToCreationList(Response response) {
+        return gson.fromJson(response.getBody().print(), ListCreation.class);
+    }
+
+    public static ResponseBody responsetoListResponse(Response response) {
+        return gson.fromJson(response.getBody().print(), ResponseBody.class);
+
+    }
 }
 

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="Rate TV Shows" skipped="0" tests="2" time="8.19" timestamp="2020-02-27 02:03:50"><testcase name="Rate a movie"><failure message="Error: The request could not be completed&#10;Expected: &quot;Success.&quot;&#10;     but: was &quot;The item/record was updated successfully.&quot;" type="java.lang.AssertionError">Error: The request could not be completed
+Expected: "Success."
+     but: was "The item/record was updated successfully."</failure><system-err>Error: The request could not be completed
+Expected: "Success."
+     but: was "The item/record was updated successfully."&#13;
+steps.ListSteps.theResponseStatusMessageIs(ListSteps.java:88)&#13;
+✽.The response status message is "Success."(src/test/resources/features/rateTvShow.feature:28)&#13;
+</system-err></testcase><testcase name="Delete a rating"/></testsuite>

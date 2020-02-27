@@ -49,7 +49,6 @@ public class AuthenticationSteps {
 
     @When("^The user send a request to create the session with login$")
     public void theUserSendARequestToCreateTheSessionWithLogin() {
-        System.out.println((String)Serenity.sessionVariableCalled("request_token"));
         String body = JsonHelper.createSessionBody(user,(String)Serenity.sessionVariableCalled("request_token"));
         response = authenticationController.setSessionWithLogin(body);
     }
@@ -64,7 +63,6 @@ public class AuthenticationSteps {
     public void theUserSendARequestToSession() {
         String requestTokenCurrent = (String) Serenity.sessionVariableCalled("request_token");
         String body = "{\"request_token\""+":"+"\""+requestTokenCurrent+"\""+"}";
-        System.out.println("Body " + body);
         response = authenticationController.createNewSession(body);
 
     }
@@ -80,7 +78,6 @@ public class AuthenticationSteps {
     @And("^The response contains the session id$")
     public void theResponseContainsTheSessionId() {
         Boolean key = Serenity.sessionVariableCalled("success_session");
-        System.out.println("Sessionnn mis perros " + (String) Serenity.sessionVariableCalled("session_id"));
         Assert.assertThat("Error: The request token is empty",
                 key,  Matchers.equalTo(Boolean.TRUE));
 
@@ -108,6 +105,7 @@ public class AuthenticationSteps {
         String body =  "{\"session_id\""+":"+"\""+jsonBody+"\""+"}";
         response = authenticationController.deleteSession(body);
         Serenity.setSessionVariable("status").to(response.statusCode());
+
     }
 
 

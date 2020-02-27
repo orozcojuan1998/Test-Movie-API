@@ -29,7 +29,6 @@ Feature: Authentication
     And A new request session needs to be created
     And The user send a request to session
     And The session is generated
-    And The service responds with a status code "200"
     And The response contains the session id
     And The user send a request to delete the session
     And The service responds with a status code "200"

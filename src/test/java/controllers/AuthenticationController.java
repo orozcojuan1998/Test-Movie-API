@@ -74,7 +74,6 @@ public class AuthenticationController extends ApiController {
                 when().
                 body(body).
                 delete(idUrl);
-
         return response;
     }
 
