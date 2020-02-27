@@ -65,5 +65,13 @@ public class JsonHelper {
         return gson.fromJson(response.getBody().print(), ResponseBody.class);
 
     }
+
+    public static ResponseStatus responseStatusToListResponse(Response response) {
+        return gson.fromJson(response.getBody().print(), ResponseStatus.class);
+    }
+
+    public static Review responseToReview(Response response) {
+        return gson.fromJson(response.getBody().print(), Review.class);
+    }
 }
 

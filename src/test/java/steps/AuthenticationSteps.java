@@ -84,7 +84,7 @@ public class AuthenticationSteps {
     }
 
     @And("^The response contains the field success equals to \"([^\"]*)\"$")
-    public void theResponseContainsTheFieldSuccessEqualsTo(String success) throws Throwable {
+    public void theResponseContainsTheFieldSuccessEqualsTo(String success) {
         Boolean key = Serenity.sessionVariableCalled("success");
         Assert.assertThat("Error: The request token is unsuccessful",
                 key,  Matchers.equalTo(Boolean.valueOf(success)));

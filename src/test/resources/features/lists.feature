@@ -24,15 +24,54 @@ Feature: List
   Scenario: Test create a list
     Given The user wants to create a list
     When The user send the request to create the list with its data
-    |name          | description                        |
-    | Terror List 3| List of my favorite horror movies 8|
+    |name          | description                         |
+    | Terror List 6| List of my favorite horror movies 12|
     Then The service responds with a status code "201"
 
   Scenario: Test delete of a list
     Given The user wants to delete a list
     When The user send the request to create the list with its data
       |name                 | description                       |
-      | Movies for me List 1| List of my favorite movies 7      |
+      | Movies for me List 2| List of my favorite movies 6      |
     And The user send the request to delete the list
     Then The response status message is "The item/record was updated successfully."
+
+  Scenario: Test add a movie to a list
+    Given The list already exist with its data
+      |      id                 |
+      |     133833              |
+    When The user send the request to add a movie to a list with its data
+      |      id_movie           |
+      |     109445              |
+    Then The service responds with a status code "201"
+
+  Scenario: Test delete a movie from a list
+    Given The list already exist with its data
+      |      id                 |
+      |     133833              |
+    When The user send the request to delete a movie from a list with its data
+      |      id_movie           |
+      |     109445              |
+    Then The service responds with a status code "200"
+    And The response status message is "The item/record was deleted successfully."
+
+  Scenario: Test to clear a list
+    Given The list already exist with its data
+      |      id                 |
+      |     133833              |
+    When The user send the request to clear the list
+    Then The service responds with a status code "201"
+    And The response status message is "The item/record was updated successfully."
+
+  Scenario: Test get check that a movie is in a list
+    Given The list already exist with its data
+      |      id                 |
+      |     133815              |
+    When The user send the request to check if a movie is present in the list with its data
+      |      id_movie           |
+      |     500                 |
+    Then The service responds with a status code "200"
+    And The response contains the field success equals to "true"
+
+
 

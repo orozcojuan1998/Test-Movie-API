@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="runner.TestRunner" time="14.984" tests="2" errors="0" skipped="0" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="runner.TestRunner" time="36.357" tests="18" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_241\jre\bin"/>
@@ -64,37 +64,27 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="Rate a movie" classname="Rate TV Shows" time="6.378">
-    <failure message="Error: The request could not be completed&#10;Expected: &quot;Success.&quot;&#10;     but: was &quot;The item/record was updated successfully.&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
+  <testcase name="Test Authentication" classname="Authentication" time="4.328"/>
+  <testcase name="Test Delete of session" classname="Authentication" time="1.602"/>
+  <testcase name="Test Guest Session Authentication" classname="Guest Authentication" time="0.391"/>
+  <testcase name="Test get list detail" classname="List" time="1.597"/>
+  <testcase name="Test create a list" classname="List" time="1.607"/>
+  <testcase name="Test delete of a list" classname="List" time="2.133">
+    <failure message="Error: The request could not be completed&#10;Expected: &quot;The item/record was updated successfully.&quot;&#10;     but: was &quot;Internal error: Something went wrong, contact TMDb.&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
 Error: The request could not be completed
-Expected: "Success."
-     but: was "The item/record was updated successfully."
+Expected: "The item/record was updated successfully."
+     but: was "Internal error: Something went wrong, contact TMDb."
 </failure>
-    <system-out><![CDATA[{"success":true,"expires_at":"2020-02-27 20:03:53 UTC","request_token":"103c73afeb24b4591f7791b7804fa1d0f89a6e6f"}
-{"username":"ingjuanorozco","password":"juandaviD1","request_token":"103c73afeb24b4591f7791b7804fa1d0f89a6e6f"}
-{"success":true,"session_id":"2598f919d9352a92603bb6e2fa2a1b372f84e443"}
-https://api.themoviedb.org/3/tv/1425/rating
-{"status_code":12,"status_message":"The item/record was updated successfully."}
+    <system-out><![CDATA[{"success":true,"expires_at":"2020-02-28 00:46:10 UTC","request_token":"21b9be80ad98f6ecb8750ebf8500582b7f4147e6"}
+{"username":"ingjuanorozco","password":"juandaviD1","request_token":"21b9be80ad98f6ecb8750ebf8500582b7f4147e6"}
+{"success":true,"session_id":"7a00063aeadef086adebd6bbc5525b2a2fc09a8f"}
+{"description":"List of my favorite movies 6","favorite_count":0,"item_count":0,"name":"Movies for me List 2"}
+{"status_code":1,"status_message":"The item/record was created successfully.","success":true,"list_id":134171}
+500
+{"status_code":11,"status_message":"Internal error: Something went wrong, contact TMDb."}
+Mensaje  Internal error: Something went wrong, contact TMDb.
 ]]></system-out>
     <system-err><![CDATA[[main] INFO net.thucydides.core.steps.ConsoleLoggingListener - 
-
--------------------------------------------------------------------------------------
-     _______. _______ .______       _______ .__   __.  __  .___________.____    ____ 
-    /       ||   ____||   _  \     |   ____||  \ |  | |  | |           |\   \  /   / 
-   |   (----`|  |__   |  |_)  |    |  |__   |   \|  | |  | `---|  |----` \   \/   /  
-    \   \    |   __|  |      /     |   __|  |  . `  | |  |     |  |       \_    _/   
-.----)   |   |  |____ |  |\  \----.|  |____ |  |\   | |  |     |  |         |  |     
-|_______/    |_______|| _| `._____||_______||__| \__| |__|     |__|         |__|    
-                                                                                     
- News and tutorials at http://www.serenity-bdd.info                                  
- Documentation at https://wakaleo.gitbooks.io/the-serenity-book/content/             
- Join the Serenity Community on Rocket Chat at https://serenity-bdd.rocket.chat      
- Serenity BDD Support and Training at http://serenity-bdd.info/#/trainingandsupport  
- Learn Serenity BDD online at http://serenity-dojo.com                               
--------------------------------------------------------------------------------------
-
-[main] INFO net.thucydides.core.steps.ConsoleLoggingListener - Test Suite Started: Rate TV Shows
-[main] INFO net.thucydides.core.steps.ConsoleLoggingListener - 
  _____ _____ ____ _____   ____ _____  _    ____ _____ _____ ____  
 |_   _| ____/ ___|_   _| / ___|_   _|/ \  |  _ \_   _| ____|  _ \ 
   | | |  _| \___ \ | |   \___ \ | | / _ \ | |_) || | |  _| | | | |
@@ -102,8 +92,8 @@ https://api.themoviedb.org/3/tv/1425/rating
   |_| |_____|____/ |_|   |____/ |_/_/   \_\_| \_\|_| |_____|____/ 
                                                                   
 
-TEST STARTED: Rate a movie
--------------------------------------------------------------------(rate-tv-shows;rate-a-movie)
+TEST STARTED: Test delete of a list
+-------------------------------------------------------------------(list;test-delete-of-a-list)
 [main] ERROR net.thucydides.core.steps.ConsoleLoggingListener - 
            __  _____ _____ ____ _____   _____ _    ___ _     _____ ____  
   _       / / |_   _| ____/ ___|_   _| |  ___/ \  |_ _| |   | ____|  _ \ 
@@ -112,11 +102,22 @@ TEST STARTED: Rate a movie
  (_)     | |    |_| |_____|____/ |_|   |_|/_/   \_\___|_____|_____|____/ 
           \_\                                                            
 
-TEST FAILED: Rate a movie
+TEST FAILED: Test delete of a list
 --------------------------------------------------------------------------
-[main] ERROR net.thucydides.core.steps.ConsoleLoggingListener - TEST FAILED AT STEP And The response status message is "Success."
-[main] ERROR net.thucydides.core.steps.ConsoleLoggingListener - Error: The request could not be completedExpected: "Success." but: was "The item/record was updated successfully."
+[main] ERROR net.thucydides.core.steps.ConsoleLoggingListener - TEST FAILED AT STEP Then The response status message is "The item/record was updated successfully."
+[main] ERROR net.thucydides.core.steps.ConsoleLoggingListener - Error: The request could not be completedExpected: "The item/record was updated successfully." but: was "Internal error: Something went wrong, contact TMDb."
 ]]></system-err>
   </testcase>
-  <testcase name="Delete a rating" classname="Rate TV Shows" time="1.686"/>
+  <testcase name="Test add a movie to a list" classname="List" time="1.588"/>
+  <testcase name="Test delete a movie from a list" classname="List" time="1.508"/>
+  <testcase name="Test to clear a list" classname="List" time="1.524"/>
+  <testcase name="Test get check that a movie is in a list" classname="List" time="1.517"/>
+  <testcase name="Rate a episode" classname="Rate TV Episose" time="1.856"/>
+  <testcase name="Delete a rating" classname="Rate TV Episose" time="2.031"/>
+  <testcase name="Rate a movie" classname="Rate Movies" time="1.504"/>
+  <testcase name="Delete a rating" classname="Rate Movies" time="1.469"/>
+  <testcase name="Rate a tv show" classname="Rate TV Shows" time="1.48"/>
+  <testcase name="Delete a rating" classname="Rate TV Shows" time="1.488"/>
+  <testcase name="Test check review details" classname="Reviews" time="0.446"/>
+  <testcase name="Test check review details with invalid review id" classname="Reviews" time="0.254"/>
 </testsuite>

@@ -1,7 +1,7 @@
 Feature: Rate TV Shows
   As a user,
   i want to add and delete
-  rate of tv shows i've watched
+  rates of tv shows i've watched
 
   Background: Test Authentication
     Given A new request token needs to be created
@@ -17,20 +17,20 @@ Feature: Rate TV Shows
     And The response contains the session id
 
 
-  Scenario: Rate a movie
+  Scenario: Rate a tv show
     Given The tv show with data already exist
       | id     |
-      | 1425   |
+      | 1396   |
     When The user send a request to rate the tv show with its data
       | value|
-      | 10   |
+      | 8    |
     Then The service responds with a status code "201"
     And The response status message is "Success."
 
   Scenario: Delete a rating
     Given The tv show with data already exist
-      | id     |
-      | 1668   |
+      | id      |
+      | 44217   |
     When The user send a request to delete the rated tv show
     Then The service responds with a status code "200"
     And The response status message is "The item/record was deleted successfully."

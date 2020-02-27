@@ -1,0 +1,8 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"List","Test get list detail","SUCCESS","2020-02-27T18:46:09.241-05:00[America/Bogota]","0.0","1.63"
+"List","Test create a list","SUCCESS","2020-02-27T18:46:10.874-05:00[America/Bogota]","0.0","1.66"
+"List","Test delete of a list","FAILURE","2020-02-27T18:46:12.54-05:00[America/Bogota]","0.0","2.06"
+"List","Test add a movie to a list","SUCCESS","2020-02-27T18:46:14.754-05:00[America/Bogota]","0.0","1.59"
+"List","Test delete a movie from a list","SUCCESS","2020-02-27T18:46:16.344-05:00[America/Bogota]","0.0","1.57"
+"List","Test to clear a list","SUCCESS","2020-02-27T18:46:17.923-05:00[America/Bogota]","0.0","1.54"
+"List","Test get check that a movie is in a list","SUCCESS","2020-02-27T18:46:19.473-05:00[America/Bogota]","0.0","1.57"

@@ -6,10 +6,10 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import entities.AuxList;
 import entities.ListCreation;
 import entities.ResponseBody;
 import entities.Lists;
+import entities.ResponseStatus;
 import helpers.JsonHelper;
 import io.restassured.response.Response;
 import net.serenitybdd.core.Serenity;
@@ -23,9 +23,10 @@ public class ListSteps {
 
     private Lists lists;
     private Response response;
-    private AuxList auxList;
+    private Integer value;
     private ListCreation listCreation;
     private ResponseBody listResponse;
+    private ResponseStatus responseStatus;
     private ListController listController = new ListController();
 
 
@@ -87,5 +88,55 @@ public class ListSteps {
     public void theResponseStatusMessageIs(String message) throws Throwable {
         Assert.assertThat("Error: The request could not be completed",
                 Serenity.sessionVariableCalled("status_message") ,  Matchers.equalTo(message));
+    }
+
+    @Given("^The list already exist with its data$")
+    public void theListAlreadyExistWithItsData(DataTable listData) {
+        List<Map<String, String>> data = listData.asMaps(String.class, String.class);
+        Serenity.setSessionVariable("listId").to(data.get(0).get("id"));
+    }
+
+    @When("^The user send the request to add a movie to a list with its data$")
+    public void theUserSendTheRequestToAddAMovieToAListWithItsData(DataTable movieData) {
+        List<Map<String, String>> data = movieData.asMaps(String.class, String.class);
+        value = Integer.valueOf(data.get(0).get("id_movie"));
+        String valueBody =  "{\"media_id\""+":"+"\""+value+"\""+"}";
+        response = listController.addMovie(Serenity.sessionVariableCalled("listId"), valueBody, Serenity.sessionVariableCalled("session_id"));
+        listResponse = JsonHelper.responsetoListResponse(response);
+        Serenity.setSessionVariable("status_message").to(listResponse.getStatus_message());
+        Serenity.setSessionVariable("status").to(response.statusCode());
+
+    }
+
+    @When("^The user send the request to delete a movie from a list with its data$")
+    public void theUserSendTheRequestToDeleteAMovieFromAListWithItsData(DataTable movieData) {
+        List<Map<String, String>> data = movieData.asMaps(String.class, String.class);
+        value = Integer.valueOf(data.get(0).get("id_movie"));
+        String valueBody =  "{\"media_id\""+":"+"\""+value+"\""+"}";
+        response = listController.deleteMovie(Serenity.sessionVariableCalled("listId"), valueBody, Serenity.sessionVariableCalled("session_id"));
+        listResponse = JsonHelper.responsetoListResponse(response);
+        Serenity.setSessionVariable("status_message").to(listResponse.getStatus_message());
+        Serenity.setSessionVariable("status").to(response.statusCode());
+
+    }
+
+    @When("^The user send the request to clear the list$")
+    public void theUserSendTheRequestToClearTheList() {
+        boolean confirm = true;
+        response = listController.clearList(Serenity.sessionVariableCalled("listId"), confirm, Serenity.sessionVariableCalled("session_id"));
+        listResponse = JsonHelper.responsetoListResponse(response);
+        Serenity.setSessionVariable("status_message").to(listResponse.getStatus_message());
+        Serenity.setSessionVariable("status").to(response.statusCode());
+    }
+
+    @When("^The user send the request to check if a movie is present in the list with its data$")
+    public void theUserSendTheRequestToCheckIfAMovieIsPresentInTheListWithItsData(DataTable movieData) {
+        List<Map<String, String>> data = movieData.asMaps(String.class, String.class);
+        value = Integer.valueOf(data.get(0).get("id_movie"));
+        response = listController.checkItemStatus(Serenity.sessionVariableCalled("listId"), value, Serenity.sessionVariableCalled("session_id"));
+        responseStatus = JsonHelper.responseStatusToListResponse(response);
+        Serenity.setSessionVariable("success").to(responseStatus.isItem_present());
+        Serenity.setSessionVariable("status").to(response.statusCode());
+
     }
 }
