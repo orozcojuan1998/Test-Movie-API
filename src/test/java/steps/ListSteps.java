@@ -60,7 +60,6 @@ public class ListSteps {
         lists.setName(data.get(0).get("name"));
         lists.setDescription(data.get(0).get("description"));
         String body = JsonHelper.objectToJson(lists);
-        System.out.println(body);
         response = listController.createList(body, Serenity.sessionVariableCalled("session_id"));
         listCreation = JsonHelper.responseToCreationList(response);
         Serenity.setSessionVariable("list_creation").to(listCreation);
@@ -78,9 +77,7 @@ public class ListSteps {
     public void theUserSendTheRequestToDeleteTheList() {
         ListCreation temporaryList =  Serenity.sessionVariableCalled("list_creation");
         response = listController.deleteList(Serenity.sessionVariableCalled("session_id"), temporaryList);
-        System.out.println(response.statusCode());
         listResponse = JsonHelper.responsetoListResponse(response);
-        System.out.println("Mensaje  "+ listResponse.getStatus_message());
         Serenity.setSessionVariable("status_message").to(listResponse.getStatus_message());
     }
 
