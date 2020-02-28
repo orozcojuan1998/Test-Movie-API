@@ -21,7 +21,6 @@ public class RateTvController extends ApiController{
                 addPathStep(movieId).
                 addPathStep( PropertiesHelper.getValueByKey("url.rating")).
                 build();
-        System.out.println(idUrl);
         response = requestSpecification.given().queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).
                 and().queryParam("session_id",session_id).
                 when().
@@ -37,7 +36,6 @@ public class RateTvController extends ApiController{
                 addPathStep(showId).
                 addPathStep( PropertiesHelper.getValueByKey("url.rating")).
                 build();
-        System.out.println(idUrl);
         response = requestSpecification.given().queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).
                 and().queryParam("session_id",session_id).
                 when().
