@@ -26,6 +26,9 @@ Feature: Rate TV Shows
       | 9    |
     Then The service responds with a status code "201"
     And The response status message is "Success."
+    And The user send a request to delete the session
+    And The service responds with a status code "200"
+
 
   Scenario: Delete a rating
     Given The tv show with data already exist
@@ -34,3 +37,6 @@ Feature: Rate TV Shows
     When The user send a request to delete the rated tv show
     Then The service responds with a status code "200"
     And The response status message is "The item/record was deleted successfully."
+    And The user send a request to delete the session
+    And The service responds with a status code "200"
+
