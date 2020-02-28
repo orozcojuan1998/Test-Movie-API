@@ -12,8 +12,7 @@ public class GuestAuthController extends ApiController {
     private Response response;
 
     private GuestAuthController() {
-        super(new UrlBuilder().addDomain().addPathStep(
-                PropertiesHelper.getValueByKey("url.auth")).build());
+        super();
 
     }
     public static GuestAuthController GetGuestAuthController() {
@@ -23,12 +22,7 @@ public class GuestAuthController extends ApiController {
     }
 
     public Response createGuestToken() {
-        URL idUrl = new UrlBuilder().
-                addDomain().
-                addPathStep(PropertiesHelper.getValueByKey("url.auth")).
-                addPathStep(PropertiesHelper.getValueByKey("url.auth.guest")).
-                addPathStep(PropertiesHelper.getValueByKey("url.new")).
-                build();
+        URL idUrl = buildUrl.buildAuthSessionGuest();
         response = requestSpecification.given().queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).
                 when().
                 get(idUrl);

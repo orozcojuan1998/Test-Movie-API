@@ -11,8 +11,7 @@ public class RateMovieController extends ApiController {
     private Response response;
 
     public RateMovieController() {
-        super(new UrlBuilder().addDomain().addPathStep(
-                PropertiesHelper.getValueByKey("url.rating")).build());
+        super();
 
     }
 

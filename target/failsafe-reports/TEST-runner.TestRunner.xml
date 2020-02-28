@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="runner.TestRunner" time="36.357" tests="18" errors="0" skipped="0" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="runner.TestRunner" time="37.253" tests="18" errors="0" skipped="0" failures="2">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_241\jre\bin"/>
@@ -64,22 +64,22 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="Test Authentication" classname="Authentication" time="4.328"/>
-  <testcase name="Test Delete of session" classname="Authentication" time="1.602"/>
-  <testcase name="Test Guest Session Authentication" classname="Guest Authentication" time="0.391"/>
-  <testcase name="Test get list detail" classname="List" time="1.597"/>
-  <testcase name="Test create a list" classname="List" time="1.607"/>
-  <testcase name="Test delete of a list" classname="List" time="2.133">
+  <testcase name="Test Authentication" classname="Authentication" time="4.609"/>
+  <testcase name="Test Delete of session" classname="Authentication" time="1.625"/>
+  <testcase name="Test Guest Session Authentication" classname="Guest Authentication" time="0.417"/>
+  <testcase name="Test get list detail" classname="List" time="1.505"/>
+  <testcase name="Test create a list" classname="List" time="1.613"/>
+  <testcase name="Test delete of a list" classname="List" time="2.275">
     <failure message="Error: The request could not be completed&#10;Expected: &quot;The item/record was updated successfully.&quot;&#10;     but: was &quot;Internal error: Something went wrong, contact TMDb.&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
 Error: The request could not be completed
 Expected: "The item/record was updated successfully."
      but: was "Internal error: Something went wrong, contact TMDb."
 </failure>
-    <system-out><![CDATA[{"success":true,"expires_at":"2020-02-28 00:46:10 UTC","request_token":"21b9be80ad98f6ecb8750ebf8500582b7f4147e6"}
-{"username":"ingjuanorozco","password":"juandaviD1","request_token":"21b9be80ad98f6ecb8750ebf8500582b7f4147e6"}
-{"success":true,"session_id":"7a00063aeadef086adebd6bbc5525b2a2fc09a8f"}
+    <system-out><![CDATA[{"success":true,"expires_at":"2020-02-28 03:23:38 UTC","request_token":"10cf0d2902ac10386ff508a9c4daed92b4523d4c"}
+{"username":"ingjuanorozco","password":"juandaviD1","request_token":"10cf0d2902ac10386ff508a9c4daed92b4523d4c"}
+{"success":true,"session_id":"fcd89ddf8e733d5301935beefb3812af12255829"}
 {"description":"List of my favorite movies 6","favorite_count":0,"item_count":0,"name":"Movies for me List 2"}
-{"status_code":1,"status_message":"The item/record was created successfully.","success":true,"list_id":134171}
+{"status_code":1,"status_message":"The item/record was created successfully.","success":true,"list_id":134194}
 500
 {"status_code":11,"status_message":"Internal error: Something went wrong, contact TMDb."}
 Mensaje  Internal error: Something went wrong, contact TMDb.
@@ -108,16 +108,50 @@ TEST FAILED: Test delete of a list
 [main] ERROR net.thucydides.core.steps.ConsoleLoggingListener - Error: The request could not be completedExpected: "The item/record was updated successfully." but: was "Internal error: Something went wrong, contact TMDb."
 ]]></system-err>
   </testcase>
-  <testcase name="Test add a movie to a list" classname="List" time="1.588"/>
-  <testcase name="Test delete a movie from a list" classname="List" time="1.508"/>
-  <testcase name="Test to clear a list" classname="List" time="1.524"/>
-  <testcase name="Test get check that a movie is in a list" classname="List" time="1.517"/>
-  <testcase name="Rate a episode" classname="Rate TV Episose" time="1.856"/>
-  <testcase name="Delete a rating" classname="Rate TV Episose" time="2.031"/>
-  <testcase name="Rate a movie" classname="Rate Movies" time="1.504"/>
-  <testcase name="Delete a rating" classname="Rate Movies" time="1.469"/>
-  <testcase name="Rate a tv show" classname="Rate TV Shows" time="1.48"/>
-  <testcase name="Delete a rating" classname="Rate TV Shows" time="1.488"/>
-  <testcase name="Test check review details" classname="Reviews" time="0.446"/>
-  <testcase name="Test check review details with invalid review id" classname="Reviews" time="0.254"/>
+  <testcase name="Test add a movie to a list" classname="List" time="1.619"/>
+  <testcase name="Test delete a movie from a list" classname="List" time="1.54">
+    <failure message="Error: The status code is not 200&#10;Expected: &lt;200&gt;&#10;     but: was &lt;403&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
+Error: The status code is not 200
+Expected: <200>
+     but: was <403>
+]]></failure>
+    <system-out><![CDATA[{"success":true,"expires_at":"2020-02-28 03:23:42 UTC","request_token":"f8b5e8e8ee41e954de35cfb1c01f56b1d5273727"}
+{"username":"ingjuanorozco","password":"juandaviD1","request_token":"f8b5e8e8ee41e954de35cfb1c01f56b1d5273727"}
+{"success":true,"session_id":"2a453dc971e326ce023bbe0e5773d2cc7a45d9fc"}
+{"status_code":8,"status_message":"Duplicate entry: The data you tried to submit already exists."}
+]]></system-out>
+    <system-err><![CDATA[[main] INFO net.thucydides.core.steps.ConsoleLoggingListener - 
+ _____ _____ ____ _____   ____ _____  _    ____ _____ _____ ____  
+|_   _| ____/ ___|_   _| / ___|_   _|/ \  |  _ \_   _| ____|  _ \ 
+  | | |  _| \___ \ | |   \___ \ | | / _ \ | |_) || | |  _| | | | |
+  | | | |___ ___) || |    ___) || |/ ___ \|  _ < | | | |___| |_| |
+  |_| |_____|____/ |_|   |____/ |_/_/   \_\_| \_\|_| |_____|____/ 
+                                                                  
+
+TEST STARTED: Test delete a movie from a list
+-------------------------------------------------------------------(list;test-delete-a-movie-from-a-list)
+[main] ERROR net.thucydides.core.steps.ConsoleLoggingListener - 
+           __  _____ _____ ____ _____   _____ _    ___ _     _____ ____  
+  _       / / |_   _| ____/ ___|_   _| |  ___/ \  |_ _| |   | ____|  _ \ 
+ (_)_____| |    | | |  _| \___ \ | |   | |_ / _ \  | || |   |  _| | | | |
+  _|_____| |    | | | |___ ___) || |   |  _/ ___ \ | || |___| |___| |_| |
+ (_)     | |    |_| |_____|____/ |_|   |_|/_/   \_\___|_____|_____|____/ 
+          \_\                                                            
+
+TEST FAILED: Test delete a movie from a list
+--------------------------------------------------------------------------
+[main] ERROR net.thucydides.core.steps.ConsoleLoggingListener - TEST FAILED AT STEP Then The service responds with a status code "200"
+[main] ERROR net.thucydides.core.steps.ConsoleLoggingListener - Error: The status code is not 200Expected: <200> but: was <403>
+]]></system-err>
+  </testcase>
+  <testcase name="Test to clear a list" classname="List" time="1.508"/>
+  <testcase name="Test get check that a movie is in a list" classname="List" time="1.524"/>
+  <testcase name="Rate a episode" classname="Rate TV Episose" time="1.88"/>
+  <testcase name="Delete a rating" classname="Rate TV Episose" time="1.893"/>
+  <testcase name="Rate a movie" classname="Rate Movies" time="1.488"/>
+  <testcase name="Delete a rating" classname="Rate Movies" time="1.471"/>
+  <testcase name="Rate a tv show" classname="Rate TV Shows" time="1.467"/>
+  <testcase name="Delete a rating" classname="Rate TV Shows" time="1.516"/>
+  <testcase name="Test check review details" classname="Reviews" time="0.435"/>
+  <testcase name="Test check review details with invalid review id" classname="Reviews" time="0.251"/>
 </testsuite>

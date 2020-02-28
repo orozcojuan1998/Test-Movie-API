@@ -11,8 +11,7 @@ public class ReviewController extends ApiController{
     private Response response;
 
     public ReviewController() {
-        super(new UrlBuilder().addDomain().addPathStep(
-                PropertiesHelper.getValueByKey("url.tv")).build());
+        super();
 
     }
 

@@ -11,7 +11,6 @@ entities\Lists.class
 entities\GuestSessionToken.class
 entities\User.class
 helpers\PropertiesHelper.class
-steps\EmployeesSteps.class
 steps\RateTvShowSteps.class
 entities\ResponseStatus.class
 entities\ListCreation.class
@@ -20,15 +19,13 @@ steps\RateMovieSteps.class
 controllers\RateEpisodeController.class
 controllers\ReviewController.class
 entities\RequestToken.class
-controllers\EmployeeController.class
 entities\ResponseData.class
 controllers\RateMovieController.class
+helpers\BuildUrl.class
 entities\Review.class
 steps\ReviewSteps.class
 steps\RateEpisodeSteps.class
-builders\EmployeeBuilder.class
 controllers\ListController.class
 controllers\GuestAuthController.class
-entities\Employee.class
 runner\TestRunner.class
 helpers\JsonHelper.class

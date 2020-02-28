@@ -1,10 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: runner.TestRunner
 -------------------------------------------------------------------------------
-Tests run: 18, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 36.357 sec <<< FAILURE! - in runner.TestRunner
-Test delete of a list(List)  Time elapsed: 2.133 sec  <<< FAILURE!
+Tests run: 18, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 37.253 sec <<< FAILURE! - in runner.TestRunner
+Test delete of a list(List)  Time elapsed: 2.275 sec  <<< FAILURE!
 java.lang.AssertionError: 
 Error: The request could not be completed
 Expected: "The item/record was updated successfully."
      but: was "Internal error: Something went wrong, contact TMDb."
+
+Test delete a movie from a list(List)  Time elapsed: 1.54 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Error: The status code is not 200
+Expected: <200>
+     but: was <403>
 

@@ -11,8 +11,7 @@ public class RateEpisodeController extends ApiController {
     private Response response;
 
     public RateEpisodeController() {
-        super(new UrlBuilder().addDomain().addPathStep(
-                PropertiesHelper.getValueByKey("url.tv")).build());
+        super();
 
     }
 

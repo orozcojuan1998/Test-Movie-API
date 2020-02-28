@@ -29,10 +29,6 @@ public class JsonHelper {
         return gson.toJson(jsonElement);
     }
 
-    public static Employee[] responseToEmployeeArray(Response response){
-        return gson.fromJson(response.body().print(), Employee[].class);
-    }
-
     public static ResponseData responteToJson (Response response){
         return gson.fromJson(response.getBody().print(), ResponseData.class);
     }

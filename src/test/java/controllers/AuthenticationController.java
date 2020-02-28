@@ -1,6 +1,7 @@
 package controllers;
 
 import builders.UrlBuilder;
+import helpers.BuildUrl;
 import helpers.PropertiesHelper;
 import io.restassured.response.Response;
 
@@ -10,19 +11,14 @@ public class AuthenticationController extends ApiController {
 
     private Response response;
 
+
     public AuthenticationController() {
-        super(new UrlBuilder().addDomain().addPathStep(
-                PropertiesHelper.getValueByKey("url.auth")).build());
+        super();
 
     }
 
     public Response createRequestToken() {
-        URL idUrl = new UrlBuilder().
-                addDomain().
-                addPathStep(PropertiesHelper.getValueByKey("url.auth")).
-                addPathStep(PropertiesHelper.getValueByKey("url.auth.token")).
-                addPathStep(PropertiesHelper.getValueByKey("url.new")).
-                build();
+        URL idUrl = buildUrl.buildAuthToken();
         response = requestSpecification.given().
                 queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).
                 when().
@@ -31,12 +27,7 @@ public class AuthenticationController extends ApiController {
     }
 
     public Response setSessionWithLogin(String body) {
-        URL idUrl = new UrlBuilder().
-                addDomain().
-                addPathStep(PropertiesHelper.getValueByKey("url.auth")).
-                addPathStep(PropertiesHelper.getValueByKey("url.auth.token")).
-                addPathStep(PropertiesHelper.getValueByKey("url.auth.login")).
-                build();
+        URL idUrl = buildUrl.buildAuthSessionToken();
          response = requestSpecification.given().queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).
                     when().
                     body(body).
@@ -50,12 +41,7 @@ public class AuthenticationController extends ApiController {
     }
 
     public Response createNewSession(String body) {
-        URL idUrl = new UrlBuilder().
-                addDomain().
-                addPathStep(PropertiesHelper.getValueByKey("url.auth")).
-                addPathStep(PropertiesHelper.getValueByKey("url.auth.session")).
-                addPathStep(PropertiesHelper.getValueByKey("url.new")).
-                build();
+        URL idUrl = buildUrl.buildAuthSession();
         response = requestSpecification.given().queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).
                 when().
                 body(body).
@@ -65,11 +51,7 @@ public class AuthenticationController extends ApiController {
     }
 
     public Response deleteSession (String body){
-        URL idUrl = new UrlBuilder().
-                addDomain().
-                addPathStep(PropertiesHelper.getValueByKey("url.auth")).
-                addPathStep(PropertiesHelper.getValueByKey("url.auth.session")).
-                build();
+        URL idUrl = buildUrl.buildAuthSessionDelete();
         response = requestSpecification.given().queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).
                 when().
                 body(body).

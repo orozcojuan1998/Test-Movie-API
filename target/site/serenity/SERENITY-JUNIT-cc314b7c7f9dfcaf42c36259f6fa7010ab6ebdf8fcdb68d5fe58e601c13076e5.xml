@@ -1,8 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="List" skipped="0" tests="7" time="11.62" timestamp="2020-02-27 06:46:09"><testcase name="Test get list detail"/><testcase name="Test create a list"/><testcase name="Test delete of a list"><failure message="Error: The request could not be completed&#10;Expected: &quot;The item/record was updated successfully.&quot;&#10;     but: was &quot;Internal error: Something went wrong, contact TMDb.&quot;" type="java.lang.AssertionError">Error: The request could not be completed
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="2" name="List" skipped="0" tests="7" time="11.74" timestamp="2020-02-27 09:23:37"><testcase name="Test get list detail"/><testcase name="Test create a list"/><testcase name="Test delete of a list"><failure message="Error: The request could not be completed&#10;Expected: &quot;The item/record was updated successfully.&quot;&#10;     but: was &quot;Internal error: Something went wrong, contact TMDb.&quot;" type="java.lang.AssertionError">Error: The request could not be completed
 Expected: "The item/record was updated successfully."
      but: was "Internal error: Something went wrong, contact TMDb."</failure><system-err>Error: The request could not be completed
 Expected: "The item/record was updated successfully."
      but: was "Internal error: Something went wrong, contact TMDb."&#13;
 steps.ListSteps.theResponseStatusMessageIs(ListSteps.java:89)&#13;
 ✽.The response status message is "The item/record was updated successfully."(src/test/resources/features/lists.feature:37)&#13;
-</system-err></testcase><testcase name="Test add a movie to a list"/><testcase name="Test delete a movie from a list"/><testcase name="Test to clear a list"/><testcase name="Test get check that a movie is in a list"/></testsuite>
+</system-err></testcase><testcase name="Test add a movie to a list"/><testcase name="Test delete a movie from a list"><failure message="Error: The status code is not 200&#10;Expected: &lt;200&gt;&#10;     but: was &lt;403&gt;" type="java.lang.AssertionError">Error: The status code is not 200
+Expected: &lt;200&gt;
+     but: was &lt;403&gt;</failure><system-err>Error: The status code is not 200
+Expected: &lt;200&gt;
+     but: was &lt;403&gt;&#13;
+steps.GeneralSteps.theServiceRespondsWithAStatusCode(GeneralSteps.java:25)&#13;
+✽.The service responds with a status code "200"(src/test/resources/features/lists.feature:55)&#13;
+</system-err></testcase><testcase name="Test to clear a list"/><testcase name="Test get check that a movie is in a list"/></testsuite>
