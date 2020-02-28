@@ -26,6 +26,9 @@ Feature: Rate Movies
       | 9.0  |
       Then The service responds with a status code "201"
       And The response status message is "Success."
+      And The user send a request to delete the session
+      And The service responds with a status code "200"
+
 
   Scenario: Delete a rating
     Given The movie with data already exist
@@ -34,3 +37,6 @@ Feature: Rate Movies
     When The user send a request to delete the rated movie
     Then The service responds with a status code "200"
     And The response status message is "The item/record was deleted successfully."
+    And The user send a request to delete the session
+    And The service responds with a status code "200"
+
