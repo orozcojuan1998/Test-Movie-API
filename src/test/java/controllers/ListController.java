@@ -52,7 +52,7 @@ public class ListController extends ApiController{
     }
 
     public Response deleteMovie(String listId, String body, String session_id) {
-        URL idUrl = buildUrl.buildAddMovie(listId);
+        URL idUrl = buildUrl.buildDeleteMovie(listId);
         response = requestSpecification.given().queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).
                 and().
                 queryParam("session_id",session_id).when().
