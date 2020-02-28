@@ -20,6 +20,8 @@ Feature: List
     Given The user wants to see the details of a list
     When The user send the request to get the list detail
     Then The response contains the name "This is my great first list" of the list
+    And The user send a request to delete the session
+    And The service responds with a status code "200"
 
   Scenario: Test create a list
     Given The user wants to create a list
@@ -27,6 +29,9 @@ Feature: List
     |name          | description                         |
     | Terror List 6| List of my favorite horror movies 12|
     Then The service responds with a status code "201"
+    And The user send a request to delete the session
+    And The service responds with a status code "200"
+
 
   Scenario: Test delete of a list
     Given The user wants to delete a list
@@ -35,6 +40,9 @@ Feature: List
       | Movies for me List 2| List of my favorite movies 6      |
     And The user send the request to delete the list
     Then The response status message is "The item/record was updated successfully."
+    And The user send a request to delete the session
+    And The service responds with a status code "200"
+
 
   Scenario: Test add a movie to a list
     Given The list already exist with its data
@@ -44,6 +52,9 @@ Feature: List
       |      id_movie           |
       |     109445              |
     Then The service responds with a status code "201"
+    And The user send a request to delete the session
+    And The service responds with a status code "200"
+
 
   Scenario: Test delete a movie from a list
     Given The list already exist with its data
@@ -54,6 +65,9 @@ Feature: List
       |     597                 |
     Then The service responds with a status code "200"
     And The response status message is "The item/record was deleted successfully."
+    And The user send a request to delete the session
+    And The service responds with a status code "200"
+
 
   Scenario: Test to clear a list
     Given The list already exist with its data
@@ -62,6 +76,9 @@ Feature: List
     When The user send the request to clear the list
     Then The service responds with a status code "201"
     And The response status message is "The item/record was updated successfully."
+    And The user send a request to delete the session
+    And The service responds with a status code "200"
+
 
   Scenario: Test get check that a movie is in a list
     Given The list already exist with its data
@@ -72,6 +89,9 @@ Feature: List
       |     500                 |
     Then The service responds with a status code "200"
     And The response contains the field success equals to "true"
+    And The user send a request to delete the session
+    And The service responds with a status code "200"
+
 
 
 
