@@ -100,7 +100,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 27-02-2020 21:23</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 06-03-2020 15:43</span>
     <br style="clear:left"/>
 </div>
     <div class="clr"></div>
@@ -207,7 +207,7 @@
                         </div>
                     </td>
                     <td width="100"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">0.39s</span></td>
+                    <td width="100"><span class="top-level-step">0.87s</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
                     <td width="50" class="step-icon">
@@ -258,7 +258,7 @@
                         </div>
                     </td>
                     <td width="100"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">0.4s</span></td>
+                    <td width="100"><span class="top-level-step">0.88s</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
                     <td width="50" class="step-icon">
@@ -309,7 +309,7 @@
                         </div>
                     </td>
                     <td width="100"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">0.38s</span></td>
+                    <td width="100"><span class="top-level-step">0.87s</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
                     <td width="50" class="step-icon">
@@ -371,7 +371,7 @@
                     <td>
                         <div class="step-description">
                             <span class="top-level-step">
-                                Given The list already exist with its data<br><table class='embedded'><thead><th>id</th></thead><tbody><tr><td>133833</td></tr></tbody></table>
+                                Given The list already exist with its data<br><table class='embedded'><thead><th>id</th></thead><tbody><tr><td>133815</td></tr></tbody></table>
                             </span>
 
                         </div>
@@ -388,24 +388,41 @@
                     <td>
                         <div class="step-description">
                             <span class="top-level-step">
-                                When The user send the request to delete a movie from a list with its data<br><table class='embedded'><thead><th>id_movie</th></thead><tbody><tr><td>597</td></tr></tbody></table>
+                                When The user send the request to delete a movie from a list with its data<br><table class='embedded'><thead><th>id_movie</th></thead><tbody><tr><td>500</td></tr></tbody></table>
                             </span>
 
                         </div>
                     </td>
                     <td width="100"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">0.4s</span></td>
+                    <td width="100"><span class="top-level-step">0.85s</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+                    <td width="50" class="step-icon">
+                        <a name="13"/>
+                            <span style="margin-left: 20px; margin-right: 5px;"
+                                  class="top-level-icon"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></span>
+                    </td>
+                    <td>
+                        <div class="step-description">
+                            <span class="top-level-step">
+                                Then The service responds with a status code "200"
+                            </span>
+
+                        </div>
+                    </td>
+                    <td width="100"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">0s</span></td>
                 </tr>
                 <tr class="test-FAILURE">
                     <td width="50" class="step-icon">
-                        <a name="13"/>
+                        <a name="14"/>
                             <span style="margin-left: 20px; margin-right: 5px;"
                                   class="top-level-icon"><i class='fa fa-times-circle failure-icon ' title='FAILURE'></i></span>
                     </td>
                     <td>
                         <div class="step-description">
                             <span class="top-level-step">
-                                Then The service responds with a status code "200"
+                                And The response status message is "The item/record was deleted successfully."
                             </span>
 
                         </div>
@@ -422,10 +439,10 @@
         <div class="table">
             <div class="row">
                 <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
-                    <span class="error-message error-message-title">java.lang.AssertionError: Error: The status code is not 200<br>Expected: &lt;200&gt;<br>     but: was &lt;403&gt;</span>
+                    <span class="error-message error-message-title">java.lang.AssertionError: Error: The request could not be completed<br>Expected: &quot;The item/record was deleted successfully.&quot;<br>     but: was &quot;Entry not found: The item you are trying to edit cannot be found.&quot;</span>
                 </div>
                 <div class="col-sm-2">
-                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-14""
+                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-15""
                        role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="far fa-eye"></i> More details</a>
                 </div>
              </div>
@@ -435,14 +452,14 @@
     <!-- Details Section -->
     <div class="row stacktrace-details">
       <div class="col">
-        <div class="collapse multi-collapse" id="stacktraceModal-14">
+        <div class="collapse multi-collapse" id="stacktraceModal-15">
             <div class="card">
                 <div class="card-header">
                     <h4>java.lang.AssertionError </h4>
                 </div>
                 <div class="card-body">
                     <div>
-                        <pre>steps.GeneralSteps.theServiceRespondsWithAStatusCode(GeneralSteps.java:25)<br />✽.The service responds with a status code "200"(src/test/resources/features/lists.feature:55)<br /></pre>
+                        <pre>steps.ListSteps.theResponseStatusMessageIs(ListSteps.java:86)<br />✽.The response status message is "The item/record was deleted successfully."(src/test/resources/features/lists.feature:67)<br /></pre>
                     </div>
 
                 </div>
@@ -453,14 +470,31 @@
                     </tr>
                 <tr class="test-SKIPPED">
                     <td width="50" class="step-icon">
-                        <a name="14"/>
+                        <a name="15"/>
                             <span style="margin-left: 20px; margin-right: 5px;"
                                   class="top-level-icon"><i class='fa fa-fast-forward skipped-icon ' title='SKIPPED'></i></span>
                     </td>
                     <td>
                         <div class="step-description">
                             <span class="top-level-step">
-                                And The response status message is "The item/record was deleted successfully."
+                                And The user send a request to delete the session
+                            </span>
+
+                        </div>
+                    </td>
+                    <td width="100"><span class="top-level-step">SKIPPED</span></td>
+                    <td width="100"><span class="top-level-step">0s</span></td>
+                </tr>
+                <tr class="test-SKIPPED">
+                    <td width="50" class="step-icon">
+                        <a name="16"/>
+                            <span style="margin-left: 20px; margin-right: 5px;"
+                                  class="top-level-icon"><i class='fa fa-fast-forward skipped-icon ' title='SKIPPED'></i></span>
+                    </td>
+                    <td>
+                        <div class="step-description">
+                            <span class="top-level-step">
+                                And The service responds with a status code "200"
                             </span>
 
                         </div>
@@ -471,7 +505,7 @@
                 <tr class="test-FAILURE">
                     <td colspan="2"></td>
                     <td width="100"><span class="top-level-step"><em>FAILURE</em></span></td>
-                    <td width="100"><span class="top-level-step"><em>1.59s</em></span></td>
+                    <td width="100"><span class="top-level-step"><em>3.49s</em></span></td>
                 </tr>
 
             </table>

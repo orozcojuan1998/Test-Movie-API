@@ -59,10 +59,10 @@ Feature: List
   Scenario: Test delete a movie from a list
     Given The list already exist with its data
       |      id                 |
-      |     133833              |
+      |     133815              |
     When The user send the request to delete a movie from a list with its data
       |      id_movie           |
-      |     597                 |
+      |     500                 |
     Then The service responds with a status code "200"
     And The response status message is "The item/record was deleted successfully."
     And The user send a request to delete the session

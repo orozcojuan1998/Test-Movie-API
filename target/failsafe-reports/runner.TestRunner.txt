@@ -1,16 +1,34 @@
 -------------------------------------------------------------------------------
 Test set: runner.TestRunner
 -------------------------------------------------------------------------------
-Tests run: 18, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 37.253 sec <<< FAILURE! - in runner.TestRunner
-Test delete of a list(List)  Time elapsed: 2.275 sec  <<< FAILURE!
+Tests run: 18, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 76.209 sec <<< FAILURE! - in runner.TestRunner
+Test create a list(List)  Time elapsed: 4.081 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Error: The status code is not 201
+Expected: <201>
+     but: was <422>
+
+Test delete of a list(List)  Time elapsed: 3.125 sec  <<< FAILURE!
 java.lang.AssertionError: 
 Error: The request could not be completed
 Expected: "The item/record was updated successfully."
      but: was "Internal error: Something went wrong, contact TMDb."
 
-Test delete a movie from a list(List)  Time elapsed: 1.54 sec  <<< FAILURE!
+Test delete a movie from a list(List)  Time elapsed: 3.662 sec  <<< FAILURE!
 java.lang.AssertionError: 
-Error: The status code is not 200
-Expected: <200>
-     but: was <403>
+Error: The request could not be completed
+Expected: "The item/record was deleted successfully."
+     but: was "Entry not found: The item you are trying to edit cannot be found."
+
+Test get check that a movie is in a list(List)  Time elapsed: 3.422 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Error: The request token is unsuccessful
+Expected: <true>
+     but: was <false>
+
+Rate a episode(Rate TV Episose)  Time elapsed: 3.451 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Error: The request could not be completed
+Expected: "Success."
+     but: was "The item/record was updated successfully."
 

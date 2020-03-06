@@ -20,7 +20,7 @@ Feature: Rate TV Episose
   Scenario: Rate a episode
     Given The tv show episode with data already exist
       | id     | season_number | episode_number |
-      | 1425   |        3      |        7       |
+      | 1425   |        3      |         9      |
     When The user send a request to rate the tv show episode with its data
       | value|
       | 9    |
@@ -32,7 +32,7 @@ Feature: Rate TV Episose
   Scenario: Delete a rating
     Given The tv show episode with data already exist
       | id     | season_number | episode_number |
-      | 1425   |        3      |        6       |
+      | 1425   |        3      |        8       |
     When The user send a request to delete the rated tv episode
     Then The service responds with a status code "200"
     And The response status message is "The item/record was deleted successfully."

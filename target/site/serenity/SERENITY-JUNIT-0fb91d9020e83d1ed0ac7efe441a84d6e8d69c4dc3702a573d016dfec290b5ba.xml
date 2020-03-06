@@ -1,1 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Authentication" skipped="0" tests="2" time="6.52" timestamp="2020-02-27 09:23:30"><testcase name="Test Authentication"/><testcase name="Test Delete of session"/></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Authentication" skipped="0" tests="2" time="11.15" timestamp="2020-03-06 03:42:55"><testcase name="Test Authentication"/><testcase name="Test Delete of session"/></testsuite>

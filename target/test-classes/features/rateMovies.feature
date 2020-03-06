@@ -20,17 +20,23 @@ Feature: Rate Movies
     Scenario: Rate a movie
       Given The movie with data already exist
       | id        |
-      | 241554    |
+      |  384018   |
       When The user send a request to rate the movie with its data
       | value|
       | 9.0  |
       Then The service responds with a status code "201"
       And The response status message is "Success."
+      And The user send a request to delete the session
+      And The service responds with a status code "200"
+
 
   Scenario: Delete a rating
     Given The movie with data already exist
       | id       |
-      | 64956    |
+      | 384018    |
     When The user send a request to delete the rated movie
     Then The service responds with a status code "200"
     And The response status message is "The item/record was deleted successfully."
+    And The user send a request to delete the session
+    And The service responds with a status code "200"
+

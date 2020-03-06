@@ -2,7 +2,7 @@
 <failsafe-summary result="255" timeout="false">
   <completed>18</completed>
   <errors>0</errors>
-  <failures>2</failures>
+  <failures>5</failures>
   <skipped>0</skipped>
   <failureMessage/>
 </failsafe-summary>

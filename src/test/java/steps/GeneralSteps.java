@@ -21,6 +21,7 @@ public class GeneralSteps  {
 
     @Then("^The service responds with a status code \"([^\"]*)\"$")
     public void theServiceRespondsWithAStatusCode(String statusCode) {
+        System.out.println("JAVA_HOME:-" + System.getenv("API_KEY"));
         int codeResponse = Serenity.sessionVariableCalled("status");
         Assert.assertThat(String.format("Error: The status code is not %s", statusCode),
                codeResponse, Matchers.equalTo(Integer.parseInt(statusCode)));

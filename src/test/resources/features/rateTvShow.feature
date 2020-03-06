@@ -20,7 +20,7 @@ Feature: Rate TV Shows
   Scenario: Rate a tv show
     Given The tv show with data already exist
       | id      |
-      | 456     |
+      | 60625     |
     When The user send a request to rate the tv show with its data
       | value|
       | 9    |
@@ -33,7 +33,7 @@ Feature: Rate TV Shows
   Scenario: Delete a rating
     Given The tv show with data already exist
       | id      |
-      | 456     |
+      | 60625     |
     When The user send a request to delete the rated tv show
     Then The service responds with a status code "200"
     And The response status message is "The item/record was deleted successfully."
