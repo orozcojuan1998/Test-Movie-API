@@ -82,5 +82,12 @@ public class JsonHelper {
         session.put("session_id",session_id);
         return session;
     }
+
+    public static String setMovieParan(Integer value) {
+        JSONObject movie= new JSONObject();
+        movie.put("media_id",value);
+        return movie.toString();
+
+    }
 }
 

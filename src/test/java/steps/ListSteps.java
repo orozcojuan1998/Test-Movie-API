@@ -97,9 +97,7 @@ public class ListSteps {
         List<Map<String, String>> data = listData.asMaps(String.class, String.class);
         lists.setName("");
         lists.setDescription(data.get(0).get("description"));
-        System.out.println("Nameee : " + lists.getName());
         String body = JsonHelper.objectToJson(lists);
-        System.out.println(body);
         response = listController.createList(body, Serenity.sessionVariableCalled("session_id"),idUrl);
         Serenity.setSessionVariable("status").to(response.getStatusCode());
     }
@@ -111,8 +109,22 @@ public class ListSteps {
 
     @And("^The user send the request to delete the list$")
     public void theUserSendTheRequestToDeleteTheList() {
-        idUrl = buildUrl.buildListDelete(listCreation);
-        ListCreation temporaryList =  Serenity.sessionVariableCalled("list_creation");
+        idUrl = buildUrl.buildListDelete(String.valueOf(listCreation.getList_id()));
+        response = listController.deleteList(Serenity.sessionVariableCalled("session_id"), idUrl);
+        listResponse = JsonHelper.responsetoListResponse(response);
+        Serenity.setSessionVariable("status_message").to(listResponse.getStatus_message());
+    }
+
+    @Given("^The user wants to delete a list with its data$")
+    public void theUserWantsToDeleteAListWithItsData(DataTable listData) {
+        List<Map<String, String>> data = listData.asMaps(String.class, String.class);
+        lists = new Lists();
+        lists.setId(data.get(0).get("id"));
+    }
+
+    @When("^The user send the request to delete the list created$")
+    public void theUserSendTheRequestToDeleteTheListCreated() {
+        idUrl = buildUrl.buildListDelete(String.valueOf(lists.getId()));
         response = listController.deleteList(Serenity.sessionVariableCalled("session_id"), idUrl);
         listResponse = JsonHelper.responsetoListResponse(response);
         Serenity.setSessionVariable("status_message").to(listResponse.getStatus_message());
@@ -120,17 +132,18 @@ public class ListSteps {
 
     @Given("^The list already exist with its data$")
     public void theListAlreadyExistWithItsData(DataTable listData) {
+        lists = new Lists();
         List<Map<String, String>> data = listData.asMaps(String.class, String.class);
-        Serenity.setSessionVariable("listId").to(data.get(0).get("id"));
+        lists.setId(data.get(0).get("id"));
     }
 
     @When("^The user send the request to add a movie to a list with its data$")
     public void theUserSendTheRequestToAddAMovieToAListWithItsData(DataTable movieData) {
-        idUrl = buildUrl.buildAddMovie(Serenity.sessionVariableCalled("listId"));
+        idUrl = buildUrl.buildAddMovie(lists.getId());
         List<Map<String, String>> data = movieData.asMaps(String.class, String.class);
         value = Integer.valueOf(data.get(0).get("id_movie"));
-        String valueBody =  "{\"media_id\""+":"+"\""+value+"\""+"}";
-        response = listController.addMovie(valueBody, Serenity.sessionVariableCalled("session_id"),idUrl);
+        String body = JsonHelper.setMovieParan(value);
+        response = listController.addMovie(body, Serenity.sessionVariableCalled("session_id"),idUrl);
         listResponse = JsonHelper.responsetoListResponse(response);
         Serenity.setSessionVariable("status_message").to(listResponse.getStatus_message());
         Serenity.setSessionVariable("status").to(response.statusCode());
@@ -139,20 +152,27 @@ public class ListSteps {
 
     @When("^The user send the request to delete a movie from a list with its data$")
     public void theUserSendTheRequestToDeleteAMovieFromAListWithItsData(DataTable movieData) {
-        idUrl = buildUrl.buildDeleteMovie(Serenity.sessionVariableCalled("listId"));
+        idUrl = buildUrl.buildDeleteMovie(lists.getId());
         List<Map<String, String>> data = movieData.asMaps(String.class, String.class);
         value = Integer.valueOf(data.get(0).get("id_movie"));
-        String valueBody =  "{\"media_id\""+":"+"\""+value+"\""+"}";
-        response = listController.deleteMovie(valueBody, Serenity.sessionVariableCalled("session_id"),idUrl);
+        String body = JsonHelper.setMovieParan(value);
+        response = listController.deleteMovie(body, Serenity.sessionVariableCalled("session_id"),idUrl);
         listResponse = JsonHelper.responsetoListResponse(response);
         Serenity.setSessionVariable("status_message").to(listResponse.getStatus_message());
         Serenity.setSessionVariable("status").to(response.statusCode());
 
     }
 
+    @Given("^The user has the id of the list to clear$")
+    public void theUserHasTheIdOfTheListToClear(DataTable listData) {
+        lists = new Lists();
+        List<Map<String, String>> data = listData.asMaps(String.class, String.class);
+        lists.setId(data.get(0).get("id"));
+    }
+
     @When("^The user send the request to clear the list$")
     public void theUserSendTheRequestToClearTheList() {
-        idUrl = buildUrl.buildClearList(Serenity.sessionVariableCalled("listId"));
+        idUrl = buildUrl.buildClearList(lists.getId());
         response = listController.clearList(true, Serenity.sessionVariableCalled("session_id"),idUrl);
         listResponse = JsonHelper.responsetoListResponse(response);
         Serenity.setSessionVariable("status_message").to(listResponse.getStatus_message());
@@ -161,7 +181,7 @@ public class ListSteps {
 
     @When("^The user send the request to check if a movie is present in the list with its data$")
     public void theUserSendTheRequestToCheckIfAMovieIsPresentInTheListWithItsData(DataTable movieData) {
-        idUrl = buildUrl.buildCheckItemStatus(Serenity.sessionVariableCalled("listId"));
+        idUrl = buildUrl.buildCheckItemStatus(lists.getId());
         List<Map<String, String>> data = movieData.asMaps(String.class, String.class);
         value = Integer.valueOf(data.get(0).get("id_movie"));
         response = listController.checkItemStatus(value, Serenity.sessionVariableCalled("session_id"),idUrl);

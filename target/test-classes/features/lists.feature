@@ -70,12 +70,21 @@ Feature: List
 
 
   Scenario: Test to clear a list
-    Given The list already exist with its data
+    Given The user has the id of the list to clear
       |      id                 |
       |     134062              |
     When The user send the request to clear the list
     Then The service responds with a status code "201"
     And The response status message is "The item/record was updated successfully."
+    And The user send a request to delete the session
+    And The service responds with a status code "200"
+
+  Scenario: Test to clear a nonexistent list
+    Given The user has the id of the list to clear
+      |      id                 |
+      |     570670              |
+    When The user send the request to clear the list
+    Then The response status message is "The resource you requested could not be found."
     And The user send a request to delete the session
     And The service responds with a status code "200"
 
@@ -98,6 +107,13 @@ Feature: List
         |     787000              |
       When The user send the request to get the list detail
       Then The response status message is "The resource you requested could not be found."
+
+  Scenario: Test delete an nonexistent list
+    Given The user wants to delete a list with its data
+      |      id                 |
+      |     787000              |
+    When The user send the request to delete the list created
+    Then The response status message is "The resource you requested could not be found."
 
   Scenario: Test create a list without session id
     Given The user wants to create a list

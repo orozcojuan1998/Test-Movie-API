@@ -53,10 +53,10 @@ public class DirectorUrl {
                 build();
     }
 
-    public URL buildListDelete (ListCreation listCreation){
+    public URL buildListDelete (String listId){
         return new UrlBuilder().addDomain().
-                addPathStep(PropertiesHelper.getValueByKey("url.list")).
-                addPathStep(String.valueOf(listCreation.getList_id())).
+                addPathStep("list").
+                addPathStep(String.valueOf(listId)).
                 build();
     }
 
