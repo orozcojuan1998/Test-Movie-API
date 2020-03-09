@@ -20,7 +20,7 @@ public class ListController extends ApiController{
     public Response getListDetail() {
         URL idUrl = buildUrl.buildListDetail();
         response = requestSpecification.given()
-        .queryParam("api_key",PropertiesHelper.getValueByKey("api.key"))
+        .queryParam("api_key",System.getenv("API_KEY"))
                 .when().get(idUrl);
 
         return response;
@@ -28,14 +28,14 @@ public class ListController extends ApiController{
 
     public Response createList(String body, String session_id) {
         URL idUrl = buildUrl.buildListCreate();
-        response = requestSpecification.given().queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).and().
+        response = requestSpecification.given().queryParam("api_key",System.getenv("API_KEY")).and().
                 queryParam("session_id",session_id).when().body(body).post(idUrl);
         return response;
     }
 
     public Response deleteList(String session_id, ListCreation listCreation) {
         URL idUrl = buildUrl.buildListDelete(listCreation);
-        response = requestSpecification.given().queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).
+        response = requestSpecification.given().queryParam("api_key",System.getenv("API_KEY")).
                 and().
                 queryParam("session_id",session_id).when().delete(idUrl);
         return response;
@@ -43,7 +43,7 @@ public class ListController extends ApiController{
 
     public Response addMovie(String listId, String body, String session_id) {
         URL idUrl = buildUrl.buildAddMovie(listId);
-        response = requestSpecification.given().queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).
+        response = requestSpecification.given().queryParam("api_key",System.getenv("API_KEY")).
                 and().
                 queryParam("session_id",session_id).when().
                 body(body).
@@ -53,7 +53,7 @@ public class ListController extends ApiController{
 
     public Response deleteMovie(String listId, String body, String session_id) {
         URL idUrl = buildUrl.buildDeleteMovie(listId);
-        response = requestSpecification.given().queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).
+        response = requestSpecification.given().queryParam("api_key",System.getenv("API_KEY")).
                 and().
                 queryParam("session_id",session_id).when().
                 body(body).
@@ -63,7 +63,7 @@ public class ListController extends ApiController{
 
     public Response clearList(String listId, boolean confirm, String session_id) {
         URL idUrl = buildUrl.buildClearList(listId);
-        response = requestSpecification.given().queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).
+        response = requestSpecification.given().queryParam("api_key",System.getenv("API_KEY")).
                 and().
                 queryParam("session_id",session_id).and().queryParam("confirm",confirm).
                 when().
@@ -73,7 +73,7 @@ public class ListController extends ApiController{
 
     public Response checkItemStatus(String listId, Integer value, String session_id) {
         URL idUrl = buildUrl.buildCheckItemStatus(listId);
-        response = requestSpecification.given().queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).
+        response = requestSpecification.given().queryParam("api_key",System.getenv("API_KEY")).
                 and().
                 queryParam("session_id",session_id).and().queryParam("movie_id",value).
                 when().

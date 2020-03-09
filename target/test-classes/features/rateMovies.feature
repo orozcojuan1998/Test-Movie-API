@@ -20,7 +20,7 @@ Feature: Rate Movies
     Scenario: Rate a movie
       Given The movie with data already exist
       | id        |
-      |  384018   |
+      |  581600   |
       When The user send a request to rate the movie with its data
       | value|
       | 9.0  |
@@ -33,7 +33,7 @@ Feature: Rate Movies
   Scenario: Delete a rating
     Given The movie with data already exist
       | id       |
-      | 384018    |
+      | 581600    |
     When The user send a request to delete the rated movie
     Then The service responds with a status code "200"
     And The response status message is "The item/record was deleted successfully."

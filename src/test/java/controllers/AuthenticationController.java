@@ -1,9 +1,8 @@
 package controllers;
 
-import builders.UrlBuilder;
-import helpers.BuildUrl;
 import helpers.PropertiesHelper;
 import io.restassured.response.Response;
+import org.json.JSONObject;
 
 import java.net.URL;
 
@@ -20,7 +19,7 @@ public class AuthenticationController extends ApiController {
     public Response createRequestToken() {
         URL idUrl = buildUrl.buildAuthToken();
         response = requestSpecification.given().
-                queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).
+                queryParam("api_key",System.getenv("API_KEY")).
                 when().
                 get(idUrl);
         return response;
@@ -28,7 +27,7 @@ public class AuthenticationController extends ApiController {
 
     public Response setSessionWithLogin(String body) {
         URL idUrl = buildUrl.buildAuthSessionToken();
-         response = requestSpecification.given().queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).
+         response = requestSpecification.given().queryParam("api_key",System.getenv("API_KEY")).
                     when().
                     body(body).
                     post(idUrl);
@@ -40,21 +39,21 @@ public class AuthenticationController extends ApiController {
         return response;
     }
 
-    public Response createNewSession(String body) {
+    public Response createNewSession(JSONObject body) {
         URL idUrl = buildUrl.buildAuthSession();
-        response = requestSpecification.given().queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).
+        response = requestSpecification.given().queryParam("api_key",System.getenv("API_KEY")).
                 when().
-                body(body).
+                body(body.toString()).
                 post(idUrl);
 
         return response;
     }
 
-    public Response deleteSession (String body){
+    public Response deleteSession (JSONObject body){
         URL idUrl = buildUrl.buildAuthSessionDelete();
-        response = requestSpecification.given().queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).
+        response = requestSpecification.given().queryParam("api_key",System.getenv("API_KEY")).
                 when().
-                body(body).
+                body(body.toString()).
                 delete(idUrl);
         return response;
     }

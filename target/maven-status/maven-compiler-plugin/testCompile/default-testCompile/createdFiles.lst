@@ -5,6 +5,7 @@ controllers\AuthenticationController.class
 entities\SessionData.class
 builders\UrlBuilder.class
 controllers\ApiController.class
+helpers\DirectorUrl.class
 controllers\RateTvController.class
 steps\ListSteps.class
 entities\Lists.class
@@ -21,7 +22,6 @@ controllers\ReviewController.class
 entities\RequestToken.class
 entities\ResponseData.class
 controllers\RateMovieController.class
-helpers\BuildUrl.class
 entities\Review.class
 steps\ReviewSteps.class
 steps\RateEpisodeSteps.class

@@ -5,9 +5,9 @@ import entities.ListCreation;
 
 import java.net.URL;
 
-public class BuildUrl {
+public class DirectorUrl {
 
-    public BuildUrl(){}
+    public DirectorUrl(){}
 
     public URL buildAuthToken (){
         return new UrlBuilder().addDomain().

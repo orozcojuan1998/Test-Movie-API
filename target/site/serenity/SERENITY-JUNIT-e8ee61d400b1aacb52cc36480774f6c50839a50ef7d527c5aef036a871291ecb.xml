@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Rate Movies" skipped="0" tests="2" time="8.7" timestamp="2020-03-06 03:43:43"><testcase name="Rate a movie"/><testcase name="Delete a rating"/></testsuite>

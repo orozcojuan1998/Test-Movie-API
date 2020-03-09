@@ -1,4 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"List","Test get list detail","SUCCESS","2020-03-06T15:43:07.279-05:00[America/Bogota]","0.0","4.51"
-"List","Test add a movie to a list","SUCCESS","2020-03-06T15:43:20.421-05:00[America/Bogota]","0.0","4.41"
-"List","Test to clear a list","SUCCESS","2020-03-06T15:43:28.328-05:00[America/Bogota]","0.0","4.34"

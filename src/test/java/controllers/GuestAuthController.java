@@ -23,7 +23,7 @@ public class GuestAuthController extends ApiController {
 
     public Response createGuestToken() {
         URL idUrl = buildUrl.buildAuthSessionGuest();
-        response = requestSpecification.given().queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).
+        response = requestSpecification.given().queryParam("api_key",System.getenv("API_KEY")).
                 when().
                 get(idUrl);
         return response;

@@ -1,5 +1,6 @@
 package steps;
 
+import com.google.gson.JsonObject;
 import controllers.AuthenticationController;
 import controllers.GuestAuthController;
 import cucumber.api.java.en.And;
@@ -15,6 +16,7 @@ import helpers.PropertiesHelper;
 import io.restassured.response.Response;
 import net.serenitybdd.core.Serenity;
 import org.hamcrest.Matchers;
+import org.json.JSONObject;
 import org.junit.Assert;
 
 public class AuthenticationSteps {
@@ -23,6 +25,7 @@ public class AuthenticationSteps {
     private Response response;
     private User user;
     private GuestSessionToken guestSessionToken;
+    private String requestTokenNew;
     private AuthenticationController authenticationController = new AuthenticationController();
     private GuestAuthController guestAuthController = GuestAuthController.GetGuestAuthController();
 
@@ -34,6 +37,15 @@ public class AuthenticationSteps {
     @When("^The user send a request to create the request token$")
     public void theUserSendARequestToCreateTheRequestToken() {
         response = authenticationController.createRequestToken();
+    }
+
+    @Then("^The token is generated$")
+    public void theTokenIsGenerated() {
+        requestToken = JsonHelper.responseRequestTokenToJson(response);
+        requestTokenNew = requestToken.getRequestToken();
+        Serenity.setSessionVariable("request_token").to(requestToken.getRequestToken());
+        Serenity.setSessionVariable("success").to(requestToken.isSuccess());
+
     }
 
     @And("^The response contains the request token$")
@@ -49,7 +61,7 @@ public class AuthenticationSteps {
 
     @When("^The user send a request to create the session with login$")
     public void theUserSendARequestToCreateTheSessionWithLogin() {
-        String body = JsonHelper.createSessionBody(user,(String)Serenity.sessionVariableCalled("request_token"));
+        String body = JsonHelper.createSessionBody(user,requestToken.getRequestToken());
         response = authenticationController.setSessionWithLogin(body);
     }
 
@@ -62,7 +74,8 @@ public class AuthenticationSteps {
     @When("^The user send a request to session$")
     public void theUserSendARequestToSession() {
         String requestTokenCurrent = (String) Serenity.sessionVariableCalled("request_token");
-        String body = "{\"request_token\""+":"+"\""+requestTokenCurrent+"\""+"}";
+        JSONObject body = JsonHelper.setRequestParam(requestTokenCurrent);
+        System.out.println(body.toString());
         response = authenticationController.createNewSession(body);
 
     }
@@ -71,17 +84,12 @@ public class AuthenticationSteps {
     public void theSessionIsGenerated() {
         sessionData = JsonHelper.sessionToResponse(response);
         Serenity.setSessionVariable("session_id").to(sessionData.getSession_id());
-        Serenity.setSessionVariable("success_session").to(sessionData.isSuccess());
         Serenity.setSessionVariable("status").to(response.statusCode());
-    }
-
-    @And("^The response contains the session id$")
-    public void theResponseContainsTheSessionId() {
-        Boolean key = Serenity.sessionVariableCalled("success_session");
-        Assert.assertThat("Error: The request token is empty",
+        Boolean key = sessionData.isSuccess();
+        Assert.assertThat("Error: The authentication can not be created",
                 key,  Matchers.equalTo(Boolean.TRUE));
-
     }
+
 
     @And("^The response contains the field success equals to \"([^\"]*)\"$")
     public void theResponseContainsTheFieldSuccessEqualsTo(String success) {
@@ -91,21 +99,11 @@ public class AuthenticationSteps {
     }
 
 
-    @Then("^The token is generated$")
-    public void theTokenIsGenerated() {
-        requestToken = JsonHelper.responseRequestTokenToJson(response);
-        Serenity.setSessionVariable("request_token").to(requestToken.getRequestToken());
-        Serenity.setSessionVariable("success").to(requestToken.isSuccess());
-
-    }
-
     @When("^The user send a request to delete the session$")
     public void theUserSendARequestToDeleteTheSession() {
-        String jsonBody = (String) Serenity.sessionVariableCalled("session_id");
-        String body =  "{\"session_id\""+":"+"\""+jsonBody+"\""+"}";
+        JSONObject body = JsonHelper.setSessionParam(sessionData.getSession_id());
         response = authenticationController.deleteSession(body);
         Serenity.setSessionVariable("status").to(response.statusCode());
-
     }
 
 
@@ -120,7 +118,5 @@ public class AuthenticationSteps {
         response = guestAuthController.createGuestToken();
         guestSessionToken = JsonHelper.guestSessionToken(response);
         Serenity.setSessionVariable("success").to(guestSessionToken.isSuccess());
-        Serenity.setSessionVariable("status").to(response.statusCode());
-
     }
 }

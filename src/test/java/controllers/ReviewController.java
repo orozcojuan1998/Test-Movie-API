@@ -21,9 +21,8 @@ public class ReviewController extends ApiController{
                 addPathStep(reviewId).
                 build();
         response = requestSpecification.given().
-                    queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).
+                    queryParam("api_key",System.getenv("API_KEY")).
                     when().get(idUrl);
-
         return response;
     }
 }

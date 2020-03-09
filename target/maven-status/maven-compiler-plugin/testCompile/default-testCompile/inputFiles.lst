@@ -1,7 +1,6 @@
 C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\controllers\RateTvController.java
 C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\steps\RateTvShowSteps.java
 C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\helpers\PropertiesHelper.java
-C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\helpers\BuildUrl.java
 C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\controllers\ReviewController.java
 C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\entities\ListCreation.java
 C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\entities\ResponseBody.java
@@ -23,6 +22,7 @@ C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\steps\RateMovieSteps.java
 C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\steps\ReviewSteps.java
 C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\entities\SessionData.java
 C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\entities\Review.java
+C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\helpers\DirectorUrl.java
 C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\controllers\AuthenticationController.java
 C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\controllers\RateEpisodeController.java
 C:\Users\jorozco\IdeaProjects\Movie-API\src\test\java\steps\AuthenticationSteps.java

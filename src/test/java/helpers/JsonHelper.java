@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import entities.*;
 import io.restassured.response.Response;
+import org.json.JSONObject;
 
 public class JsonHelper {
 
@@ -68,6 +69,18 @@ public class JsonHelper {
 
     public static Review responseToReview(Response response) {
         return gson.fromJson(response.getBody().print(), Review.class);
+    }
+
+    public static JSONObject setRequestParam(String requestToken){
+        JSONObject token= new JSONObject();
+        token.put("request_token",requestToken);
+        return token;
+    }
+
+    public static JSONObject setSessionParam(String session_id) {
+        JSONObject session= new JSONObject();
+        session.put("session_id",session_id);
+        return session;
     }
 }
 

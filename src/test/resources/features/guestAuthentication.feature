@@ -6,5 +6,4 @@ Feature: Guest Authentication
   Scenario: Test Guest Session Authentication
     Given A new guest session needs to be created
     When The guest sends the request to create the session
-    Then The service responds with a status code "200"
-    And The response contains the field success equals to "true"
+    Then The response contains the field success equals to "true"

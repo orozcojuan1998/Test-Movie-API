@@ -25,7 +25,7 @@ public class RateEpisodeController extends ApiController {
                 addPathStep(episodeNumber).
                 addPathStep( PropertiesHelper.getValueByKey("url.rating")).
                 build();
-        response = requestSpecification.given().queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).
+        response = requestSpecification.given().queryParam("api_key",System.getenv("API_KEY")).
                 and().queryParam("session_id",session_id).
                 when().
                 body(value).
@@ -44,7 +44,7 @@ public class RateEpisodeController extends ApiController {
                 addPathStep(episodeNumber).
                 addPathStep( PropertiesHelper.getValueByKey("url.rating")).
                 build();
-        response = requestSpecification.given().queryParam("api_key",PropertiesHelper.getValueByKey("api.key")).
+        response = requestSpecification.given().queryParam("api_key",System.getenv("API_KEY")).
                 and().queryParam("session_id",session_id).
                 when().
                 delete(idUrl);
