@@ -166,6 +166,7 @@ public class AuthenticationSteps {
         response = guestAuthController.createGuestToken(idUrl);
         guestSessionToken = JsonHelper.guestSessionToken(response);
         Serenity.setSessionVariable("success").to(guestSessionToken.isSuccess());
+        Serenity.setSessionVariable("guest_session_id").to(guestSessionToken.guest_session_id);
     }
 
     @When("^The guest sends the request to create the session with invalid data$")

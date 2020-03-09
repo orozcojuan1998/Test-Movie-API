@@ -1,0 +1,3 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Guest Authentication","Test Guest Session Authentication","SUCCESS","2020-03-09T17:33:41.373-05:00[America/Bogota]","0.0","0.91"
+"Guest Authentication","Test Guest Session Authentication with invalid API KEY","SUCCESS","2020-03-09T17:33:42.281-05:00[America/Bogota]","0.0","0.9"

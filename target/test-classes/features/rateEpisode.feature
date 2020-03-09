@@ -17,7 +17,7 @@ Feature: Rate TV Episose
   Scenario: Test Rate a tv show episode
     Given The tv show episode with data already exist
       | id     | season_number | episode_number |
-      | 2190   |        22      |       11      |
+      | 2190   |        21      |       10      |
     When The user send a request to rate the tv show episode with its data
       | value|
       | 9    |
@@ -28,7 +28,7 @@ Feature: Rate TV Episose
   Scenario: Test Delete a tv show episode rating
     Given The tv show episode with data already exist
       | id     | season_number | episode_number |
-      | 2190   |        22     |        10      |
+      | 2190   |        21     |        10      |
     When The user send a request to delete the rated tv episode
     Then The response status message is "The item/record was deleted successfully."
     And The user send a request to delete the session

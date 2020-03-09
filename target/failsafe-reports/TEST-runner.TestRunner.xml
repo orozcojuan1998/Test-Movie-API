@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="runner.TestRunner" time="41.474" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="runner.TestRunner" time="174.735" tests="49" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_241\jre\bin"/>
@@ -64,10 +64,89 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="Rate a movie" classname="Rate Movies" time="8.774"/>
-  <testcase name="Delete a rating of a movie" classname="Rate Movies" time="5.125"/>
-  <testcase name="Rate a movie with a higher rating than accepted" classname="Rate Movies" time="5.215"/>
-  <testcase name="Rate a movie with a lower rating than accepted" classname="Rate Movies" time="5.175"/>
-  <testcase name="Rate a movie with a rating not multiple of 0.50" classname="Rate Movies" time="5.145"/>
-  <testcase name="Rate a movie with invalid movie id" classname="Rate Movies" time="5.151"/>
+  <testcase name="Test Authentication" classname="Authentication" time="6.051"/>
+  <testcase name="Test Delete of session" classname="Authentication" time="3.533"/>
+  <testcase name="Test Token Creation with invalid API KEY" classname="Authentication" time="0.88"/>
+  <testcase name="Test Token Creation with invalid API KEY" classname="Authentication" time="0.877"/>
+  <testcase name="Test Validate Token Creation with invalid username" classname="Authentication" time="1.78"/>
+  <testcase name="Test Validate Token Creation with invalid password" classname="Authentication" time="1.692"/>
+  <testcase name="Test Validate Token Creation with empty username" classname="Authentication" time="1.693"/>
+  <testcase name="Test Validate Token Creation with empty password" classname="Authentication" time="1.688"/>
+  <testcase name="Test Guest Session Authentication" classname="Guest Authentication" time="0.875"/>
+  <testcase name="Test Guest Session Authentication with invalid API KEY" classname="Guest Authentication" time="0.87"/>
+  <testcase name="Test get list detail" classname="List" time="4.413"/>
+  <testcase name="Test create a list" classname="List" time="4.297"/>
+  <testcase name="Test delete of a list" classname="List" time="4.789">
+    <failure message="Error: The request could not be completed&#10;Expected: &quot;The item/record was updated successfully.&quot;&#10;     but: was &quot;Internal error: Something went wrong, contact TMDb.&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
+Error: The request could not be completed
+Expected: "The item/record was updated successfully."
+     but: was "Internal error: Something went wrong, contact TMDb."
+</failure>
+    <system-out><![CDATA[{"success":true,"expires_at":"2020-03-09 23:33:47 UTC","request_token":"d03046c79f93d59e8a1e3603ac32741fce390bac"}
+{"username":"ingjuanorozco","password":"juandaviD1","request_token":"d03046c79f93d59e8a1e3603ac32741fce390bac"}
+{"request_token":"d03046c79f93d59e8a1e3603ac32741fce390bac"}
+{"success":true,"session_id":"1be8dcf00685935ae9652146d03b54d62eaf1a2a"}
+{"status_code":1,"status_message":"The item/record was created successfully.","success":true,"list_id":135190}
+{"status_code":11,"status_message":"Internal error: Something went wrong, contact TMDb."}
+]]></system-out>
+    <system-err><![CDATA[[main] INFO net.thucydides.core.steps.ConsoleLoggingListener - 
+ _____ _____ ____ _____   ____ _____  _    ____ _____ _____ ____  
+|_   _| ____/ ___|_   _| / ___|_   _|/ \  |  _ \_   _| ____|  _ \ 
+  | | |  _| \___ \ | |   \___ \ | | / _ \ | |_) || | |  _| | | | |
+  | | | |___ ___) || |    ___) || |/ ___ \|  _ < | | | |___| |_| |
+  |_| |_____|____/ |_|   |____/ |_/_/   \_\_| \_\|_| |_____|____/ 
+                                                                  
+
+TEST STARTED: Test delete of a list
+-------------------------------------------------------------------(list;test-delete-of-a-list)
+[main] ERROR net.thucydides.core.steps.ConsoleLoggingListener - 
+           __  _____ _____ ____ _____   _____ _    ___ _     _____ ____  
+  _       / / |_   _| ____/ ___|_   _| |  ___/ \  |_ _| |   | ____|  _ \ 
+ (_)_____| |    | | |  _| \___ \ | |   | |_ / _ \  | || |   |  _| | | | |
+  _|_____| |    | | | |___ ___) || |   |  _/ ___ \ | || |___| |___| |_| |
+ (_)     | |    |_| |_____|____/ |_|   |_|/_/   \_\___|_____|_____|____/ 
+          \_\                                                            
+
+TEST FAILED: Test delete of a list
+--------------------------------------------------------------------------
+[main] ERROR net.thucydides.core.steps.ConsoleLoggingListener - TEST FAILED AT STEP Then The response status message is "The item/record was updated successfully."
+[main] ERROR net.thucydides.core.steps.ConsoleLoggingListener - Error: The request could not be completedExpected: "The item/record was updated successfully." but: was "Internal error: Something went wrong, contact TMDb."
+]]></system-err>
+  </testcase>
+  <testcase name="Test add a movie to a list" classname="List" time="4.32"/>
+  <testcase name="Test delete a movie from a list" classname="List" time="4.235"/>
+  <testcase name="Test to clear a list" classname="List" time="4.773"/>
+  <testcase name="Test to clear a nonexistent list" classname="List" time="4.26"/>
+  <testcase name="Test get check that a movie is in a list" classname="List" time="4.274"/>
+  <testcase name="Test get details of a nonexistent list" classname="List" time="3.395"/>
+  <testcase name="Test delete an nonexistent list" classname="List" time="3.385"/>
+  <testcase name="Test create a list without session id" classname="List" time="4.433"/>
+  <testcase name="Test create a list without name" classname="List" time="4.289"/>
+  <testcase name="Test Rate a tv show episode" classname="Rate TV Episose" time="5.382"/>
+  <testcase name="Test Delete a tv show episode rating" classname="Rate TV Episose" time="4.243"/>
+  <testcase name="Test to rate a tv show episode with a rating not multiple of 0.50" classname="Rate TV Episose" time="4.144"/>
+  <testcase name="Test to rate a tv show episode with a greater rating than accepted" classname="Rate TV Episose" time="4.069"/>
+  <testcase name="Test to rate a tv show episode with a lower rating than accepted" classname="Rate TV Episose" time="4.154"/>
+  <testcase name="Test Rate a tv show with invalid episode" classname="Rate TV Episose" time="4.351"/>
+  <testcase name="Test Rate a tv show with invalid API KEY" classname="Rate TV Episose" time="4.138"/>
+  <testcase name="Rate a movie" classname="Rate Movies" time="4.422"/>
+  <testcase name="Rate a movie" classname="Rate Movies" time="1.852"/>
+  <testcase name="Delete a rating of a movie" classname="Rate Movies" time="4.229"/>
+  <testcase name="Delete a rating of a movie" classname="Rate Movies" time="1.629"/>
+  <testcase name="Rate a movie with a higher rating than accepted" classname="Rate Movies" time="4.177"/>
+  <testcase name="Rate a movie with a higher rating than accepted" classname="Rate Movies" time="1.688"/>
+  <testcase name="Rate a movie with a lower rating than accepted" classname="Rate Movies" time="4.191"/>
+  <testcase name="Rate a movie with a lower rating than accepted" classname="Rate Movies" time="1.628"/>
+  <testcase name="Rate a movie with a rating not multiple of 0.50" classname="Rate Movies" time="4.271"/>
+  <testcase name="Rate a movie with a rating not multiple of 0.50" classname="Rate Movies" time="1.689"/>
+  <testcase name="Rate a movie with invalid movie id" classname="Rate Movies" time="4.263"/>
+  <testcase name="Rate a movie with invalid movie id" classname="Rate Movies" time="1.866"/>
+  <testcase name="Rate a tv show" classname="Rate TV Shows" time="4.319"/>
+  <testcase name="Delete a rating" classname="Rate TV Shows" time="4.238"/>
+  <testcase name="Rate a tv show with a higher rating than accepted" classname="Rate TV Shows" time="4.165"/>
+  <testcase name="Rate a tv show with a lower rating than accepted" classname="Rate TV Shows" time="4.271"/>
+  <testcase name="Rate a tv show with a rating not multiple of 0.50" classname="Rate TV Shows" time="4.327"/>
+  <testcase name="Rate a tv show with invalid id" classname="Rate TV Shows" time="4.275"/>
+  <testcase name="Test check review details" classname="Reviews" time="0.821"/>
+  <testcase name="Test check review details with invalid review id" classname="Reviews" time="0.717"/>
 </testsuite>

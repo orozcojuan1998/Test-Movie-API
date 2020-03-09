@@ -103,7 +103,7 @@
             $("#requirements-tabs").tabs();
             $("#test-tabs").tabs();
 
-            var requirementsTree = [{"text":"Reviews","type":"feature","href":"11eec9675d05a7a9af389d84c0696d46a4cf5c1806c09a7c17c9df52ba1c791e.html","nodes":[],"selectable":false,"tags":["",""]}];
+            var requirementsTree = [{"text":"Reviews","type":"feature","href":"11eec9675d05a7a9af389d84c0696d46a4cf5c1806c09a7c17c9df52ba1c791e.html","nodes":[],"selectable":false,"tags":["","\u003cspan class\u003d\u0027feature-count\u0027\u003e2 scenarios\u003c/span\u003e"]}];
 
             $('#tree').treeview({
                 data: requirementsTree,
@@ -172,7 +172,7 @@
             <a href="#"><i class="fa fa-comments-o"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated </span>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 09-03-2020 17:36</span>
     <br style="clear:left"/>
 </div>
 
@@ -240,10 +240,20 @@ the reviews in the system
                                                                 <table>
                                                                     <tr>
                                                                         <td>
-                                                                            
-                                                                            
+                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                               href="8aeb8f7561b6b38614c16267a715a84f456eb491b66ff0ac4ddcf0d9c66c7b95.html"
+                                                                               title="View test results">
+                                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                                            </a>
 
                                                                         
+                                                                        </td>
+                                                                        <td>
+                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                               href="8aeb8f7561b6b38614c16267a715a84f456eb491b66ff0ac4ddcf0d9c66c7b95.html"
+                                                                               title="View test results">
+                                                                                <i class="fas fa-search-plus"></i>
+                                                                            </a>
                                                                         </td>
                                                                     </tr>
                                                                 </table>
@@ -259,10 +269,20 @@ the reviews in the system
                                                                 <table>
                                                                     <tr>
                                                                         <td>
-                                                                            
-                                                                            
+                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                               href="e8cdef795cee5608a08992ce272344688535e407b26e1d001a355a3f938d5ce0.html"
+                                                                               title="View test results">
+                                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                                            </a>
 
                                                                         
+                                                                        </td>
+                                                                        <td>
+                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                               href="e8cdef795cee5608a08992ce272344688535e407b26e1d001a355a3f938d5ce0.html"
+                                                                               title="View test results">
+                                                                                <i class="fas fa-search-plus"></i>
+                                                                            </a>
                                                                         </td>
                                                                     </tr>
                                                                 </table>
@@ -276,16 +296,15 @@ the reviews in the system
 
 
                                                 <div class="scenario-docs card" id="72bffcab250922ca673312779b77cb7a37205240dd193fa3e77a79cf5d97e335">
-                                                    <div class="scenario-docs card-header undefined" style="min-height:1.5em;">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
                                                         <div>
                                                             <span class="scenario-heading">
-                                                                <a href="" title="View test results">Test check review details</a>
+                                                                <a href="8aeb8f7561b6b38614c16267a715a84f456eb491b66ff0ac4ddcf0d9c66c7b95.html" title="View test results">Test check review details</a>
                                                             </span>
                                                             <span class="scenario-result-icon">
                                                                 
 
-                                                                    <i class="fas fa-pause"
-                                                                       title="No test has been implemented yet"></i>
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
                                                             </span>
                                                         </div>
                                                     </div>
@@ -309,16 +328,15 @@ the reviews in the system
 
 
                                                 <div class="scenario-docs card" id="501e6255a3ceb849790eb46e870fa220d6f52378121c0b2aff302c8f5a3b1dfb">
-                                                    <div class="scenario-docs card-header undefined" style="min-height:1.5em;">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
                                                         <div>
                                                             <span class="scenario-heading">
-                                                                <a href="" title="View test results">Test check review details with invalid review id</a>
+                                                                <a href="e8cdef795cee5608a08992ce272344688535e407b26e1d001a355a3f938d5ce0.html" title="View test results">Test check review details with invalid review id</a>
                                                             </span>
                                                             <span class="scenario-result-icon">
                                                                 
 
-                                                                    <i class="fas fa-pause"
-                                                                       title="No test has been implemented yet"></i>
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
                                                             </span>
                                                         </div>
                                                     </div>
@@ -347,7 +365,41 @@ the reviews in the system
                             <div id="results" class="tab-pane fade">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-4">
+
+                                            <div style="width:300px;" class="chart-container automated-and-manual-results">
+                                                <div class="ct-chart ct-square"></div>
+                                            </div>
+                                            <script>
+
+                                                var labels = ['100%', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+                                                // Our series array that contains series objects or in this case series data arrays
+
+                                                var series = [{meta: 'Passing tests (automated)', value: 2}, {meta: 'Passing tests (manual)', value: 0}, {meta: 'Pending tests (automated)', value: 0}, {meta: 'Pending tests (manual)', value: 0}, {meta: 'Ignored tests (automated)', value: 0}, {meta: 'Ignored tests (manual)', value: 0}, {meta: 'Skipped tests (automated)', value: 0}, {meta: 'Skipped tests (manual)', value: 0}, {meta: 'Failing tests (automated)', value: 0}, {meta: 'Failing tests (manual)', value: 0}, {meta: 'Broken tests (automated)', value: 0}, {meta: 'Broken tests (manual)', value: 0}, {meta: 'Compromised tests (automated)', value: 0}, {meta: 'Compromised tests (manual)', value: 0}];
+
+                                                // As options we currently only set a static size of 300x200 px. We can also omit this and use aspect ratio containers
+                                                // as you saw in the previous example
+                                                var options = {
+                                                    width: 350,
+                                                    height: 300
+                                                };
+
+                                                $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                                                    new Chartist.Pie('.ct-chart', {
+                                                        series: series,
+                                                        labels: labels,
+                                                    }, {
+                                                        donut: true,
+                                                        donutWidth: 60,
+                                                        donutSolid: true,
+                                                        startAngle: 270,
+                                                        showLabel: true
+                                                    }, options);
+                                                });
+
+                                            </script>
+                                        </div>
+                                        <div class="col-sm-8">
 
                                         <table class="table">
                                             <thead>
@@ -360,11 +412,12 @@ the reviews in the system
                                             </thead>
                                             <tbody>
                                             <tr>
-                                                                    <td class="aggregate-result-count"><i
-                                                                            class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing
+                                                                    <td class="aggregate-result-count">
+                                                                        <a href="b50d62ab5148067f3b9883055e3fc0c59711401e1038d552c7d3d6141ab47bd1.html"><i
+                                                                                class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing</a>
                                                                     </td>
-                                                <td class="automated-stats">0</td>
-                                                <td class="automated-stats"> </td>
+                                                <td class="automated-stats">2</td>
+                                                <td class="automated-stats">100%</td>
                                             </tr>
                                             <tr>
                                                                     <td class="aggregate-result-count"><i
@@ -418,7 +471,7 @@ the reviews in the system
                                             </tr>
                                             <tr class="summary-stats">
                                                 <td class="aggregate-result-count">Total</td>
-                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats">2</td>
                                                 <td class="automated-stats"></td>
                                             </tr>
                                             </tbody>
@@ -440,11 +493,11 @@ the reviews in the system
                                                     </thead>
                                                     <tbody>
                                                     <tr>
-                                                        <td>0ms</td>
-                                                        <td>0ms</td>
-                                                        <td>0ms</td>
-                                                        <td>0ms</td>
-                                                        <td>0ms</td>
+                                                        <td>1s</td>
+                                                        <td>801ms</td>
+                                                        <td>800ms</td>
+                                                        <td>830ms</td>
+                                                        <td>815ms</td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
@@ -467,28 +520,28 @@ the reviews in the system
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr class="scenario-result UNDEFINED">
+                                                <tr class="scenario-result SUCCESS">
                                                     <td>
-                                                            Test check review details
+                                                            <a href="8aeb8f7561b6b38614c16267a715a84f456eb491b66ff0ac4ddcf0d9c66c7b95.html">Test check review details</a>
                                                     </td>
                                                     <td>3</td>
                                                     <td> </td>
                                                     <td> </td>
                                                     <td>
-                                                            <i class="fas fa-pause"
-                                                               title="No test has been implemented yet"></i>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
                                                     </td>
                                                 </tr>
-                                                <tr class="scenario-result UNDEFINED">
+                                                <tr class="scenario-result SUCCESS">
                                                     <td>
-                                                            Test check review details with invalid review id
+                                                            <a href="e8cdef795cee5608a08992ce272344688535e407b26e1d001a355a3f938d5ce0.html">Test check review details with invalid review id</a>
                                                     </td>
                                                     <td>3</td>
                                                     <td> </td>
                                                     <td> </td>
                                                     <td>
-                                                            <i class="fas fa-pause"
-                                                               title="No test has been implemented yet"></i>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
                                                     </td>
                                                 </tr>
                                                 </tbody>

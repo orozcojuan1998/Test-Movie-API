@@ -1,0 +1,8 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Rate TV Episose","Test Rate a tv show episode","SUCCESS","2020-03-09T17:34:34.579-05:00[America/Bogota]","0.0","5.43"
+"Rate TV Episose","Test Delete a tv show episode rating","SUCCESS","2020-03-09T17:34:40.012-05:00[America/Bogota]","0.0","4.29"
+"Rate TV Episose","Test to rate a tv show episode with a rating not multiple of 0.50","SUCCESS","2020-03-09T17:34:44.305-05:00[America/Bogota]","0.0","4.19"
+"Rate TV Episose","Test to rate a tv show episode with a greater rating than accepted","SUCCESS","2020-03-09T17:34:48.494-05:00[America/Bogota]","0.0","4.13"
+"Rate TV Episose","Test to rate a tv show episode with a lower rating than accepted","SUCCESS","2020-03-09T17:34:52.62-05:00[America/Bogota]","0.0","4.22"
+"Rate TV Episose","Test Rate a tv show with invalid episode","SUCCESS","2020-03-09T17:34:56.836-05:00[America/Bogota]","0.0","4.39"
+"Rate TV Episose","Test Rate a tv show with invalid API KEY","SUCCESS","2020-03-09T17:35:01.232-05:00[America/Bogota]","0.0","4.19"

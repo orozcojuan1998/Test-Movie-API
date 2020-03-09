@@ -28,7 +28,6 @@ Feature: List
     When The user send the request to create the list with its data
     |name          | description                         |
     | Terror List 9| List of my favorite horror movies 14|
-    Then The service responds with a status code "201"
     And The user send a request to delete the session
     And The service responds with a status code "200"
 
@@ -51,8 +50,8 @@ Feature: List
     When The user send the request to add a movie to a list with its data
       |      id_movie           |
       |     419704              |
-    Then The service responds with a status code "201"
-    And The user send a request to delete the session
+    Then The response status message is "The item/record was updated successfully."
+    Then The user send a request to delete the session
     And The service responds with a status code "200"
 
 
@@ -63,8 +62,7 @@ Feature: List
     When The user send the request to delete a movie from a list with its data
       |      id_movie           |
       |     419704              |
-    Then The service responds with a status code "200"
-    And The response status message is "The item/record was deleted successfully."
+    Then The response status message is "The item/record was deleted successfully."
     And The user send a request to delete the session
     And The service responds with a status code "200"
 

@@ -22,23 +22,24 @@ public class RateMovieSteps {
     private Response response;
     private Double value;
     private URL idUrl;
+    private String movieId;
     private DirectorUrl buildUrl = new DirectorUrl();
     private RateMovieController  rateMovieController= new RateMovieController();
 
     @Given("^The movie with data already exist$")
     public void theMovieWithDataAlreadyExist(DataTable movieData) {
         List<Map<String, String>> data = movieData.asMaps(String.class, String.class);
-        Serenity.setSessionVariable("movie_id").to(data.get(0).get("id"));
+        movieId = data.get(0).get("id");
 
 
     }
 
     @When("^The user send a request to rate the movie with its data$")
     public void theUserSendARequestToRateTheMovie(DataTable valueData) {
-        idUrl = buildUrl.buildRateMovie(Serenity.sessionVariableCalled("movie_id"));
+        idUrl = buildUrl.buildRateMovie(movieId);
         List<Map<String, String>> data = valueData.asMaps(String.class, String.class);
         value = Double.valueOf(data.get(0).get("value"));
-        String valueBody =  "{\"value\""+":"+"\""+value+"\""+"}";
+        String valueBody =  JsonHelper.setValueParam(value);
         response = rateMovieController.rateMovie(valueBody, Serenity.sessionVariableCalled("session_id"),idUrl);
         listResponse = JsonHelper.responsetoListResponse(response);
         Serenity.setSessionVariable("status").to(response.statusCode());
@@ -49,11 +50,30 @@ public class RateMovieSteps {
 
     @When("^The user send a request to delete the rated movie$")
     public void theUserSendARequestToDeleteTheRatedMovie() {
-        idUrl = buildUrl.buildRateMovie(Serenity.sessionVariableCalled("movie_id"));
+        idUrl = buildUrl.buildRateMovie(movieId);
         response = rateMovieController.deleteRating(Serenity.sessionVariableCalled("session_id"),idUrl);
         listResponse = JsonHelper.responsetoListResponse(response);
         Serenity.setSessionVariable("status").to(response.statusCode());
         Serenity.setSessionVariable("status_message").to(listResponse.getStatus_message());
 
+    }
+
+    @When("^The guest send a request to rate the movie with its data$")
+    public void theGuestSendARequestToRateTheMovieWithItsData(DataTable valueData) {
+        idUrl = buildUrl.buildRateMovie(movieId);
+        List<Map<String, String>> data = valueData.asMaps(String.class, String.class);
+        value = Double.valueOf(data.get(0).get("value"));
+        String valueBody =  JsonHelper.setValueParam(value);
+        response = rateMovieController.rateMovieGuest(valueBody, Serenity.sessionVariableCalled("guest_session_id"),idUrl);
+        listResponse = JsonHelper.responsetoListResponse(response);
+        Serenity.setSessionVariable("status_message").to(listResponse.getStatus_message());
+    }
+
+    @When("^The guest send a request to delete the rated movie$")
+    public void theGuestSendARequestToDeleteTheRatedMovie() {
+        idUrl = buildUrl.buildRateMovie(movieId);
+        response = rateMovieController.deleteRatingGuest(Serenity.sessionVariableCalled("guest_session_id"),idUrl);
+        listResponse = JsonHelper.responsetoListResponse(response);
+        Serenity.setSessionVariable("status_message").to(listResponse.getStatus_message());
     }
 }

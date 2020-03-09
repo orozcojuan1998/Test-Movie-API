@@ -1,0 +1,7 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Rate TV Shows","Rate a tv show","SUCCESS","2020-03-09T17:35:31.272-05:00[America/Bogota]","0.0","4.36"
+"Rate TV Shows","Delete a rating","SUCCESS","2020-03-09T17:35:35.634-05:00[America/Bogota]","0.0","4.27"
+"Rate TV Shows","Rate a tv show with a higher rating than accepted","SUCCESS","2020-03-09T17:35:39.904-05:00[America/Bogota]","0.0","4.21"
+"Rate TV Shows","Rate a tv show with a lower rating than accepted","SUCCESS","2020-03-09T17:35:44.114-05:00[America/Bogota]","0.0","4.33"
+"Rate TV Shows","Rate a tv show with a rating not multiple of 0.50","SUCCESS","2020-03-09T17:35:48.448-05:00[America/Bogota]","0.0","4.38"
+"Rate TV Shows","Rate a tv show with invalid id","SUCCESS","2020-03-09T17:35:52.831-05:00[America/Bogota]","0.0","4.32"
