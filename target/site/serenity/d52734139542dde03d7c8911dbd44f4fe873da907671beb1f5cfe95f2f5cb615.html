@@ -103,7 +103,7 @@
             $("#requirements-tabs").tabs();
             $("#test-tabs").tabs();
 
-            var requirementsTree = [{"text":"Guest Authentication","type":"feature","href":"d52734139542dde03d7c8911dbd44f4fe873da907671beb1f5cfe95f2f5cb615.html","nodes":[],"selectable":false,"tags":["","\u003cspan class\u003d\u0027feature-count\u0027\u003e1 scenario\u003c/span\u003e"]}];
+            var requirementsTree = [{"text":"Guest Authentication","type":"feature","href":"d52734139542dde03d7c8911dbd44f4fe873da907671beb1f5cfe95f2f5cb615.html","nodes":[],"selectable":false,"tags":["",""]}];
 
             $('#tree').treeview({
                 data: requirementsTree,
@@ -172,7 +172,7 @@
             <a href="#"><i class="fa fa-comments-o"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 09-03-2020 08:58</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated </span>
     <br style="clear:left"/>
 </div>
 
@@ -240,20 +240,29 @@ So that I can perform actions in the system
                                                                 <table>
                                                                     <tr>
                                                                         <td>
-                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
-                                                                               href="2973711cbd2c8782adb575dd6c30617e5f86592ebc71f6cd1c16955cabd5d2c2.html"
-                                                                               title="View test results">
-                                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
-                                                                            </a>
+                                                                            
+                                                                            
 
                                                                         
                                                                         </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#c46e0be908de5779d614895943ff3e0a6849ffe5198f23a8df4a3d73305eb931" title="View scenario details" >Test Guest Session Authentication with invalid API KEY</a>
+
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
                                                                         <td>
-                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
-                                                                               href="2973711cbd2c8782adb575dd6c30617e5f86592ebc71f6cd1c16955cabd5d2c2.html"
-                                                                               title="View test results">
-                                                                                <i class="fas fa-search-plus"></i>
-                                                                            </a>
+                                                                            
+                                                                            
+
+                                                                        
                                                                         </td>
                                                                     </tr>
                                                                 </table>
@@ -267,15 +276,16 @@ So that I can perform actions in the system
 
 
                                                 <div class="scenario-docs card" id="5f6a7fef78fcbbca425963f1a6270534d876fd4b5ca7625d52b8ec8308baf00c">
-                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                    <div class="scenario-docs card-header undefined" style="min-height:1.5em;">
                                                         <div>
                                                             <span class="scenario-heading">
-                                                                <a href="2973711cbd2c8782adb575dd6c30617e5f86592ebc71f6cd1c16955cabd5d2c2.html" title="View test results">Test Guest Session Authentication</a>
+                                                                <a href="" title="View test results">Test Guest Session Authentication</a>
                                                             </span>
                                                             <span class="scenario-result-icon">
                                                                 
 
-                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                                    <i class="fas fa-pause"
+                                                                       title="No test has been implemented yet"></i>
                                                             </span>
                                                         </div>
                                                     </div>
@@ -283,6 +293,31 @@ So that I can perform actions in the system
                                                             <p>Given A new guest session needs to be created</p>
                                                             <p>When The guest sends the request to create the session</p>
                                                             <p>Then The response contains the field success equals to &quot;true&quot;</p>
+                                                        <div class="examples">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="c46e0be908de5779d614895943ff3e0a6849ffe5198f23a8df4a3d73305eb931">
+                                                    <div class="scenario-docs card-header undefined" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="" title="View test results">Test Guest Session Authentication with invalid API KEY</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class="fas fa-pause"
+                                                                       title="No test has been implemented yet"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p>Given A new guest session needs to be created</p>
+                                                            <p>When The guest sends the request to create the session with invalid data</p>
+                                                            <p>Then The response contains the field success equals to &quot;false&quot;</p>
                                                         <div class="examples">
                                                         </div>
 
@@ -296,41 +331,7 @@ So that I can perform actions in the system
                             <div id="results" class="tab-pane fade">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-sm-4">
-
-                                            <div style="width:300px;" class="chart-container automated-and-manual-results">
-                                                <div class="ct-chart ct-square"></div>
-                                            </div>
-                                            <script>
-
-                                                var labels = ['100%', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
-                                                // Our series array that contains series objects or in this case series data arrays
-
-                                                var series = [{meta: 'Passing tests (automated)', value: 1}, {meta: 'Passing tests (manual)', value: 0}, {meta: 'Pending tests (automated)', value: 0}, {meta: 'Pending tests (manual)', value: 0}, {meta: 'Ignored tests (automated)', value: 0}, {meta: 'Ignored tests (manual)', value: 0}, {meta: 'Skipped tests (automated)', value: 0}, {meta: 'Skipped tests (manual)', value: 0}, {meta: 'Failing tests (automated)', value: 0}, {meta: 'Failing tests (manual)', value: 0}, {meta: 'Broken tests (automated)', value: 0}, {meta: 'Broken tests (manual)', value: 0}, {meta: 'Compromised tests (automated)', value: 0}, {meta: 'Compromised tests (manual)', value: 0}];
-
-                                                // As options we currently only set a static size of 300x200 px. We can also omit this and use aspect ratio containers
-                                                // as you saw in the previous example
-                                                var options = {
-                                                    width: 350,
-                                                    height: 300
-                                                };
-
-                                                $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-                                                    new Chartist.Pie('.ct-chart', {
-                                                        series: series,
-                                                        labels: labels,
-                                                    }, {
-                                                        donut: true,
-                                                        donutWidth: 60,
-                                                        donutSolid: true,
-                                                        startAngle: 270,
-                                                        showLabel: true
-                                                    }, options);
-                                                });
-
-                                            </script>
-                                        </div>
-                                        <div class="col-sm-8">
+                                        <div class="col-sm-12">
 
                                         <table class="table">
                                             <thead>
@@ -343,12 +344,11 @@ So that I can perform actions in the system
                                             </thead>
                                             <tbody>
                                             <tr>
-                                                                    <td class="aggregate-result-count">
-                                                                        <a href="51a3b928edce4f7f3655dcf1e72947981cd039dbf5eca4d8305a8dba2c97c498.html"><i
-                                                                                class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing</a>
+                                                                    <td class="aggregate-result-count"><i
+                                                                            class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing
                                                                     </td>
-                                                <td class="automated-stats">1</td>
-                                                <td class="automated-stats">100%</td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
                                             </tr>
                                             <tr>
                                                                     <td class="aggregate-result-count"><i
@@ -402,7 +402,7 @@ So that I can perform actions in the system
                                             </tr>
                                             <tr class="summary-stats">
                                                 <td class="aggregate-result-count">Total</td>
-                                                <td class="automated-stats">1</td>
+                                                <td class="automated-stats">0</td>
                                                 <td class="automated-stats"></td>
                                             </tr>
                                             </tbody>
@@ -424,11 +424,11 @@ So that I can perform actions in the system
                                                     </thead>
                                                     <tbody>
                                                     <tr>
-                                                        <td>5s</td>
-                                                        <td>5ms</td>
-                                                        <td>5s</td>
-                                                        <td>5s</td>
-                                                        <td>5s</td>
+                                                        <td>0ms</td>
+                                                        <td>0ms</td>
+                                                        <td>0ms</td>
+                                                        <td>0ms</td>
+                                                        <td>0ms</td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
@@ -451,16 +451,28 @@ So that I can perform actions in the system
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr class="scenario-result SUCCESS">
+                                                <tr class="scenario-result UNDEFINED">
                                                     <td>
-                                                            <a href="2973711cbd2c8782adb575dd6c30617e5f86592ebc71f6cd1c16955cabd5d2c2.html">Test Guest Session Authentication</a>
+                                                            Test Guest Session Authentication
                                                     </td>
                                                     <td>3</td>
                                                     <td> </td>
                                                     <td> </td>
                                                     <td>
-                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
-                                                                style="display:none">SUCCESS</span>
+                                                            <i class="fas fa-pause"
+                                                               title="No test has been implemented yet"></i>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result UNDEFINED">
+                                                    <td>
+                                                            Test Guest Session Authentication with invalid API KEY
+                                                    </td>
+                                                    <td>3</td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td>
+                                                            <i class="fas fa-pause"
+                                                               title="No test has been implemented yet"></i>
                                                     </td>
                                                 </tr>
                                                 </tbody>

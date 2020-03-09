@@ -6,15 +6,13 @@ Feature: List
   Background: : Test Authentication
     Given A new request token needs to be created
     When The user send a request to create the request token
-    Then The token is generated
+    And The token is generated
     And A new session with login needs to be created
     And The user send a request to create the session with login
-    And The response contains the field success equals to "true"
     And A new request session needs to be created
     And The user send a request to session
-    And The session is generated
-    And The service responds with a status code "200"
-    And The response contains the session id
+    Then The session is generated
+
 
   Scenario: Test get list detail
     Given The user wants to see the details of a list
@@ -27,7 +25,7 @@ Feature: List
     Given The user wants to create a list
     When The user send the request to create the list with its data
     |name          | description                         |
-    | Terror List 7| List of my favorite horror movies 12|
+    | Terror List 8| List of my favorite horror movies 13|
     Then The service responds with a status code "201"
     And The user send a request to delete the session
     And The service responds with a status code "200"
@@ -47,10 +45,10 @@ Feature: List
   Scenario: Test add a movie to a list
     Given The list already exist with its data
       |      id                 |
-      |     134090              |
+      |     134067              |
     When The user send the request to add a movie to a list with its data
       |      id_movie           |
-      |     467885              |
+      |     419704              |
     Then The service responds with a status code "201"
     And The user send a request to delete the session
     And The service responds with a status code "200"
@@ -59,10 +57,10 @@ Feature: List
   Scenario: Test delete a movie from a list
     Given The list already exist with its data
       |      id                 |
-      |     134090              |
+      |     134067              |
     When The user send the request to delete a movie from a list with its data
       |      id_movie           |
-      |     467885              |
+      |     419704              |
     Then The service responds with a status code "200"
     And The response status message is "The item/record was deleted successfully."
     And The user send a request to delete the session
@@ -72,7 +70,7 @@ Feature: List
   Scenario: Test to clear a list
     Given The list already exist with its data
       |      id                 |
-      |     134067              |
+      |     134062              |
     When The user send the request to clear the list
     Then The service responds with a status code "201"
     And The response status message is "The item/record was updated successfully."
@@ -83,10 +81,10 @@ Feature: List
   Scenario: Test get check that a movie is in a list
     Given The list already exist with its data
       |      id                 |
-      |     134062              |
+      |     134067              |
     When The user send the request to check if a movie is present in the list with its data
       |      id_movie           |
-      |     135397              |
+      |     570670              |
     Then The service responds with a status code "200"
     And The response contains the field success equals to "true"
     And The user send a request to delete the session

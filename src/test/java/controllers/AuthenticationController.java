@@ -16,8 +16,7 @@ public class AuthenticationController extends ApiController {
 
     }
 
-    public Response createRequestToken() {
-        URL idUrl = buildUrl.buildAuthToken();
+    public Response createRequestToken(URL idUrl) {
         response = requestSpecification.given().
                 queryParam("api_key",System.getenv("API_KEY")).
                 when().
@@ -25,8 +24,7 @@ public class AuthenticationController extends ApiController {
         return response;
     }
 
-    public Response setSessionWithLogin(String body) {
-        URL idUrl = buildUrl.buildAuthSessionToken();
+    public Response setSessionWithLogin(String body,URL idUrl) {
          response = requestSpecification.given().queryParam("api_key",System.getenv("API_KEY")).
                     when().
                     body(body).
@@ -35,12 +33,7 @@ public class AuthenticationController extends ApiController {
 
     }
 
-    public Response getResponse() {
-        return response;
-    }
-
-    public Response createNewSession(JSONObject body) {
-        URL idUrl = buildUrl.buildAuthSession();
+    public Response createNewSession(JSONObject body,URL idUrl) {
         response = requestSpecification.given().queryParam("api_key",System.getenv("API_KEY")).
                 when().
                 body(body.toString()).
@@ -49,8 +42,7 @@ public class AuthenticationController extends ApiController {
         return response;
     }
 
-    public Response deleteSession (JSONObject body){
-        URL idUrl = buildUrl.buildAuthSessionDelete();
+    public Response deleteSession (JSONObject body,URL idUrl){
         response = requestSpecification.given().queryParam("api_key",System.getenv("API_KEY")).
                 when().
                 body(body.toString()).

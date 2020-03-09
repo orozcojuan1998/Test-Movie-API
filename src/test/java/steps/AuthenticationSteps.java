@@ -7,10 +7,8 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import entities.GuestSessionToken;
-import entities.RequestToken;
-import entities.SessionData;
-import entities.User;
+import entities.*;
+import helpers.DirectorUrl;
 import helpers.JsonHelper;
 import helpers.PropertiesHelper;
 import io.restassured.response.Response;
@@ -19,6 +17,8 @@ import org.hamcrest.Matchers;
 import org.json.JSONObject;
 import org.junit.Assert;
 
+import java.net.URL;
+
 public class AuthenticationSteps {
     private RequestToken requestToken;
     private SessionData sessionData;
@@ -26,6 +26,9 @@ public class AuthenticationSteps {
     private User user;
     private GuestSessionToken guestSessionToken;
     private String requestTokenNew;
+    private ResponseBody responseBody;
+    private URL idUrl;
+    private DirectorUrl buildUrl = new DirectorUrl();
     private AuthenticationController authenticationController = new AuthenticationController();
     private GuestAuthController guestAuthController = GuestAuthController.GetGuestAuthController();
 
@@ -36,7 +39,8 @@ public class AuthenticationSteps {
 
     @When("^The user send a request to create the request token$")
     public void theUserSendARequestToCreateTheRequestToken() {
-        response = authenticationController.createRequestToken();
+        idUrl = buildUrl.buildAuthToken();
+        response = authenticationController.createRequestToken(idUrl);
     }
 
     @Then("^The token is generated$")
@@ -61,8 +65,9 @@ public class AuthenticationSteps {
 
     @When("^The user send a request to create the session with login$")
     public void theUserSendARequestToCreateTheSessionWithLogin() {
+        idUrl = buildUrl.buildAuthSessionToken();
         String body = JsonHelper.createSessionBody(user,requestToken.getRequestToken());
-        response = authenticationController.setSessionWithLogin(body);
+        response = authenticationController.setSessionWithLogin(body,idUrl);
     }
 
     @Given("^A new request session needs to be created$")
@@ -73,10 +78,10 @@ public class AuthenticationSteps {
 
     @When("^The user send a request to session$")
     public void theUserSendARequestToSession() {
-        String requestTokenCurrent = (String) Serenity.sessionVariableCalled("request_token");
-        JSONObject body = JsonHelper.setRequestParam(requestTokenCurrent);
+        idUrl = buildUrl.buildAuthSession();
+        JSONObject body = JsonHelper.setRequestParam(requestToken.getRequestToken());
         System.out.println(body.toString());
-        response = authenticationController.createNewSession(body);
+        response = authenticationController.createNewSession(body,idUrl);
 
     }
 
@@ -101,8 +106,9 @@ public class AuthenticationSteps {
 
     @When("^The user send a request to delete the session$")
     public void theUserSendARequestToDeleteTheSession() {
+        idUrl = buildUrl.buildAuthSessionDelete();
         JSONObject body = JsonHelper.setSessionParam(sessionData.getSession_id());
-        response = authenticationController.deleteSession(body);
+        response = authenticationController.deleteSession(body,idUrl);
         Serenity.setSessionVariable("status").to(response.statusCode());
     }
 
@@ -115,8 +121,18 @@ public class AuthenticationSteps {
 
     @When("^The guest sends the request to create the session$")
     public void theGuestSendsTheRequestToCreateTheSession() {
-        response = guestAuthController.createGuestToken();
+        idUrl = buildUrl.buildAuthSessionGuest();
+        response = guestAuthController.createGuestToken(idUrl);
         guestSessionToken = JsonHelper.guestSessionToken(response);
         Serenity.setSessionVariable("success").to(guestSessionToken.isSuccess());
+    }
+
+    @When("^The guest sends the request to create the session with invalid data$")
+    public void theGuestSendsTheRequestToCreateTheSessionWithInvalidData() {
+        idUrl =  buildUrl.buildAuthSessionGuest();
+        response = guestAuthController.createGuestTokenInvalid(idUrl);
+        guestSessionToken = JsonHelper.guestSessionToken(response);
+        Serenity.setSessionVariable("success").to(guestSessionToken.isSuccess());
+
     }
 }
