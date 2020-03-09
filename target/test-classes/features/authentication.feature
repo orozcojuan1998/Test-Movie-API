@@ -31,10 +31,6 @@ Feature: Authentication
     When The user send a request to create the request token with invalid key
     Then The response contains the field success equals to "false"
 
-  Scenario: Test Token Creation with invalid API KEY
-    Given A new request token needs to be created
-    When The user send a request to create the request token with invalid key
-    Then The response contains the field success equals to "false"
 
   Scenario: Test Validate Token Creation with invalid username
     Given A new request token needs to be created

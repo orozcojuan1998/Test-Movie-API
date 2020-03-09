@@ -5,19 +5,19 @@ Feature: Rate Movies
 
   Background: Test Authentication
     Given A new request token needs to be created
-    When The user send a request to create the request token
+    And The user send a request to create the request token
     And The token is generated
     And A new session with login needs to be created
     And The user send a request to create the session with login
     And A new request session needs to be created
     And The user send a request to session
-    Then The session is generated
+    And The session is generated
 
 
     Scenario: Rate a movie
       Given The movie with data already exist
       | id        |
-      |  453405   |
+      |  34769    |
       When The user send a request to rate the movie with its data
       | value|
       | 9.0  |
@@ -29,7 +29,7 @@ Feature: Rate Movies
   Scenario: Delete a rating of a movie
     Given The movie with data already exist
       | id        |
-      | 453405    |
+      | 34769     |
     When The user send a request to delete the rated movie
     Then The response status message is "The item/record was deleted successfully."
     And The user send a request to delete the session
@@ -78,3 +78,8 @@ Feature: Rate Movies
     Then The response status message is "The resource you requested could not be found."
     And The user send a request to delete the session
     And The service responds with a status code "200"
+
+
+
+
+

@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Features</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<!--[if IE 7]>
+<!--<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">-->
+
+<link rel="stylesheet" href="fontawesome-free-5.7.2-web/css/all.min.css">
+<link rel="stylesheet" href="fontawesome-free-5.7.2-web/css/v4-shims.min.css">
+
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><link rel="stylesheet" href="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.css">
+<link rel="stylesheet" href="chartist/dist/chartist.min.css">
+<script src="chartist/dist/chartist.min.js"></script>
+<script src="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.19/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.19/datatables.min.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.19/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.19/datatables.bootstrap4.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- JQuery-UI -->
+<link type="text/css" href="jqueryui/1.11.2-start/jquery-ui.min.css" rel="Stylesheet" />
+<script type="text/javascript" src="jqueryui/1.11.2-start/jquery-ui.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.19/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.19/datatables.min.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.19/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.19/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            var scenarioTable = $('.scenario-result-table').DataTable({
+
+                "order": [],
+                "language": {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                }
+            });
+
+            $('.example-table table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('.example-table-in-scenario table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('#evidence-table').DataTable(
+                    {
+                        searching: false,
+                        ordering: false,
+                        paging: false,
+                        info: false
+                    }
+            );
+
+
+            $(".scenario-docs .card-body table").wrap("<div class='table-responsive'></div>");
+
+            $("#requirements-tabs").tabs();
+            $("#test-tabs").tabs();
+
+            var requirementsTree = [{"text":"Rate Movies Guest","type":"feature","href":"718ffb88d03018410500725178e1d4b76678198a77055400e0532845ac33418b.html","nodes":[],"selectable":false,"tags":["","\u003cspan class\u003d\u0027feature-count\u0027\u003e12 scenarios\u003c/span\u003e"]}];
+
+            $('#tree').treeview({
+                data: requirementsTree,
+                enableLinks: true,
+                showTags: true,
+                expandIcon: "glyphicon glyphicon-folder-close",
+                collapseIcon: "glyphicon glyphicon-folder-open",
+                emptyIcon: "glyphicon glyphicon-book"
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".scenario-docs > div > p").html(function () {
+                var text = $(this).text().trim().split(" ");
+                var first = text.shift();
+                return (text.length > 0 ? "<strong>" + first + "</strong> " : first) + text.join(" ");
+            });
+        });
+    </script>
+</head>
+
+<body class="results-page">
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle"></span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+            <a href='index.html'>Home</a> > <a href="capabilities.html">Requirements</a>
+
+
+
+                > <span class="truncate-40">Rate Movies Guest</span>
+
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li >
+            <a href="index.html"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
+        </li>
+        <li class="active">
+            <a href="#"><i class="fa fa-comments-o"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 09-03-2020 18:34</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+    <div id="beforetable"></div>
+    <div id="results-dashboard">
+        <div class="table">
+                <div class=row">
+                    <div class="col-sm-12">
+                        <div>
+                            <div clas="table">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                    <span>
+                                            <h2><i class="fa fa-book"></i> Feature:  Rate Movies Guest</h2>
+                                        </span>
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="requirementNarrativeTitle">
+                                
+                            </div>
+
+                        </div>
+                    </div>
+
+
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <!-- Requirements result tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a data-toggle="tab" href="#specs"><i class="fas fa-comments"></i> Specifications</a>
+                        </li>
+                        <li>
+                            <a data-toggle="tab" href="#results"><i class="fas fa-tachometer-alt"></i> Test Results</a>
+                        </li>
+                    </ul>
+
+                    <!-- Specifications and Results tabs -->
+                    <div class="card border">
+                        <div class="tab-content" id="pills-tabContent">
+                            <div id="specs" class="tab-pane fade in active">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+
+
+                                            <h3>Scenarios</h3>
+
+                                            <div id="toc">
+                                                <table class="table" id="toc-table">
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#b61af3364817dff86a0ed02faad4bf44f53892fe870dff7b04e31f65928c3692" title="View scenario details" >Guest Authentication</a>
+
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            
+                                                                            
+
+                                                                        
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#632e6d69d089ca7a23884045ff6f751aaba0f7ada56cadcd500048ea7e72731f" title="View scenario details" >Test rate a movie as a guest</a>
+
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                               href="c63c9c5fbcc87ba69087664bae551e914b19ccb95fe09d15b9c079d281650b18.html"
+                                                                               title="View test results">
+                                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                                            </a>
+
+                                                                        
+                                                                        </td>
+                                                                        <td>
+                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                               href="c63c9c5fbcc87ba69087664bae551e914b19ccb95fe09d15b9c079d281650b18.html"
+                                                                               title="View test results">
+                                                                                <i class="fas fa-search-plus"></i>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#22075a7526c5b31f32c4cfc15358f551d0f075148ae2f111760570d92d623588" title="View scenario details" >Test delete a rating of a movie</a>
+
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                               href="f5965e0e06884aadd239965654aa30ab44f1ffbebbc850e76a3ef70f43b05c44.html"
+                                                                               title="View test results">
+                                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                                            </a>
+
+                                                                        
+                                                                        </td>
+                                                                        <td>
+                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                               href="f5965e0e06884aadd239965654aa30ab44f1ffbebbc850e76a3ef70f43b05c44.html"
+                                                                               title="View test results">
+                                                                                <i class="fas fa-search-plus"></i>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#33ce8ad6c54a40f694692b51d89a895bf16f175d665cbc3c29c6ddd875caa341" title="View scenario details" >Test to rate a movie with a higher rating than accepted</a>
+
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                               href="109a3802fa86fff67559d18cc4807ffcbd41f85000bec4c3cad25610688f5c8f.html"
+                                                                               title="View test results">
+                                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                                            </a>
+
+                                                                        
+                                                                        </td>
+                                                                        <td>
+                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                               href="109a3802fa86fff67559d18cc4807ffcbd41f85000bec4c3cad25610688f5c8f.html"
+                                                                               title="View test results">
+                                                                                <i class="fas fa-search-plus"></i>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#8c17a0de11a2305c09c5a402315cca598164e93db81165dd677127c5fd85f526" title="View scenario details" >Test to rate a movie with a lower rating than accepted</a>
+
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                               href="ade66f90950acd3992420e282ab0150be8a32aa6512e686c3897ed1f91e34bcd.html"
+                                                                               title="View test results">
+                                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                                            </a>
+
+                                                                        
+                                                                        </td>
+                                                                        <td>
+                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                               href="ade66f90950acd3992420e282ab0150be8a32aa6512e686c3897ed1f91e34bcd.html"
+                                                                               title="View test results">
+                                                                                <i class="fas fa-search-plus"></i>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#f66133ce17b97311fe592a639b75832b89267d0a62983590487a88ef907cbd80" title="View scenario details" >Test to rate a movie with a rating not multiple of 0.50</a>
+
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                               href="c1d5b431c922c81224f05c88bd10d3c2ef0bdf0044dfdc305a8c83a75c8d346c.html"
+                                                                               title="View test results">
+                                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                                            </a>
+
+                                                                        
+                                                                        </td>
+                                                                        <td>
+                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                               href="c1d5b431c922c81224f05c88bd10d3c2ef0bdf0044dfdc305a8c83a75c8d346c.html"
+                                                                               title="View test results">
+                                                                                <i class="fas fa-search-plus"></i>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#5a7abfef7b68dc856bc0174c539fe028a29cfe27c95450b8ff90d98b2cbbfe30" title="View scenario details" >Test to rate a movie with invalid movie id</a>
+
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                               href="d29ed93059c2646874cdd58bf774ebd9ffbed59b165b90502d70b93e3f8a39f8.html"
+                                                                               title="View test results">
+                                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                                            </a>
+
+                                                                        
+                                                                        </td>
+                                                                        <td>
+                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                               href="d29ed93059c2646874cdd58bf774ebd9ffbed59b165b90502d70b93e3f8a39f8.html"
+                                                                               title="View test results">
+                                                                                <i class="fas fa-search-plus"></i>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                </table>
+
+                                            </div>
+
+                                            <h3>Scenario details</h3>
+
+
+                                                <div class="scenario-docs card" id="b61af3364817dff86a0ed02faad4bf44f53892fe870dff7b04e31f65928c3692">
+                                                    <div class="scenario-docs card-header undefined" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="" title="View test results">Background: Guest Authentication</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class="fas fa-pause"
+                                                                       title="No test has been implemented yet"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p>Given A new guest session needs to be created</p>
+                                                            <p>And The guest sends the request to create the session</p>
+                                                        <div class="examples">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="632e6d69d089ca7a23884045ff6f751aaba0f7ada56cadcd500048ea7e72731f">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="c63c9c5fbcc87ba69087664bae551e914b19ccb95fe09d15b9c079d281650b18.html" title="View test results">Test rate a movie as a guest</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>Given The movie with data already exist</p>
+<table>
+<thead></thead>
+<tbody>
+<tr><td>id</td></tr>
+<tr><td>581600</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>When The guest send a request to rate the movie with its data</p>
+<table>
+<thead></thead>
+<tbody>
+<tr><td>value</td></tr>
+<tr><td>9.0</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p>Then The response status message is &quot;Success.&quot;</p>
+                                                        <div class="examples">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="22075a7526c5b31f32c4cfc15358f551d0f075148ae2f111760570d92d623588">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="f5965e0e06884aadd239965654aa30ab44f1ffbebbc850e76a3ef70f43b05c44.html" title="View test results">Test delete a rating of a movie</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>Given The movie with data already exist</p>
+<table>
+<thead></thead>
+<tbody>
+<tr><td>id</td></tr>
+<tr><td>581600</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p>When The guest send a request to delete the rated movie</p>
+                                                            <p>Then The response status message is &quot;The item/record was deleted successfully.&quot;</p>
+                                                        <div class="examples">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="33ce8ad6c54a40f694692b51d89a895bf16f175d665cbc3c29c6ddd875caa341">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="109a3802fa86fff67559d18cc4807ffcbd41f85000bec4c3cad25610688f5c8f.html" title="View test results">Test to rate a movie with a higher rating than accepted</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>Given The movie with data already exist</p>
+<table>
+<thead></thead>
+<tbody>
+<tr><td>id</td></tr>
+<tr><td>338762</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>When The guest send a request to rate the movie with its data</p>
+<table>
+<thead></thead>
+<tbody>
+<tr><td>value</td></tr>
+<tr><td>10.5</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p>Then The response status message is &quot;Value too high: Value must be less than, or equal to 10.0.&quot;</p>
+                                                        <div class="examples">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="8c17a0de11a2305c09c5a402315cca598164e93db81165dd677127c5fd85f526">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="ade66f90950acd3992420e282ab0150be8a32aa6512e686c3897ed1f91e34bcd.html" title="View test results">Test to rate a movie with a lower rating than accepted</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>Given The movie with data already exist</p>
+<table>
+<thead></thead>
+<tbody>
+<tr><td>id</td></tr>
+<tr><td>338762</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>When The guest send a request to rate the movie with its data</p>
+<table>
+<thead></thead>
+<tbody>
+<tr><td>value</td></tr>
+<tr><td>0</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p>Then The response status message is &quot;Value too low: Value must be greater than 0.0.&quot;</p>
+                                                        <div class="examples">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="f66133ce17b97311fe592a639b75832b89267d0a62983590487a88ef907cbd80">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="c1d5b431c922c81224f05c88bd10d3c2ef0bdf0044dfdc305a8c83a75c8d346c.html" title="View test results">Test to rate a movie with a rating not multiple of 0.50</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>Given The movie with data already exist</p>
+<table>
+<thead></thead>
+<tbody>
+<tr><td>id</td></tr>
+<tr><td>338762</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>When The guest send a request to rate the movie with its data</p>
+<table>
+<thead></thead>
+<tbody>
+<tr><td>value</td></tr>
+<tr><td>7.2</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p>Then The response status message is &quot;Value invalid: Values must be a multiple of 0.50.&quot;</p>
+                                                        <div class="examples">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="5a7abfef7b68dc856bc0174c539fe028a29cfe27c95450b8ff90d98b2cbbfe30">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="d29ed93059c2646874cdd58bf774ebd9ffbed59b165b90502d70b93e3f8a39f8.html" title="View test results">Test to rate a movie with invalid movie id</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>Given The movie with data already exist</p>
+<table>
+<thead></thead>
+<tbody>
+<tr><td>id</td></tr>
+<tr><td>359</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>When The guest send a request to rate the movie with its data</p>
+<table>
+<thead></thead>
+<tbody>
+<tr><td>value</td></tr>
+<tr><td>9.0</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p>Then The response status message is &quot;The resource you requested could not be found.&quot;</p>
+                                                        <div class="examples">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="results" class="tab-pane fade">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+
+                                            <div style="width:300px;" class="chart-container automated-and-manual-results">
+                                                <div class="ct-chart ct-square"></div>
+                                            </div>
+                                            <script>
+
+                                                var labels = ['100%', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+                                                // Our series array that contains series objects or in this case series data arrays
+
+                                                var series = [{meta: 'Passing tests (automated)', value: 12}, {meta: 'Passing tests (manual)', value: 0}, {meta: 'Pending tests (automated)', value: 0}, {meta: 'Pending tests (manual)', value: 0}, {meta: 'Ignored tests (automated)', value: 0}, {meta: 'Ignored tests (manual)', value: 0}, {meta: 'Skipped tests (automated)', value: 0}, {meta: 'Skipped tests (manual)', value: 0}, {meta: 'Failing tests (automated)', value: 0}, {meta: 'Failing tests (manual)', value: 0}, {meta: 'Broken tests (automated)', value: 0}, {meta: 'Broken tests (manual)', value: 0}, {meta: 'Compromised tests (automated)', value: 0}, {meta: 'Compromised tests (manual)', value: 0}];
+
+                                                // As options we currently only set a static size of 300x200 px. We can also omit this and use aspect ratio containers
+                                                // as you saw in the previous example
+                                                var options = {
+                                                    width: 350,
+                                                    height: 300
+                                                };
+
+                                                $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                                                    new Chartist.Pie('.ct-chart', {
+                                                        series: series,
+                                                        labels: labels,
+                                                    }, {
+                                                        donut: true,
+                                                        donutWidth: 60,
+                                                        donutSolid: true,
+                                                        startAngle: 270,
+                                                        showLabel: true
+                                                    }, options);
+                                                });
+
+                                            </script>
+                                        </div>
+                                        <div class="col-sm-8">
+
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">Scenario Results (including rows of test data)</th>
+                                                <th scope="col" colspan="2" class="automated-stats">
+                                                    Automated
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                                    <td class="aggregate-result-count">
+                                                                        <a href="4d6bbe40a55fa3fe7c7ee0c28b6af13dfa35b3975cce39a08fb8187e80e21b05.html"><i
+                                                                                class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing</a>
+                                                                    </td>
+                                                <td class="automated-stats">12</td>
+                                                <td class="automated-stats">100%</td>
+                                            </tr>
+                                            <tr>
+                                                                    <td class="aggregate-result-count"><i
+                                                                            class='fa fa-stop-circle-o pending-icon'></i>&nbsp;Pending
+                                                                    </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            </tr>
+                                            <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                        class='fa fa-ban ignored-icon'></i>&nbsp;Ignored
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            </tr>
+                                            <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                        class='fa fa-fast-forward skip-icon'></i>&nbsp;Skipped
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            </tr>
+                                            <tr>
+                                                                            <td colspan="3"><i
+                                                                                class='fa fa-times failure-icon'></i>&nbsp;<em>Unsuccessful</em></a>
+                                                                            </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-times-circle failure-icon'></i>&nbsp;Failed
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-exclamation-triangle error-icon'></i>&nbsp;Broken
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-chain-broken compromised-icon'></i>&nbsp;Compromised
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            </tr>
+                                            <tr class="summary-stats">
+                                                <td class="aggregate-result-count">Total</td>
+                                                <td class="automated-stats">12</td>
+                                                <td class="automated-stats"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table class="table">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Execution Time</th>
+                                                        <th>Clock Time</th>
+                                                        <th>Fastest Test</th>
+                                                        <th>Slowest Test</th>
+                                                        <th>Average Execution Time</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>20s</td>
+                                                        <td> 1m 10s</td>
+                                                        <td>1s</td>
+                                                        <td>1s</td>
+                                                        <td>1s</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h3><i class="fas fa-cogs"></i> Automated Tests</h3>
+
+                                            <table class="scenario-result-table table" id="scenario-results">
+                                                <thead>
+                                                <tr>
+                                                    <th class="test-name-column">Scenario</th>
+                                                    <th>Steps</th>
+                                                    <th>Start Time</th>
+                                                    <th>Duration</th>
+                                                    <th>Result</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="c63c9c5fbcc87ba69087664bae551e914b19ccb95fe09d15b9c079d281650b18.html">Test rate a movie as a guest</a>
+                                                    </td>
+                                                    <td>3</td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="f5965e0e06884aadd239965654aa30ab44f1ffbebbc850e76a3ef70f43b05c44.html">Test delete a rating of a movie</a>
+                                                    </td>
+                                                    <td>3</td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="109a3802fa86fff67559d18cc4807ffcbd41f85000bec4c3cad25610688f5c8f.html">Test to rate a movie with a higher rating than accepted</a>
+                                                    </td>
+                                                    <td>3</td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="ade66f90950acd3992420e282ab0150be8a32aa6512e686c3897ed1f91e34bcd.html">Test to rate a movie with a lower rating than accepted</a>
+                                                    </td>
+                                                    <td>3</td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="c1d5b431c922c81224f05c88bd10d3c2ef0bdf0044dfdc305a8c83a75c8d346c.html">Test to rate a movie with a rating not multiple of 0.50</a>
+                                                    </td>
+                                                    <td>3</td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="d29ed93059c2646874cdd58bf774ebd9ffbed59b165b90502d70b93e3f8a39f8.html">Test to rate a movie with invalid movie id</a>
+                                                    </td>
+                                                    <td>3</td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h3><i class="fas fa-edit"></i> Manual Tests</h3>
+
+                                                No manual tests were recorded
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span class="version">Serenity BDD version 2.0.54</span>
+                    </div>
+                </div>
+            </div>
+</body>
+</html>
