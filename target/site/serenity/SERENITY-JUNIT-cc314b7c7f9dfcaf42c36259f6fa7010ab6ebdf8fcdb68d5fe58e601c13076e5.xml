@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="List" skipped="0" tests="7" time="35.35" timestamp="2020-03-09 09:38:30"><testcase name="Test get list detail"/><testcase name="Test create a list"/><testcase name="Test delete of a list"><failure message="Error: The request could not be completed&#10;Expected: &quot;The item/record was updated successfully.&quot;&#10;     but: was &quot;Internal error: Something went wrong, contact TMDb.&quot;" type="java.lang.AssertionError">Error: The request could not be completed
-Expected: "The item/record was updated successfully."
-     but: was "Internal error: Something went wrong, contact TMDb."</failure><system-err>Error: The request could not be completed
-Expected: "The item/record was updated successfully."
-     but: was "Internal error: Something went wrong, contact TMDb."&#13;
-steps.ListSteps.theResponseStatusMessageIs(ListSteps.java:92)&#13;
-✽.The response status message is "The item/record was updated successfully."(src/test/resources/features/lists.feature:40)&#13;
-</system-err></testcase><testcase name="Test add a movie to a list"/><testcase name="Test delete a movie from a list"/><testcase name="Test to clear a list"/><testcase name="Test get check that a movie is in a list"/></testsuite>

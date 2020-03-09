@@ -100,4 +100,12 @@ public class DirectorUrl {
                 addPathStep(PropertiesHelper.getValueByKey("url.new")).
                 build();
     }
+    public URL buildRateMovie (String movieId){
+        return new UrlBuilder().addDomain().
+                addPathStep("movie").
+                addPathStep(movieId).
+                addPathStep("rating").
+                build();
+    }
+
 }

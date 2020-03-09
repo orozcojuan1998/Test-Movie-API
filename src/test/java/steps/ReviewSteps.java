@@ -7,12 +7,14 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import entities.ResponseBody;
 import entities.Review;
+import helpers.DirectorUrl;
 import helpers.JsonHelper;
 import io.restassured.response.Response;
 import net.serenitybdd.core.Serenity;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 
+import java.net.URL;
 import java.util.List;
 import java.util.Map;
 
@@ -21,6 +23,8 @@ public class ReviewSteps {
     private Review review;
     private ResponseBody responseBody;
     private Response response;
+    private URL idUrl;
+    private DirectorUrl buildUrl = new DirectorUrl();
     private ReviewController reviewController = new ReviewController();
 
     @Given("^The review exist with its data$")
