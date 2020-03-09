@@ -30,7 +30,7 @@ public class AuthenticationSteps {
     private URL idUrl;
     private DirectorUrl buildUrl = new DirectorUrl();
     private AuthenticationController authenticationController = new AuthenticationController();
-    private GuestAuthController guestAuthController = GuestAuthController.GetGuestAuthController();
+    private GuestAuthController guestAuthController = new GuestAuthController();
 
     @Given("^A new request token needs to be created$")
     public void aNewRequestTokenNeedsToBeCreated() {
@@ -41,6 +41,13 @@ public class AuthenticationSteps {
     public void theUserSendARequestToCreateTheRequestToken() {
         idUrl = buildUrl.buildAuthToken();
         response = authenticationController.createRequestToken(idUrl);
+    }
+
+    @When("^The user send a request to create the request token with invalid key$")
+    public void theUserSendARequestToCreateTheRequestTokenWithInvalidKey() {
+        idUrl = buildUrl.buildAuthToken();
+        response = authenticationController.createRequestToken(idUrl);
+        Serenity.setSessionVariable("success").to(requestToken.isSuccess());
     }
 
     @Then("^The token is generated$")
@@ -70,6 +77,48 @@ public class AuthenticationSteps {
         response = authenticationController.setSessionWithLogin(body,idUrl);
     }
 
+    @And("^The user send a request to create the session with login with invalid username$")
+    public void theUserSendARequestToCreateTheSessionWithLoginWithInvalidUsername() {
+        idUrl = buildUrl.buildAuthSessionToken();
+        user.setUsername("invalidUser");
+        String body = JsonHelper.createSessionBody(user,requestToken.getRequestToken());
+        response = authenticationController.setSessionWithLogin(body,idUrl);
+        responseBody = JsonHelper.responsetoListResponse(response);
+        Serenity.setSessionVariable("status_message").to(responseBody.getStatus_message());
+
+    }
+
+    @And("^The user send a request to create the session with login with invalid password$")
+    public void theUserSendARequestToCreateTheSessionWithLoginWithInvalidPassword() {
+        idUrl = buildUrl.buildAuthSessionToken();
+        user.setPassword("uncorrectPassword");
+        String body = JsonHelper.createSessionBody(user,requestToken.getRequestToken());
+        response = authenticationController.setSessionWithLogin(body,idUrl);
+        responseBody = JsonHelper.responsetoListResponse(response);
+        Serenity.setSessionVariable("status_message").to(responseBody.getStatus_message());
+
+    }
+
+    @And("^The user send a request to create the session with login with empty username$")
+    public void theUserSendARequestToCreateTheSessionWithLoginWithEmptyUsername() {
+        idUrl = buildUrl.buildAuthSessionToken();
+        user.setUsername("");
+        String body = JsonHelper.createSessionBody(user,requestToken.getRequestToken());
+        response = authenticationController.setSessionWithLogin(body,idUrl);
+        responseBody = JsonHelper.responsetoListResponse(response);
+        Serenity.setSessionVariable("status_message").to(responseBody.getStatus_message());
+    }
+
+    @And("^The user send a request to create the session with login with empty password$")
+    public void theUserSendARequestToCreateTheSessionWithLoginWithEmptyPassword() {
+        idUrl = buildUrl.buildAuthSessionToken();
+        user.setPassword("");
+        String body = JsonHelper.createSessionBody(user,requestToken.getRequestToken());
+        response = authenticationController.setSessionWithLogin(body,idUrl);
+        responseBody = JsonHelper.responsetoListResponse(response);
+        Serenity.setSessionVariable("status_message").to(responseBody.getStatus_message());
+    }
+
     @Given("^A new request session needs to be created$")
     public void aNewRequestSessionNeedsToBeCreated() {
         sessionData = new SessionData();
@@ -93,14 +142,6 @@ public class AuthenticationSteps {
         Boolean key = sessionData.isSuccess();
         Assert.assertThat("Error: The authentication can not be created",
                 key,  Matchers.equalTo(Boolean.TRUE));
-    }
-
-
-    @And("^The response contains the field success equals to \"([^\"]*)\"$")
-    public void theResponseContainsTheFieldSuccessEqualsTo(String success) {
-        Boolean key = Serenity.sessionVariableCalled("success");
-        Assert.assertThat("Error: The request token is unsuccessful",
-                key,  Matchers.equalTo(Boolean.valueOf(success)));
     }
 
 
@@ -135,4 +176,5 @@ public class AuthenticationSteps {
         Serenity.setSessionVariable("success").to(guestSessionToken.isSuccess());
 
     }
+
 }

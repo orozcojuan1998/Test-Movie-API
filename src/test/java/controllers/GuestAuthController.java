@@ -10,14 +10,8 @@ public class GuestAuthController extends ApiController {
     private static GuestAuthController guestAuthController;
     private Response response;
 
-    private GuestAuthController() {
+    public GuestAuthController() {
         super();
-
-    }
-    public static GuestAuthController GetGuestAuthController() {
-        if (guestAuthController == null)
-            guestAuthController = new GuestAuthController();
-        return guestAuthController;
     }
 
     public Response createGuestToken(URL idUrl) {

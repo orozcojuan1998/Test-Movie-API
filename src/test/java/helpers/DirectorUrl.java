@@ -40,10 +40,10 @@ public class DirectorUrl {
                 build();
     }
 
-    public URL buildListDetail (){
+    public URL buildListDetail (String listId){
         return new UrlBuilder().addDomain().
-                addPathStep(PropertiesHelper.getValueByKey("url.list")).
-                addPathStep(PropertiesHelper.getValueByKey("url.list.id")).
+                addPathStep("list").
+                addPathStep(listId).
                 build();
     }
 

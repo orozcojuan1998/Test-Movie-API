@@ -10,6 +10,7 @@
 
     <properties>
         <serenity.version>1.8.1</serenity.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>

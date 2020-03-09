@@ -29,6 +29,7 @@ public class ListSteps {
     private ListCreation listCreation;
     private ResponseBody listResponse;
     private ResponseStatus responseStatus;
+    private ResponseBody responseBody;
     private URL idUrl;
     private DirectorUrl buildUrl = new DirectorUrl();
     private ListController listController = new ListController();
@@ -36,14 +37,18 @@ public class ListSteps {
 
 
     @Given("^The user wants to see the details of a list$")
-    public void theUserWantsToSeeTheDetailsOfAList() {
+    public void theUserWantsToSeeTheDetailsOfAList(DataTable listData) {
+        List<Map<String, String>> data = listData.asMaps(String.class, String.class);
         lists = new Lists();
+        lists.setId(data.get(0).get("id"));
     }
 
     @When("^The user send the request to get the list detail$")
     public void theUserSendTheRequestToGetTheListDetail() {
-        idUrl = buildUrl.buildListDetail();
+        idUrl = buildUrl.buildListDetail(lists.getId());
         response = listController.getListDetail(idUrl);
+        responseBody = JsonHelper.responsetoListResponse(response);
+        Serenity.setSessionVariable("status_message").to(responseBody.getStatus_message());
 
     }
 
@@ -73,6 +78,32 @@ public class ListSteps {
 
     }
 
+    @When("^The user send the request to create the list without session id$")
+    public void theUserSendTheRequestToCreateTheListWithoutSessionId(DataTable listData) {
+        idUrl = buildUrl.buildListCreate();
+        List<Map<String, String>> data = listData.asMaps(String.class, String.class);
+        lists.setName(data.get(0).get("name"));
+        lists.setDescription(data.get(0).get("description"));
+        String body = JsonHelper.objectToJson(lists);
+        response = listController.createList(body, "",idUrl);
+        responseBody = JsonHelper.responsetoListResponse(response);
+        Serenity.setSessionVariable("status_message").to(responseBody.getStatus_message());
+    }
+
+
+    @When("^The user send the request to create the list without name$")
+    public void theUserSendTheRequestToCreateTheListWithoutName(DataTable listData) {
+        idUrl = buildUrl.buildListCreate();
+        List<Map<String, String>> data = listData.asMaps(String.class, String.class);
+        lists.setName("");
+        lists.setDescription(data.get(0).get("description"));
+        System.out.println("Nameee : " + lists.getName());
+        String body = JsonHelper.objectToJson(lists);
+        System.out.println(body);
+        response = listController.createList(body, Serenity.sessionVariableCalled("session_id"),idUrl);
+        Serenity.setSessionVariable("status").to(response.getStatusCode());
+    }
+
     @Given("^The user wants to delete a list$")
     public void theUserWantsToDeleteAList() {
         lists = new Lists();
@@ -85,12 +116,6 @@ public class ListSteps {
         response = listController.deleteList(Serenity.sessionVariableCalled("session_id"), idUrl);
         listResponse = JsonHelper.responsetoListResponse(response);
         Serenity.setSessionVariable("status_message").to(listResponse.getStatus_message());
-    }
-
-    @Then("^The response status message is \"([^\"]*)\"$")
-    public void theResponseStatusMessageIs(String message) throws Throwable {
-        Assert.assertThat("Error: The request could not be completed",
-                Serenity.sessionVariableCalled("status_message") ,  Matchers.equalTo(message));
     }
 
     @Given("^The list already exist with its data$")
@@ -145,4 +170,5 @@ public class ListSteps {
         Serenity.setSessionVariable("status").to(response.statusCode());
 
     }
+
 }

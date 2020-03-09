@@ -26,5 +26,50 @@ Feature: Authentication
     And The user send a request to delete the session
     And The service responds with a status code "200"
 
+  Scenario: Test Token Creation with invalid API KEY
+    Given A new request token needs to be created
+    When The user send a request to create the request token with invalid key
+    Then The response contains the field success equals to "false"
+
+  Scenario: Test Token Creation with invalid API KEY
+    Given A new request token needs to be created
+    When The user send a request to create the request token with invalid key
+    Then The response contains the field success equals to "false"
+
+  Scenario: Test Validate Token Creation with invalid username
+    Given A new request token needs to be created
+    When The user send a request to create the request token
+    And The token is generated
+    And A new session with login needs to be created
+    And The user send a request to create the session with login with invalid username
+    Then The response status message is "Invalid username and/or password: You did not provide a valid login."
+
+  Scenario: Test Validate Token Creation with invalid password
+    Given A new request token needs to be created
+    When The user send a request to create the request token
+    And The token is generated
+    And A new session with login needs to be created
+    And The user send a request to create the session with login with invalid password
+    Then The response status message is "Invalid username and/or password: You did not provide a valid login."
+
+  Scenario: Test Validate Token Creation with empty username
+    Given A new request token needs to be created
+    When The user send a request to create the request token
+    And The token is generated
+    And A new session with login needs to be created
+    And The user send a request to create the session with login with empty username
+    Then The response status message is "You must provide a username and password."
+
+  Scenario: Test Validate Token Creation with empty password
+    Given A new request token needs to be created
+    When The user send a request to create the request token
+    And The token is generated
+    And A new session with login needs to be created
+    And The user send a request to create the session with login with empty password
+    Then The response status message is "You must provide a username and password."
+
+
+
+
 
 

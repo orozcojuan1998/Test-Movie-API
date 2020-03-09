@@ -16,6 +16,8 @@ Feature: List
 
   Scenario: Test get list detail
     Given The user wants to see the details of a list
+      |      id                 |
+      |     133791              |
     When The user send the request to get the list detail
     Then The response contains the name "This is my great first list" of the list
     And The user send a request to delete the session
@@ -25,7 +27,7 @@ Feature: List
     Given The user wants to create a list
     When The user send the request to create the list with its data
     |name          | description                         |
-    | Terror List 8| List of my favorite horror movies 13|
+    | Terror List 9| List of my favorite horror movies 14|
     Then The service responds with a status code "201"
     And The user send a request to delete the session
     And The service responds with a status code "200"
@@ -90,6 +92,30 @@ Feature: List
     And The user send a request to delete the session
     And The service responds with a status code "200"
 
+    Scenario: Test get details of a nonexistent list
+      Given The user wants to see the details of a list
+        |      id                 |
+        |     787000              |
+      When The user send the request to get the list detail
+      Then The response status message is "The resource you requested could not be found."
+
+  Scenario: Test create a list without session id
+    Given The user wants to create a list
+    When The user send the request to create the list without session id
+      |name          | description                         |
+      | Terror List 9| List of my favorite horror movies 14|
+    Then The response status message is "Authentication failed: You do not have permissions to access the service."
+    And The user send a request to delete the session
+    And The service responds with a status code "200"
+
+  Scenario: Test create a list without name
+    Given The user wants to create a list
+    When The user send the request to create the list without name
+      |name          | description                         |
+      | ""           | List of my favorite movies 14       |
+    Then The service responds with a status code "422"
+    And The user send a request to delete the session
+    And The service responds with a status code "200"
 
 
 

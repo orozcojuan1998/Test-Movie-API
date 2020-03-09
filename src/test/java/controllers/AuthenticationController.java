@@ -1,6 +1,5 @@
 package controllers;
 
-import helpers.PropertiesHelper;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 
@@ -19,6 +18,14 @@ public class AuthenticationController extends ApiController {
     public Response createRequestToken(URL idUrl) {
         response = requestSpecification.given().
                 queryParam("api_key",System.getenv("API_KEY")).
+                when().
+                get(idUrl);
+        return response;
+    }
+
+    public Response createRequestTokenInvalid(URL idUrl) {
+        response = requestSpecification.given().
+                queryParam("api_key",System.getenv("API_KEY").concat("s3")).
                 when().
                 get(idUrl);
         return response;
