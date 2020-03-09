@@ -89,5 +89,11 @@ public class JsonHelper {
         return movie.toString();
 
     }
+
+    public static String setValueParam(Double value) {
+        JSONObject valeEpisode= new JSONObject();
+        valeEpisode.put("value",value);
+        return valeEpisode.toString();
+    }
 }
 

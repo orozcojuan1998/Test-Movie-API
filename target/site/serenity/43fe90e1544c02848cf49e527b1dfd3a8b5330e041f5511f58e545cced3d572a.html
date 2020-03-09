@@ -287,6 +287,82 @@ rates of tv shows i've watched
                                                                 </table>
                                                             </td>
                                                         </tr>
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#0324705302c24c1963a7c29b642b08cc18fa19c783be099f7477681490076998" title="View scenario details" >Rate a tv show with a higher rating than accepted</a>
+
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            
+                                                                            
+
+                                                                        
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#0f091c29926132188cff826bf122f943c02f6fd7cc34a5017f85769e1cce297c" title="View scenario details" >Rate a tv show with a lower rating than accepted</a>
+
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            
+                                                                            
+
+                                                                        
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#3ff62b55e7d3750b3778ab30a730c96db6dc33682ce8a352301c2cee310d6ca0" title="View scenario details" >Rate a tv show with a rating not multiple of 0.50</a>
+
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            
+                                                                            
+
+                                                                        
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#b1a3e4fcde118fecab9f5200e55aa25b5aea8f64f398e044490dd3980372e154" title="View scenario details" >Rate a tv show with invalid id</a>
+
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            
+                                                                            
+
+                                                                        
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
                                                 </table>
 
                                             </div>
@@ -344,7 +420,7 @@ rates of tv shows i've watched
 <thead></thead>
 <tbody>
 <tr><td>id</td></tr>
-<tr><td>1403</td></tr>
+<tr><td>1044</td></tr>
 </tbody>
 </table>
 </p>
@@ -357,7 +433,6 @@ rates of tv shows i've watched
 </tbody>
 </table>
 </p>
-                                                            <p>Then The service responds with a status code &quot;201&quot;</p>
                                                             <p>And The response status message is &quot;Success.&quot;</p>
                                                             <p>And The user send a request to delete the session</p>
                                                             <p>And The service responds with a status code &quot;200&quot;</p>
@@ -388,13 +463,184 @@ rates of tv shows i've watched
 <thead></thead>
 <tbody>
 <tr><td>id</td></tr>
-<tr><td>1403</td></tr>
+<tr><td>1044</td></tr>
 </tbody>
 </table>
 </p>
                                                             <p>When The user send a request to delete the rated tv show</p>
-                                                            <p>Then The service responds with a status code &quot;200&quot;</p>
                                                             <p>And The response status message is &quot;The item/record was deleted successfully.&quot;</p>
+                                                            <p>And The user send a request to delete the session</p>
+                                                            <p>And The service responds with a status code &quot;200&quot;</p>
+                                                        <div class="examples">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="0324705302c24c1963a7c29b642b08cc18fa19c783be099f7477681490076998">
+                                                    <div class="scenario-docs card-header undefined" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="" title="View test results">Rate a tv show with a higher rating than accepted</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class="fas fa-pause"
+                                                                       title="No test has been implemented yet"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>Given The tv show with data already exist</p>
+<table>
+<thead></thead>
+<tbody>
+<tr><td>id</td></tr>
+<tr><td>66732</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>When The user send a request to rate the tv show with its data</p>
+<table>
+<thead></thead>
+<tbody>
+<tr><td>value</td></tr>
+<tr><td>10.5</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p>And The response status message is &quot;Value too high: Value must be less than, or equal to 10.0.&quot;</p>
+                                                            <p>And The user send a request to delete the session</p>
+                                                            <p>And The service responds with a status code &quot;200&quot;</p>
+                                                        <div class="examples">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="0f091c29926132188cff826bf122f943c02f6fd7cc34a5017f85769e1cce297c">
+                                                    <div class="scenario-docs card-header undefined" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="" title="View test results">Rate a tv show with a lower rating than accepted</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class="fas fa-pause"
+                                                                       title="No test has been implemented yet"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>Given The tv show with data already exist</p>
+<table>
+<thead></thead>
+<tbody>
+<tr><td>id</td></tr>
+<tr><td>66732</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>When The user send a request to rate the tv show with its data</p>
+<table>
+<thead></thead>
+<tbody>
+<tr><td>value</td></tr>
+<tr><td>-1</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p>And The response status message is &quot;Value too low: Value must be greater than 0.0.&quot;</p>
+                                                            <p>And The user send a request to delete the session</p>
+                                                            <p>And The service responds with a status code &quot;200&quot;</p>
+                                                        <div class="examples">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="3ff62b55e7d3750b3778ab30a730c96db6dc33682ce8a352301c2cee310d6ca0">
+                                                    <div class="scenario-docs card-header undefined" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="" title="View test results">Rate a tv show with a rating not multiple of 0.50</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class="fas fa-pause"
+                                                                       title="No test has been implemented yet"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>Given The tv show with data already exist</p>
+<table>
+<thead></thead>
+<tbody>
+<tr><td>id</td></tr>
+<tr><td>66732</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>When The user send a request to rate the tv show with its data</p>
+<table>
+<thead></thead>
+<tbody>
+<tr><td>value</td></tr>
+<tr><td>7.2</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p>And The response status message is &quot;Value invalid: Values must be a multiple of 0.50.&quot;</p>
+                                                            <p>And The user send a request to delete the session</p>
+                                                            <p>And The service responds with a status code &quot;200&quot;</p>
+                                                        <div class="examples">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="b1a3e4fcde118fecab9f5200e55aa25b5aea8f64f398e044490dd3980372e154">
+                                                    <div class="scenario-docs card-header undefined" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="" title="View test results">Rate a tv show with invalid id</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class="fas fa-pause"
+                                                                       title="No test has been implemented yet"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>Given The tv show with data already exist</p>
+<table>
+<thead></thead>
+<tbody>
+<tr><td>id</td></tr>
+<tr><td>176</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>When The user send a request to rate the tv show with its data</p>
+<table>
+<thead></thead>
+<tbody>
+<tr><td>value</td></tr>
+<tr><td>9</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p>And The response status message is &quot;The resource you requested could not be found.&quot;</p>
                                                             <p>And The user send a request to delete the session</p>
                                                             <p>And The service responds with a status code &quot;200&quot;</p>
                                                         <div class="examples">
@@ -534,7 +780,7 @@ rates of tv shows i've watched
                                                     <td>
                                                             Rate a tv show
                                                     </td>
-                                                    <td>6</td>
+                                                    <td>5</td>
                                                     <td> </td>
                                                     <td> </td>
                                                     <td>
@@ -546,7 +792,55 @@ rates of tv shows i've watched
                                                     <td>
                                                             Delete a rating
                                                     </td>
-                                                    <td>6</td>
+                                                    <td>5</td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td>
+                                                            <i class="fas fa-pause"
+                                                               title="No test has been implemented yet"></i>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result UNDEFINED">
+                                                    <td>
+                                                            Rate a tv show with a higher rating than accepted
+                                                    </td>
+                                                    <td>5</td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td>
+                                                            <i class="fas fa-pause"
+                                                               title="No test has been implemented yet"></i>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result UNDEFINED">
+                                                    <td>
+                                                            Rate a tv show with a lower rating than accepted
+                                                    </td>
+                                                    <td>5</td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td>
+                                                            <i class="fas fa-pause"
+                                                               title="No test has been implemented yet"></i>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result UNDEFINED">
+                                                    <td>
+                                                            Rate a tv show with a rating not multiple of 0.50
+                                                    </td>
+                                                    <td>5</td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td>
+                                                            <i class="fas fa-pause"
+                                                               title="No test has been implemented yet"></i>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result UNDEFINED">
+                                                    <td>
+                                                            Rate a tv show with invalid id
+                                                    </td>
+                                                    <td>5</td>
                                                     <td> </td>
                                                     <td> </td>
                                                     <td>

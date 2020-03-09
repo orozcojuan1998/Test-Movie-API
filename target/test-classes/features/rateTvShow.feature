@@ -17,11 +17,10 @@ Feature: Rate TV Shows
   Scenario: Rate a tv show
     Given The tv show with data already exist
       | id      |
-      | 1403    |
+      | 1044    |
     When The user send a request to rate the tv show with its data
       | value|
       | 9    |
-    Then The service responds with a status code "201"
     And The response status message is "Success."
     And The user send a request to delete the session
     And The service responds with a status code "200"
@@ -30,10 +29,52 @@ Feature: Rate TV Shows
   Scenario: Delete a rating
     Given The tv show with data already exist
       | id      |
-      | 1403    |
+      | 1044    |
     When The user send a request to delete the rated tv show
-    Then The service responds with a status code "200"
     And The response status message is "The item/record was deleted successfully."
     And The user send a request to delete the session
     And The service responds with a status code "200"
 
+  Scenario: Rate a tv show with a higher rating than accepted
+    Given The tv show with data already exist
+      | id        |
+      | 66732     |
+    When The user send a request to rate the tv show with its data
+      | value   |
+      | 10.5    |
+    And The response status message is "Value too high: Value must be less than, or equal to 10.0."
+    And The user send a request to delete the session
+    And The service responds with a status code "200"
+
+  Scenario: Rate a tv show with a lower rating than accepted
+    Given The tv show with data already exist
+      | id        |
+      | 66732     |
+    When The user send a request to rate the tv show with its data
+      | value |
+      | -1    |
+    And The response status message is "Value too low: Value must be greater than 0.0."
+    And The user send a request to delete the session
+    And The service responds with a status code "200"
+
+  Scenario: Rate a tv show with a rating not multiple of 0.50
+    Given The tv show with data already exist
+      | id        |
+      | 66732     |
+    When The user send a request to rate the tv show with its data
+      | value  |
+      | 7.2    |
+    And The response status message is "Value invalid: Values must be a multiple of 0.50."
+    And The user send a request to delete the session
+    And The service responds with a status code "200"
+
+  Scenario: Rate a tv show with invalid id
+    Given The tv show with data already exist
+      | id      |
+      | 176     |
+    When The user send a request to rate the tv show with its data
+      | value|
+      | 9    |
+    And The response status message is "The resource you requested could not be found."
+    And The user send a request to delete the session
+    And The service responds with a status code "200"

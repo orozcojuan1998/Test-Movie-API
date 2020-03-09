@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>Test get details of a nonexistent list</title>
+    <title>Delete a rating of a movie</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
@@ -78,8 +78,8 @@
         <span class="breadcrumbs">
             <a href="index.html" class="breadcrumbs">Home</a>
 
-            > <a href="9c8f5839662fe7d047e32a73ace8e0ed7c16cea841ec1747f1dedcd076200a3c.html">List</a>
-        > Test get details of a nonexistent list
+            > <a href="5e7d82d83e5b1f3262cf1d70a388671e5b27f993bb4c4bcfec6e968e1f859325.html">Rate Movies</a>
+        > Delete a rating of a movie
         </span>
         </div>
         <div class="rightbg"></div>
@@ -100,7 +100,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 09-03-2020 14:52</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 09-03-2020 16:42</span>
     <br style="clear:left"/>
 </div>
     <div class="clr"></div>
@@ -115,15 +115,15 @@
                             <div>
                                 <h3 class="discreet-story-header">
                                     <i class="fa fa-2x fa-comments-o"></i>
-                                    <span class="story-header-title">List </span>
+                                    <span class="story-header-title">Rate Movies </span>
                                 </h3>
 
                                 <div class="discreet-requirement-narrative-title">
-                                    As a user
+                                    As a user,
                                 </div>
                             </div>
 
-                            <div class="requirementNarrative">Background: : Test Authentication
+                            <div class="requirementNarrative">Background: Test Authentication
                                     <p></p>
                             </div>
                         </td>
@@ -139,7 +139,7 @@
                             <span class="outcome-icon"><i class='fa fa-check-circle-o success-icon fa-2x' title='SUCCESS'></i></span>
                             <span class="test-case-title">
                                 <span class="success-color">
-                                    Test get details of a nonexistent list
+                                    Delete a rating of a movie
                                         <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -207,7 +207,7 @@
                         </div>
                     </td>
                     <td width="100"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">0.82s</span></td>
+                    <td width="100"><span class="top-level-step">1.03s</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
                     <td width="50" class="step-icon">
@@ -258,7 +258,7 @@
                         </div>
                     </td>
                     <td width="100"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">0.96s</span></td>
+                    <td width="100"><span class="top-level-step">1.02s</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
                     <td width="50" class="step-icon">
@@ -292,7 +292,7 @@
                         </div>
                     </td>
                     <td width="100"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">0.92s</span></td>
+                    <td width="100"><span class="top-level-step">1.04s</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
                     <td width="50" class="step-icon">
@@ -320,13 +320,13 @@
                     <td>
                         <div class="step-description">
                             <span class="top-level-step">
-                                Given The user wants to see the details of a list<br><table class='embedded'><thead><th>id</th></thead><tbody><tr><td>787000</td></tr></tbody></table>
+                                Given The movie with data already exist<br><table class='embedded'><thead><th>id</th></thead><tbody><tr><td>453405</td></tr></tbody></table>
                             </span>
 
                         </div>
                     </td>
                     <td width="100"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">0s</span></td>
+                    <td width="100"><span class="top-level-step">0.01s</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
                     <td width="50" class="step-icon">
@@ -337,13 +337,13 @@
                     <td>
                         <div class="step-description">
                             <span class="top-level-step">
-                                When The user send the request to get the list detail
+                                When The user send a request to delete the rated movie
                             </span>
 
                         </div>
                     </td>
                     <td width="100"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">0.87s</span></td>
+                    <td width="100"><span class="top-level-step">1.03s</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
                     <td width="50" class="step-icon">
@@ -354,7 +354,41 @@
                     <td>
                         <div class="step-description">
                             <span class="top-level-step">
-                                Then The response status message is "The resource you requested could not be found."
+                                Then The response status message is "The item/record was deleted successfully."
+                            </span>
+
+                        </div>
+                    </td>
+                    <td width="100"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">0s</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+                    <td width="50" class="step-icon">
+                        <a name="11"/>
+                            <span style="margin-left: 20px; margin-right: 5px;"
+                                  class="top-level-icon"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></span>
+                    </td>
+                    <td>
+                        <div class="step-description">
+                            <span class="top-level-step">
+                                And The user send a request to delete the session
+                            </span>
+
+                        </div>
+                    </td>
+                    <td width="100"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">1.04s</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+                    <td width="50" class="step-icon">
+                        <a name="12"/>
+                            <span style="margin-left: 20px; margin-right: 5px;"
+                                  class="top-level-icon"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></span>
+                    </td>
+                    <td>
+                        <div class="step-description">
+                            <span class="top-level-step">
+                                And The service responds with a status code "200"
                             </span>
 
                         </div>
@@ -365,7 +399,7 @@
                 <tr class="test-SUCCESS">
                     <td colspan="2"></td>
                     <td width="100"><span class="top-level-step"><em>SUCCESS</em></span></td>
-                    <td width="100"><span class="top-level-step"><em>3.59s</em></span></td>
+                    <td width="100"><span class="top-level-step"><em>5.19s</em></span></td>
                 </tr>
 
             </table>

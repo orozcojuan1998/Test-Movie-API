@@ -15,16 +15,7 @@ public class RateEpisodeController extends ApiController {
 
     }
 
-    public Response rateEpisode (String value, String tvId, String season, String episodeNumber , String session_id) {
-        URL idUrl = new UrlBuilder().addDomain().
-                addPathStep(PropertiesHelper.getValueByKey("url.tv")).
-                addPathStep(tvId).
-                addPathStep(PropertiesHelper.getValueByKey("url.season")).
-                addPathStep(season).
-                addPathStep(PropertiesHelper.getValueByKey("url.episode")).
-                addPathStep(episodeNumber).
-                addPathStep( PropertiesHelper.getValueByKey("url.rating")).
-                build();
+    public Response rateEpisode (String value, String session_id,URL idUrl) {
         response = requestSpecification.given().queryParam("api_key",System.getenv("API_KEY")).
                 and().queryParam("session_id",session_id).
                 when().
@@ -33,17 +24,17 @@ public class RateEpisodeController extends ApiController {
         return response;
     }
 
+    public Response rateInvalidEpisode (String value, String session_id,URL idUrl) {
+        response = requestSpecification.given().queryParam("api_key",System.getenv("API_KEY").concat("s3")).
+                and().queryParam("session_id",session_id).
+                when().
+                body(value).
+                post(idUrl);
+        return response;
+    }
 
-    public Response deleteRating(String tvId, String season, String episodeNumber , String session_id)  {
-        URL idUrl = new UrlBuilder().addDomain().
-                addPathStep(PropertiesHelper.getValueByKey("url.tv")).
-                addPathStep(tvId).
-                addPathStep(PropertiesHelper.getValueByKey("url.season")).
-                addPathStep(season).
-                addPathStep(PropertiesHelper.getValueByKey("url.episode")).
-                addPathStep(episodeNumber).
-                addPathStep( PropertiesHelper.getValueByKey("url.rating")).
-                build();
+
+    public Response deleteRating(String session_id, URL idUrl)  {
         response = requestSpecification.given().queryParam("api_key",System.getenv("API_KEY")).
                 and().queryParam("session_id",session_id).
                 when().

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="runner.TestRunner" time="65.177" tests="12" errors="0" skipped="0" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="runner.TestRunner" time="41.474" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_241\jre\bin"/>
@@ -64,52 +64,10 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="Test get list detail" classname="List" time="9.164"/>
-  <testcase name="Test create a list" classname="List" time="4.556"/>
-  <testcase name="Test delete of a list" classname="List" time="4.879">
-    <failure message="Error: The request could not be completed&#10;Expected: &quot;The item/record was updated successfully.&quot;&#10;     but: was &quot;Internal error: Something went wrong, contact TMDb.&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
-Error: The request could not be completed
-Expected: "The item/record was updated successfully."
-     but: was "Internal error: Something went wrong, contact TMDb."
-</failure>
-    <system-out><![CDATA[{"success":true,"expires_at":"2020-03-09 20:51:58 UTC","request_token":"910da2ce6d41dcc7a3968e557b4ce7caa874c57c"}
-{"username":"ingjuanorozco","password":"juandaviD1","request_token":"910da2ce6d41dcc7a3968e557b4ce7caa874c57c"}
-{"request_token":"910da2ce6d41dcc7a3968e557b4ce7caa874c57c"}
-{"success":true,"session_id":"40523ac9dfa6ed727ca92705858ee5dad365845d"}
-{"status_code":1,"status_message":"The item/record was created successfully.","success":true,"list_id":135161}
-{"status_code":11,"status_message":"Internal error: Something went wrong, contact TMDb."}
-]]></system-out>
-    <system-err><![CDATA[[main] INFO net.thucydides.core.steps.ConsoleLoggingListener - 
- _____ _____ ____ _____   ____ _____  _    ____ _____ _____ ____  
-|_   _| ____/ ___|_   _| / ___|_   _|/ \  |  _ \_   _| ____|  _ \ 
-  | | |  _| \___ \ | |   \___ \ | | / _ \ | |_) || | |  _| | | | |
-  | | | |___ ___) || |    ___) || |/ ___ \|  _ < | | | |___| |_| |
-  |_| |_____|____/ |_|   |____/ |_/_/   \_\_| \_\|_| |_____|____/ 
-                                                                  
-
-TEST STARTED: Test delete of a list
--------------------------------------------------------------------(list;test-delete-of-a-list)
-[main] ERROR net.thucydides.core.steps.ConsoleLoggingListener - 
-           __  _____ _____ ____ _____   _____ _    ___ _     _____ ____  
-  _       / / |_   _| ____/ ___|_   _| |  ___/ \  |_ _| |   | ____|  _ \ 
- (_)_____| |    | | |  _| \___ \ | |   | |_ / _ \  | || |   |  _| | | | |
-  _|_____| |    | | | |___ ___) || |   |  _/ ___ \ | || |___| |___| |_| |
- (_)     | |    |_| |_____|____/ |_|   |_|/_/   \_\___|_____|_____|____/ 
-          \_\                                                            
-
-TEST FAILED: Test delete of a list
---------------------------------------------------------------------------
-[main] ERROR net.thucydides.core.steps.ConsoleLoggingListener - TEST FAILED AT STEP Then The response status message is "The item/record was updated successfully."
-[main] ERROR net.thucydides.core.steps.ConsoleLoggingListener - Error: The request could not be completedExpected: "The item/record was updated successfully." but: was "Internal error: Something went wrong, contact TMDb."
-]]></system-err>
-  </testcase>
-  <testcase name="Test add a movie to a list" classname="List" time="4.421"/>
-  <testcase name="Test delete a movie from a list" classname="List" time="4.38"/>
-  <testcase name="Test to clear a list" classname="List" time="4.492"/>
-  <testcase name="Test to clear a nonexistent list" classname="List" time="4.308"/>
-  <testcase name="Test get check that a movie is in a list" classname="List" time="4.578"/>
-  <testcase name="Test get details of a nonexistent list" classname="List" time="3.555"/>
-  <testcase name="Test delete an nonexistent list" classname="List" time="3.488"/>
-  <testcase name="Test create a list without session id" classname="List" time="4.286"/>
-  <testcase name="Test create a list without name" classname="List" time="4.316"/>
+  <testcase name="Rate a movie" classname="Rate Movies" time="8.774"/>
+  <testcase name="Delete a rating of a movie" classname="Rate Movies" time="5.125"/>
+  <testcase name="Rate a movie with a higher rating than accepted" classname="Rate Movies" time="5.215"/>
+  <testcase name="Rate a movie with a lower rating than accepted" classname="Rate Movies" time="5.175"/>
+  <testcase name="Rate a movie with a rating not multiple of 0.50" classname="Rate Movies" time="5.145"/>
+  <testcase name="Rate a movie with invalid movie id" classname="Rate Movies" time="5.151"/>
 </testsuite>
