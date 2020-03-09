@@ -17,20 +17,20 @@ Feature: Rate TV Episose
   Scenario: Rate a episode
     Given The tv show episode with data already exist
       | id     | season_number | episode_number |
-      | 2190   |        23      |       6       |
+      | 2190   |        23      |       7       |
     When The user send a request to rate the tv show episode with its data
       | value|
       | 9    |
-    And The response status message is "Success."
+    Then The response status message is "Success."
     And The user send a request to delete the session
-    Then The service responds with a status code "200"
+    And The service responds with a status code "200"
 
   Scenario: Delete a rating
     Given The tv show episode with data already exist
       | id     | season_number | episode_number |
-      | 2190   |        23     |        5       |
+      | 2190   |        23     |        6       |
     When The user send a request to delete the rated tv episode
-    And The response status message is "The item/record was deleted successfully."
+    Then The response status message is "The item/record was deleted successfully."
     And The user send a request to delete the session
-    Then The service responds with a status code "200"
+    And The service responds with a status code "200"
 

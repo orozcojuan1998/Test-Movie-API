@@ -37,16 +37,16 @@ public class ReviewSteps {
 
     @When("^The user send a request to get the review details$")
     public void theUserSendARequestToGetTheReviewDetails() {
-        response = reviewController.getReview(Serenity.sessionVariableCalled("id_review"));
+        idUrl = buildUrl.buildReview(Serenity.sessionVariableCalled("id_review"));
+        response = reviewController.getReview(idUrl);
         review = JsonHelper.responseToReview(response);
         Serenity.setSessionVariable("status_message").to(String.valueOf(response.getStatusCode()));
-        Serenity.setSessionVariable("content").to(review.getContent());
 
     }
 
     @And("^The response content of the review is not empty$")
     public void theResponseContentOfTheReviewIsNotEmpty() {
         Assert.assertThat(("Error: The review does not exits"),
-                Serenity.sessionVariableCalled("content").toString().length(), Matchers.greaterThan(0));
+                review.getContent().length(), Matchers.greaterThan(0));
     }
 }

@@ -114,5 +114,22 @@ public class DirectorUrl {
                 addPathStep("rating").
                 build();
     }
+    public URL buildRateTvShowEpisode(String showId, String season,String episodeNumber){
+        return new UrlBuilder().addDomain().
+                addPathStep("tv").
+                addPathStep(showId).
+                addPathStep("season").
+                addPathStep(season).
+                addPathStep("episode").
+                addPathStep(episodeNumber).
+                addPathStep("rating").
+                build();
+    }
 
+    public URL buildReview(String idReview) {
+        return new UrlBuilder().addDomain().
+                addPathStep("review").
+                addPathStep(idReview).
+                build();
+    }
 }

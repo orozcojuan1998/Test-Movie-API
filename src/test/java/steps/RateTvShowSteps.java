@@ -31,7 +31,7 @@ public class RateTvShowSteps {
 
     @When("^The user send a request to rate the tv show with its data$")
     public void theUserSendARequestToRateTheTvShowWithItsData(DataTable valueData) {
-        idUrl = buildUrl.buildRateMovie(Serenity.sessionVariableCalled("show_id"));
+        idUrl = buildUrl.buildRateTvShow(Serenity.sessionVariableCalled("show_id"));
         List<Map<String, String>> data = valueData.asMaps(String.class, String.class);
         value = Double.valueOf(data.get(0).get("value"));
         String valueBody =  "{\"value\""+":"+"\""+value+"\""+"}";
@@ -43,7 +43,7 @@ public class RateTvShowSteps {
 
     @When("^The user send a request to delete the rated tv show$")
     public void theUserSendARequestToDeleteTheRatedTvShow() {
-        idUrl = buildUrl.buildRateMovie(Serenity.sessionVariableCalled("show_id"));
+        idUrl = buildUrl.buildRateTvShow(Serenity.sessionVariableCalled("show_id"));
         response = rateTvController.deleteRating(Serenity.sessionVariableCalled("session_id"),idUrl);
         listResponse = JsonHelper.responsetoListResponse(response);
         Serenity.setSessionVariable("status").to(response.statusCode());

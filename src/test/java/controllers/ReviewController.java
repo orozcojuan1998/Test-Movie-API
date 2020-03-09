@@ -15,14 +15,11 @@ public class ReviewController extends ApiController{
 
     }
 
-    public Response getReview(String reviewId){
-        URL idUrl = new UrlBuilder().addDomain().
-                addPathStep(PropertiesHelper.getValueByKey("url.review")).
-                addPathStep(reviewId).
-                build();
+    public Response getReview(URL idUrl){
         response = requestSpecification.given().
                     queryParam("api_key",System.getenv("API_KEY")).
-                    when().get(idUrl);
+                    when().
+                    get(idUrl);
         return response;
     }
 }

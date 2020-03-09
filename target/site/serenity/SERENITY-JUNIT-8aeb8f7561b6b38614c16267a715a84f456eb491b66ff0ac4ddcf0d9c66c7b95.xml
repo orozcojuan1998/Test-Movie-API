@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Reviews" skipped="0" tests="2" time="8.44" timestamp="2020-03-09 10:16:57"><testcase name="Test check review details"/><testcase name="Test check review details with invalid review id"/></testsuite>
