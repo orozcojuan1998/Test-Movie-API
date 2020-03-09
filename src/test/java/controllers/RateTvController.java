@@ -15,12 +15,7 @@ public class RateTvController extends ApiController{
 
     }
 
-    public Response rateShow (String value, String movieId, String session_id) {
-        URL idUrl = new UrlBuilder().addDomain().
-                addPathStep(PropertiesHelper.getValueByKey("url.tv")).
-                addPathStep(movieId).
-                addPathStep( PropertiesHelper.getValueByKey("url.rating")).
-                build();
+    public Response rateShow (String value,String session_id, URL idUrl) {
         response = requestSpecification.given().queryParam("api_key",System.getenv("API_KEY")).
                 and().queryParam("session_id",session_id).
                 when().
@@ -30,12 +25,7 @@ public class RateTvController extends ApiController{
     }
 
 
-    public Response deleteRating(String showId, String session_id)  {
-        URL idUrl = new UrlBuilder().addDomain().
-                addPathStep(PropertiesHelper.getValueByKey("url.tv")).
-                addPathStep(showId).
-                addPathStep( PropertiesHelper.getValueByKey("url.rating")).
-                build();
+    public Response deleteRating(String session_id, URL idUrl)  {
         response = requestSpecification.given().queryParam("api_key",System.getenv("API_KEY")).
                 and().queryParam("session_id",session_id).
                 when().

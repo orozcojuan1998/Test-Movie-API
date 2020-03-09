@@ -107,5 +107,12 @@ public class DirectorUrl {
                 addPathStep("rating").
                 build();
     }
+    public URL buildRateTvShow(String showId){
+        return new UrlBuilder().addDomain().
+                addPathStep("tv").
+                addPathStep(showId).
+                addPathStep("rating").
+                build();
+    }
 
 }
