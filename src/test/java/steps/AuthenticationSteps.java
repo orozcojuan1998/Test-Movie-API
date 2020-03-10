@@ -70,34 +70,26 @@ public class AuthenticationSteps {
         user = new User(PropertiesHelper.getValueByKey("api.username"),PropertiesHelper.getValueByKey("api.password"));
     }
 
+    @And("^A new session with login needs to be created with invalid data$")
+    public void aNewSessionWithLoginNeedsToBeCreatedWithInvalidData() {
+        user = new User(PropertiesHelper.getValueByKey("api.invalid.user"),PropertiesHelper.getValueByKey("api.password"));
+
+    }
+
+    @And("^A new session with login needs to be created with invalid password$")
+    public void aNewSessionWithLoginNeedsToBeCreatedWithInvalidPassword() {
+        user = new User(PropertiesHelper.getValueByKey("api.username"),PropertiesHelper.getValueByKey("api.invalid.password"));
+    }
+
     @When("^The user send a request to create the session with login$")
     public void theUserSendARequestToCreateTheSessionWithLogin() {
         idUrl = buildUrl.buildAuthSessionToken();
         String body = JsonHelper.createSessionBody(user,requestToken.getRequestToken());
         response = authenticationController.setSessionWithLogin(body,idUrl);
-    }
-
-    @And("^The user send a request to create the session with login with invalid username$")
-    public void theUserSendARequestToCreateTheSessionWithLoginWithInvalidUsername() {
-        idUrl = buildUrl.buildAuthSessionToken();
-        user.setUsername("invalidUser");
-        String body = JsonHelper.createSessionBody(user,requestToken.getRequestToken());
-        response = authenticationController.setSessionWithLogin(body,idUrl);
         responseBody = JsonHelper.responsetoListResponse(response);
         Serenity.setSessionVariable("status_message").to(responseBody.getStatus_message());
-
     }
 
-    @And("^The user send a request to create the session with login with invalid password$")
-    public void theUserSendARequestToCreateTheSessionWithLoginWithInvalidPassword() {
-        idUrl = buildUrl.buildAuthSessionToken();
-        user.setPassword("uncorrectPassword");
-        String body = JsonHelper.createSessionBody(user,requestToken.getRequestToken());
-        response = authenticationController.setSessionWithLogin(body,idUrl);
-        responseBody = JsonHelper.responsetoListResponse(response);
-        Serenity.setSessionVariable("status_message").to(responseBody.getStatus_message());
-
-    }
 
     @And("^The user send a request to create the session with login with empty username$")
     public void theUserSendARequestToCreateTheSessionWithLoginWithEmptyUsername() {
@@ -122,14 +114,12 @@ public class AuthenticationSteps {
     @Given("^A new request session needs to be created$")
     public void aNewRequestSessionNeedsToBeCreated() {
         sessionData = new SessionData();
-
     }
 
     @When("^The user send a request to session$")
     public void theUserSendARequestToSession() {
         idUrl = buildUrl.buildAuthSession();
         JSONObject body = JsonHelper.setRequestParam(requestToken.getRequestToken());
-        System.out.println(body.toString());
         response = authenticationController.createNewSession(body,idUrl);
 
     }
@@ -138,7 +128,6 @@ public class AuthenticationSteps {
     public void theSessionIsGenerated() {
         sessionData = JsonHelper.sessionToResponse(response);
         Serenity.setSessionVariable("session_id").to(sessionData.getSession_id());
-        Serenity.setSessionVariable("status").to(response.statusCode());
         Boolean key = sessionData.isSuccess();
         Assert.assertThat("Error: The authentication can not be created",
                 key,  Matchers.equalTo(Boolean.TRUE));

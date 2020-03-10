@@ -73,8 +73,6 @@ public class ListSteps {
         String body = JsonHelper.objectToJson(lists);
         response = listController.createList(body, Serenity.sessionVariableCalled("session_id"),idUrl);
         listCreation = JsonHelper.responseToCreationList(response);
-        Serenity.setSessionVariable("list_creation").to(listCreation);
-        Serenity.setSessionVariable("status").to(response.statusCode());
 
     }
 
@@ -142,11 +140,10 @@ public class ListSteps {
         idUrl = buildUrl.buildAddMovie(lists.getId());
         List<Map<String, String>> data = movieData.asMaps(String.class, String.class);
         value = Integer.valueOf(data.get(0).get("id_movie"));
-        String body = JsonHelper.setMovieParan(value);
+        String body = JsonHelper.setMovieParam(value);
         response = listController.addMovie(body, Serenity.sessionVariableCalled("session_id"),idUrl);
         listResponse = JsonHelper.responsetoListResponse(response);
         Serenity.setSessionVariable("status_message").to(listResponse.getStatus_message());
-        Serenity.setSessionVariable("status").to(response.statusCode());
 
     }
 
@@ -155,11 +152,10 @@ public class ListSteps {
         idUrl = buildUrl.buildDeleteMovie(lists.getId());
         List<Map<String, String>> data = movieData.asMaps(String.class, String.class);
         value = Integer.valueOf(data.get(0).get("id_movie"));
-        String body = JsonHelper.setMovieParan(value);
+        String body = JsonHelper.setMovieParam(value);
         response = listController.deleteMovie(body, Serenity.sessionVariableCalled("session_id"),idUrl);
         listResponse = JsonHelper.responsetoListResponse(response);
         Serenity.setSessionVariable("status_message").to(listResponse.getStatus_message());
-        Serenity.setSessionVariable("status").to(response.statusCode());
 
     }
 
@@ -176,7 +172,6 @@ public class ListSteps {
         response = listController.clearList(true, Serenity.sessionVariableCalled("session_id"),idUrl);
         listResponse = JsonHelper.responsetoListResponse(response);
         Serenity.setSessionVariable("status_message").to(listResponse.getStatus_message());
-        Serenity.setSessionVariable("status").to(response.statusCode());
     }
 
     @When("^The user send the request to check if a movie is present in the list with its data$")

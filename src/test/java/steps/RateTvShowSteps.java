@@ -16,7 +16,7 @@ import java.util.Map;
 
 public class RateTvShowSteps {
 
-    private ResponseBody listResponse;
+    private ResponseBody tvShowResponse;
     private Response response;
     private Double value;
     private String showId;
@@ -37,9 +37,8 @@ public class RateTvShowSteps {
         value = Double.valueOf(data.get(0).get("value"));
         String valueBody =  JsonHelper.setValueParam(value);
         response = rateTvController.rateShow(valueBody, Serenity.sessionVariableCalled("session_id"),idUrl);
-        listResponse = JsonHelper.responsetoListResponse(response);
-        Serenity.setSessionVariable("status").to(response.statusCode());
-        Serenity.setSessionVariable("status_message").to(listResponse.getStatus_message());
+        tvShowResponse = JsonHelper.responsetoListResponse(response);
+        Serenity.setSessionVariable("status_message").to(tvShowResponse.getStatus_message());
     }
 
     @When("^The guest send a request to rate the tv show with its data$")
@@ -49,17 +48,16 @@ public class RateTvShowSteps {
         value = Double.valueOf(data.get(0).get("value"));
         String valueBody =  JsonHelper.setValueParam(value);
         response = rateTvController.rateShowGuest(valueBody, Serenity.sessionVariableCalled("guest_session_id"),idUrl);
-        listResponse = JsonHelper.responsetoListResponse(response);
-        Serenity.setSessionVariable("status_message").to(listResponse.getStatus_message());
+        tvShowResponse = JsonHelper.responsetoListResponse(response);
+        Serenity.setSessionVariable("status_message").to(tvShowResponse.getStatus_message());
     }
 
     @When("^The user send a request to delete the rated tv show$")
     public void theUserSendARequestToDeleteTheRatedTvShow() {
         idUrl = buildUrl.buildRateTvShow(showId);
         response = rateTvController.deleteRating(Serenity.sessionVariableCalled("session_id"),idUrl);
-        listResponse = JsonHelper.responsetoListResponse(response);
-        Serenity.setSessionVariable("status").to(response.statusCode());
-        Serenity.setSessionVariable("status_message").to(listResponse.getStatus_message());
+        tvShowResponse = JsonHelper.responsetoListResponse(response);
+        Serenity.setSessionVariable("status_message").to(tvShowResponse.getStatus_message());
     }
 
 
@@ -67,7 +65,7 @@ public class RateTvShowSteps {
     public void theGuestSendARequestToDeleteTheRatedTvShow() {
         idUrl = buildUrl.buildRateTvShow(showId);
         response = rateTvController.deleteRatingGuest(Serenity.sessionVariableCalled("guest_session_id"),idUrl);
-        listResponse = JsonHelper.responsetoListResponse(response);
-        Serenity.setSessionVariable("status_message").to(listResponse.getStatus_message());
+        tvShowResponse = JsonHelper.responsetoListResponse(response);
+        Serenity.setSessionVariable("status_message").to(tvShowResponse.getStatus_message());
     }
 }

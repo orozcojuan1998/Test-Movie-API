@@ -1,4 +1,4 @@
-Feature: Rate Movies Guest
+Feature: Rate Tv Shows Guest
 
   Background: Guest Authentication
     Given A new guest session needs to be created

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UrlBuilder {
-    private String baseUrl;
+    private  String baseUrl;
     private List<String> path;
 
     public UrlBuilder(){
@@ -16,7 +16,7 @@ public class UrlBuilder {
     }
 
     public UrlBuilder addDomain(){
-        this.baseUrl = PropertiesHelper.getValueByKey("url.base");
+        this.baseUrl = "https://api.themoviedb.org/3";
         return this;
     }
 

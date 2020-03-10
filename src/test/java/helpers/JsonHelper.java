@@ -20,55 +20,41 @@ public class JsonHelper {
         Gson gson = new Gson();
         JsonElement jsonElement = gson.toJsonTree(user);
         jsonElement.getAsJsonObject().addProperty("request_token", token);
-        System.out.println(gson.toJson(jsonElement));
         return gson.toJson(jsonElement);
     }
 
-    public static String createSessionCreationBody (String token){
-        Gson gson = new Gson();
-        JsonElement jsonElement = gson.toJsonTree(token);
-        return gson.toJson(jsonElement);
-    }
-
-    public static ResponseData responteToJson (Response response){
-        return gson.fromJson(response.getBody().print(), ResponseData.class);
-    }
     public static RequestToken responseRequestTokenToJson (Response response){
-        return gson.fromJson(response.getBody().print(), RequestToken.class);
+        return gson.fromJson(response.getBody().asString(), RequestToken.class);
     }
 
     public static GuestSessionToken guestSessionToken (Response response){
-        return gson.fromJson(response.getBody().print(), GuestSessionToken.class);
-    }
-
-    public static ResponseData[] responseToResponseArray(Response response){
-        return gson.fromJson(response.body().print(), ResponseData[].class);
+        return gson.fromJson(response.getBody().asString(), GuestSessionToken.class);
     }
 
     public static SessionData sessionToResponse(Response response) {
-        return gson.fromJson(response.getBody().print(), SessionData.class);
+        return gson.fromJson(response.getBody().asString(), SessionData.class);
     }
 
     public static Lists responseToList(Response response) {
-        return gson.fromJson(response.getBody().print(), Lists.class);
+        return gson.fromJson(response.getBody().asString(), Lists.class);
 
     }
 
     public static ListCreation responseToCreationList(Response response) {
-        return gson.fromJson(response.getBody().print(), ListCreation.class);
+        return gson.fromJson(response.getBody().asString(), ListCreation.class);
     }
 
     public static ResponseBody responsetoListResponse(Response response) {
-        return gson.fromJson(response.getBody().print(), ResponseBody.class);
+        return gson.fromJson(response.getBody().asString(), ResponseBody.class);
 
     }
 
     public static ResponseStatus responseStatusToListResponse(Response response) {
-        return gson.fromJson(response.getBody().print(), ResponseStatus.class);
+        return gson.fromJson(response.getBody().asString(), ResponseStatus.class);
     }
 
     public static Review responseToReview(Response response) {
-        return gson.fromJson(response.getBody().print(), Review.class);
+        return gson.fromJson(response.getBody().asString(), Review.class);
     }
 
     public static JSONObject setRequestParam(String requestToken){
@@ -83,7 +69,7 @@ public class JsonHelper {
         return session;
     }
 
-    public static String setMovieParan(Integer value) {
+    public static String setMovieParam(Integer value) {
         JSONObject movie= new JSONObject();
         movie.put("media_id",value);
         return movie.toString();

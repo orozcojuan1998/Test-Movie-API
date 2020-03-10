@@ -24,6 +24,7 @@ public class ReviewSteps {
     private ResponseBody responseBody;
     private Response response;
     private URL idUrl;
+    private String idReview;
     private DirectorUrl buildUrl = new DirectorUrl();
     private ReviewController reviewController = new ReviewController();
 
@@ -31,13 +32,13 @@ public class ReviewSteps {
     public void theReviewExistWithItsData(DataTable reviewData) {
         review = new Review();
         List<Map<String, String>> data = reviewData.asMaps(String.class, String.class);
-        Serenity.setSessionVariable("id_review").to(data.get(0).get("id"));
+        idReview = data.get(0).get("id");
 
     }
 
     @When("^The user send a request to get the review details$")
     public void theUserSendARequestToGetTheReviewDetails() {
-        idUrl = buildUrl.buildReview(Serenity.sessionVariableCalled("id_review"));
+        idUrl = buildUrl.buildReview(idReview);
         response = reviewController.getReview(idUrl);
         review = JsonHelper.responseToReview(response);
         Serenity.setSessionVariable("status_message").to(String.valueOf(response.getStatusCode()));

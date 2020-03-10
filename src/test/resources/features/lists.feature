@@ -72,7 +72,6 @@ Feature: List
       |      id                 |
       |     134062              |
     When The user send the request to clear the list
-    Then The service responds with a status code "201"
     And The response status message is "The item/record was updated successfully."
     And The user send a request to delete the session
     And The service responds with a status code "200"
@@ -94,7 +93,6 @@ Feature: List
     When The user send the request to check if a movie is present in the list with its data
       |      id_movie           |
       |     570670              |
-    Then The service responds with a status code "200"
     And The response contains the field success equals to "true"
     And The user send a request to delete the session
     And The service responds with a status code "200"

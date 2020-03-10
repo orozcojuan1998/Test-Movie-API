@@ -36,16 +36,16 @@ Feature: Authentication
     Given A new request token needs to be created
     When The user send a request to create the request token
     And The token is generated
-    And A new session with login needs to be created
-    And The user send a request to create the session with login with invalid username
+    And A new session with login needs to be created with invalid data
+    And The user send a request to create the session with login
     Then The response status message is "Invalid username and/or password: You did not provide a valid login."
 
   Scenario: Test Validate Token Creation with invalid password
     Given A new request token needs to be created
     When The user send a request to create the request token
     And The token is generated
-    And A new session with login needs to be created
-    And The user send a request to create the session with login with invalid password
+    And A new session with login needs to be created with invalid password
+    And The user send a request to create the session with login
     Then The response status message is "Invalid username and/or password: You did not provide a valid login."
 
   Scenario: Test Validate Token Creation with empty username
